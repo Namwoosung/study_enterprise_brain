@@ -24,9 +24,11 @@ meta=[
 ("근거를 찾아 답하기","검색 구조는 답을 어떻게 바꿀까?","Vector·Graph·Tree가 구성하는 근거를 비교합니다.","검색과 활용",["Vector RAG","Graph RAG","Tree RAG"]),
 ("내 언어로 설명하기","어떤 구성을 선택하고 설명할까?","한 사건을 끝까지 따라가며 대안을 설명합니다.","종합과 설명",["설계 비교","설명 연습"])
 ]
-paths=sorted((SOURCE/"learning").glob("M[1-8]_*.md"))
-pathmap={str(p.relative_to(SOURCE)).replace("\\","/"):f"m{i+1}" for i,p in enumerate(paths)}
+paths=sorted((SOURCE/"learning").glob("M[1-8]_*.md"))+sorted((SOURCE/"learning/deep").glob("D[1-9]_*.md"))
+deep_meta={m["id"]:m for m in json.loads((SOURCE/"learning/deep/manifest.json").read_text(encoding="utf-8"))}
+pathmap={p.relative_to(SOURCE).as_posix():p.stem.split("_")[0].lower() for p in paths}
 resources={"learning/GLOSSARY.md":"glossary","learning/EVIDENCE.md":"evidence","SOURCES.md":"sources","learning/case/README.md":"case-guide","learning/examples/README.md":"examples","LEARNING_PLAN.md":"plan","learning/README.md":"guide","learning/CONTENT_MAP.md":"content-map","README.md":"project"}
+resources.update({"learning/deep/README.md":"deep-guide","learning/deep/RESEARCH.md":"deep-research"})
 def convert_links(s,origin):
     def link(m):
         url=html.unescape(m[1])
@@ -36,7 +38,7 @@ def convert_links(s,origin):
         p=(origin.parent/raw).resolve() if raw else origin.resolve()
         try:key=p.relative_to(SOURCE.resolve()).as_posix()
         except ValueError:return m[0]
-        if key in pathmap: dest="#/learn/"+pathmap[key]+("/"+frag if re.fullmatch(r"m\d-\d\d",frag) else "")
+        if key in pathmap: dest="#/learn/"+pathmap[key]+("/"+frag if re.fullmatch(r"[md]\d+-\d\d",frag) else "")
         elif key=="learning/case/CORPUS.md":dest="#/case/"+(frag.upper() if frag else "D01")
         elif key in resources:dest="#/resource/"+resources[key]
         else:dest="materials/"+key+("#"+frag if frag else "")
@@ -61,8 +63,9 @@ def render(text,path):
     return result
 chapters=[];coverage=[]
 for i,p in enumerate(paths):
+    chapter_id=p.stem.split("_")[0].lower()
     text=p.read_text(encoding="utf-8")
-    matches=list(re.finditer(r'<a id="(m\d-\d\d)"></a>',text))
+    matches=list(re.finditer(r'<a id="([md]\d+-\d\d)"></a>',text))
     sections=[]
     for n,m in enumerate(matches):
         body=text[m.end():matches[n+1].start() if n+1<len(matches) else len(text)].strip()
@@ -72,11 +75,14 @@ for i,p in enumerate(paths):
         # Preserve every section, including final exercises and optional depth.
         section={"id":m[1],"title":title,"html":render(body,p),"text":re.sub(r'<[^>]+>'," ",render(body,p))}
         sections.append(section)
-        coverage.append({"id":m[1],"source":p.relative_to(SOURCE).as_posix(),"route":f"#/learn/m{i+1}/{m[1]}","characters":len(body)})
+        coverage.append({"id":m[1],"source":p.relative_to(SOURCE).as_posix(),"route":f"#/learn/{chapter_id}/{m[1]}","characters":len(body)})
     intro=text[:matches[0].start()]
     goal=re.search(r'(?:> 학습 목표:|\*\*목표:\*\*)(.+)',intro)
     intro_extra="\n".join(line for line in intro.splitlines() if not line.startswith(("# ","[","> 학습 목표:","**목표:**"))).strip()
-    chapters.append(dict(id=f"m{i+1}",number=i+1,title=meta[i][0],question=meta[i][1],description=meta[i][2],phase=meta[i][3],tags=meta[i][4],goal=goal[1].strip() if goal else meta[i][2],intro_html=render(intro_extra,p),file=p.name,sections=sections))
+    info=deep_meta[chapter_id] if chapter_id.startswith("d") else dict(title=meta[i][0],question=meta[i][1],description=meta[i][2],phase=meta[i][3],tags=meta[i][4])
+    chapter=dict(info)
+    chapter.update(id=chapter_id,number=int(chapter_id[1:]),level="deep" if chapter_id.startswith("d") else "foundation",goal=goal[1].strip() if goal else info["description"],intro_html=render(intro_extra,p),file=p.relative_to(SOURCE/"learning").as_posix(),sections=sections)
+    chapters.append(chapter)
 docs=json.loads((SOURCE/"learning/case/documents.json").read_text(encoding="utf-8"))
 tables={}
 for name in ("equipment","people","runs","observations"):
@@ -84,6 +90,7 @@ for name in ("equipment","people","runs","observations"):
 data=dict(chapters=chapters,documents=docs,tables=tables,claims=json.loads((SOURCE/"learning/case/claims.json").read_text(encoding="utf-8")),questions=json.loads((SOURCE/"learning/case/questions.json").read_text(encoding="utf-8")),resources={k:{"title":(SOURCE/p).read_text(encoding="utf-8").splitlines()[0].lstrip("# "),"html":render((SOURCE/p).read_text(encoding="utf-8"),SOURCE/p)} for p,k in resources.items()},coverage=coverage)
 (OUT/"content.js").write_text("window.COURSE = "+json.dumps(data,ensure_ascii=False)+";\n",encoding="utf-8")
 (ROOT/"coverage.json").write_text(json.dumps(coverage,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-assert len(coverage)==54
+assert len([x for x in coverage if x["id"].startswith("m")])==54
+assert len([c for c in chapters if c["level"]=="deep"])==len(deep_meta)
 assert len(docs)==14
 print(json.dumps({"chapters":len(chapters),"sections":len(coverage),"documents":len(docs),"resources":len(resources)},ensure_ascii=False))

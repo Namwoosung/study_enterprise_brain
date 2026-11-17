@@ -14,7 +14,7 @@ function toast(s){$('#toast').textContent=s;$('#toast').classList.add('show');cl
 function nav(){const active=route[0]||'home';$('#sidebar').innerHTML=`
 <a class="brand" href="#/home"><span class="brand-mark"><svg viewBox="0 0 30 30" aria-hidden="true"><path d="M8 7L23 15L8 23Z" fill="none" stroke="white" stroke-width="1.5"/><circle cx="8" cy="7" r="3" fill="white"/><circle cx="23" cy="15" r="3" fill="white"/><circle cx="8" cy="23" r="3" fill="white"/></svg></span>기업 지식 연구실</a>
 <nav class="nav-main"><a href="#/home" class="${active==='home'?'active':''}"><span class="nav-icon">⌘</span>학습 지도</a><a href="#/case" class="${active==='case'?'active':''}"><span class="nav-icon">◇</span>사례 탐색</a><a href="#/practice" class="${active==='practice'?'active':''}"><span class="nav-icon">✓</span>설명 연습</a><a href="#/resource/glossary" class="${active==='resource'?'active':''}"><span class="nav-icon">▤</span>용어와 근거</a></nav>
-<p class="nav-label">차근차근 배우기</p><ol class="chapter-nav">${C.chapters.map(ch=>{const done=ch.sections.every(s=>state.completed.includes(s.id));return `<li><a href="#/learn/${ch.id}" class="${currentChapter?.id===ch.id?'active':''}" ${currentChapter?.id===ch.id?'aria-current="page"':''}><span class="chapter-index ${done?'done':''}">${done?'✓':ch.number}</span><span>${ch.title}</span></a></li>`}).join('')}</ol>
+<nav class="nav-main"><a href="#/deep"><span class="nav-icon">⌕</span>심화 학습</a></nav><p class="nav-label">차근차근 배우기</p><ol class="chapter-nav">${C.chapters.filter(ch=>ch.level!=='deep').map(ch=>{const done=ch.sections.every(s=>state.completed.includes(s.id));return `<li><a href="#/learn/${ch.id}" class="${currentChapter?.id===ch.id?'active':''}" ${currentChapter?.id===ch.id?'aria-current="page"':''}><span class="chapter-index ${done?'done':''}">${done?'✓':ch.number}</span><span>${ch.title}</span></a></li>`}).join('')}</ol>
 <div class="sidebar-bottom"><div class="progress-label"><span>나의 학습 진행</span><span>${state.completed.length} / ${sections.length}</span></div><div class="progress-track"><div class="progress-fill" style="width:${state.completed.length/sections.length*100}%"></div></div><div class="sidebar-foot">완료 표시는 직접 남깁니다.<br>이해가 어려웠던 곳은 다시 방문하세요.</div></div>`;
 }
 const nodeInfo={
@@ -30,13 +30,18 @@ function graph(selected=''){
 const nodes=[['L02',90,155,110,62,'major','로트'],['RUN008',245,60,126,58,'','코팅 작업'],['RUN002',245,223,126,58,'','검사 작업'],['E03',426,42,91,50,'','장비'],['E01',426,165,91,50,'','장비'],['D02',426,255,91,50,'','절차'],['I01',245,337,126,50,'','원인 미확정']];
 return `<svg class="graph-svg" viewBox="0 0 550 425" role="group" aria-label="L02의 작업과 근거 관계 지도. 노드를 선택하면 설명을 볼 수 있습니다."><path class="graph-edge" d="M145 155C172 90 182 88 245 89M145 217C175 252 190 252 245 252M371 89L426 67M371 252C400 252 396 190 426 190M371 252C397 252 400 280 426 280"/><path class="graph-edge dashed" d="M308 281L308 337"/><text x="184" y="117" fill="#7a8eac" font-size="10">작업 이력</text><text x="319" y="314" fill="#7a8eac" font-size="10">검토 요청</text>${nodes.map(([id,x,y,w,h,cl,label])=>`<g class="graph-node ${cl} ${selected===id?'selected':''}" data-node="${id}" role="button" tabindex="0" aria-label="${id} ${label} 설명"><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="10"/><text x="${x+w/2}" y="${y+23}" font-weight="700">${id}</text><text class="node-small" x="${x+w/2}" y="${y+41}">${label}</text></g>`).join('')}</svg>`;
 }
+function deepPage(){
+$('#breadcrumb').textContent='심화 학습 / 내부 원리와 설계 판단';
+const deep=C.chapters.filter(ch=>ch.level==='deep');
+$('#main').innerHTML=`<div class="content-wrap"><div class="home-heading"><div><h1>한 단계 아래로 내려가기</h1><p>정의 다음에 남는 질문을, 반례와 계산으로 풀어봅니다.</p></div><a class="secondary" href="#/resource/deep-research">조사 근거</a></div><div class="study-tip" style="margin:0 0 30px">기본 경로를 유지한 채 필요한 주제부터 확장합니다. <strong>작동 원리 → 작은 반례 → 설계 선택 → 확인 문제</strong> 순서로 읽으세요.</div><div class="roadmap">${deep.map(ch=>`<a class="course-row" href="#/learn/${ch.id}"><span class="course-num">${ch.number}</span><div><h3>${ch.title}</h3><p>${ch.description}</p><div class="tags">${ch.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div><p class="subtle" style="margin-top:12px">먼저 읽기: ${(ch.prerequisites||[]).map(id=>C.chapters.find(c=>c.id===id)?.title||id).join(', ')}</p></div></a>`).join('')}</div></div>`;
+}
 function home(){
 const last=findSection(state.last)||sections[0],started=state.completed.length>0||state.last!=='m1-01';
 $('#breadcrumb').textContent='학습 지도';
 $('#main').innerHTML=`<div class="content-wrap"><div class="home-heading"><div><h1>연결하고, 검증하고, 설명하기</h1><p>반도체 사례로 배우는 기업 지식의 구성 원리</p></div><span class="date-label">개발자를 위한 4–5일 학습</span></div>
 <section class="hero"><div class="hero-copy"><h2>흩어진 기록은<br>어떻게 지식이 될까?</h2><p>작업 기록 한 줄에서 시작해<br>대상과 관계를 연결하고, 근거를 확인하며,<br>신뢰할 수 있는 답변까지 따라갑니다.</p><a class="primary" href="${started?href(last):'#/learn/m1/m1-01'}">${started?'이어서 학습하기':'첫 질문부터 시작하기'}<span aria-hidden="true">↗</span></a><span class="hero-note">${started?esc(last.chapter.title)+' · '+esc(last.title):'RAG 기본 지식이 있다면 바로 시작할 수 있어요.'}</span></div><div class="hero-graph">${graph()}<div class="graph-caption"><span><i class="dot"></i>노드를 눌러 관계를 살펴보세요</span><span>교육용 합성 사례</span></div></div></section>
 <div class="section-heading"><div><h2>여덟 질문으로 이어지는 학습</h2><p>앞에서 배운 구분이 다음 단계의 판단 기준이 됩니다.</p></div><a href="#/resource/plan">학습 계획 보기</a></div>
-<div class="roadmap">${C.chapters.map(ch=>{const done=ch.sections.filter(s=>state.completed.includes(s.id)).length;return `<a class="course-row" href="#/learn/${ch.id}"><span class="course-num">${String(ch.number).padStart(2,'0')}</span><div><h3>${ch.title}</h3><p>${ch.description}</p><div class="tags">${ch.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>${done?`<span class="row-status">${done}/${ch.sections.length} 완료</span>`:''}</div></a>`}).join('')}</div>
+<div class="roadmap">${C.chapters.filter(ch=>ch.level!=='deep').map(ch=>{const done=ch.sections.filter(s=>state.completed.includes(s.id)).length;return `<a class="course-row" href="#/learn/${ch.id}"><span class="course-num">${String(ch.number).padStart(2,'0')}</span><div><h3>${ch.title}</h3><p>${ch.description}</p><div class="tags">${ch.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>${done?`<span class="row-status">${done}/${ch.sections.length} 완료</span>`:''}</div></a>`}).join('')}</div>
 <div class="study-tip"><strong>읽은 뒤, 한 번 설명해 보세요.</strong><br>“무엇을 알게 되었나”, “어떤 조건에서 틀릴 수 있나”, “무슨 근거로 말할 수 있나”를 짧게 남깁니다. 정의를 아는 것에서 판단하고 설명하는 단계로 나아가는 연습입니다.</div></div>`;
 }
 const labs={'m2-05':'inference','m4-02':'identity','m5-02':'validation','m5-05':'queue','m6-01':'time','m7-05':'retrieval'};
@@ -55,9 +60,9 @@ let ch=C.chapters.find(c=>c.id===route[1])||C.chapters[0];
 let s=route[2]?ch.sections.find(s=>s.id===route[2]):ch.sections.find(s=>!state.completed.includes(s.id))||ch.sections[0];
 if(!s){notFound();return}
 currentChapter=ch;currentSection=s;state.last=s.id;save();
-const idx=sections.findIndex(x=>x.id===s.id),prev=sections[idx-1],next=sections[idx+1],done=state.completed.includes(s.id),bookmarked=state.bookmarks.includes(s.id);
+const sequence=sections.filter(x=>x.chapter.level===ch.level),idx=sequence.findIndex(x=>x.id===s.id),prev=sequence[idx-1],next=sequence[idx+1],done=state.completed.includes(s.id),bookmarked=state.bookmarks.includes(s.id);
 $('#breadcrumb').textContent=ch.phase+' / '+(ch.sections.indexOf(s)+1)+'번째 질문';
-$('#main').innerHTML=`<div class="lesson-layout"><div class="lesson-main"><div class="lesson-phase">${String(ch.number).padStart(2,'0')} ${ch.title}</div><h1 class="lesson-title">${s.title}</h1><p class="goal">${ch.goal}</p><div class="lesson-toolbar"><span>${ch.sections.indexOf(s)+1} / ${ch.sections.length} 구간 · ${Math.max(2,Math.round(s.text.length/450))}분 읽기</span><div class="toolbar-actions"><div class="reader-size"><button class="small-button" id="font-down" aria-label="본문 글자 줄이기">가−</button><button class="small-button" id="font-up" aria-label="본문 글자 키우기">가＋</button></div><button class="small-button" id="bookmark" aria-pressed="${bookmarked}">${bookmarked?'책갈피 저장됨':'책갈피'}</button><a class="small-button" href="materials/learning/${ch.file}" download>원문</a></div></div>
+$('#main').innerHTML=`<div class="lesson-layout"><div class="lesson-main"><div class="lesson-phase">${String(ch.number).padStart(2,'0')} ${ch.level==='deep'?'심화 · ':''}${ch.title}</div><h1 class="lesson-title">${s.title}</h1><p class="goal">${ch.goal}</p><div class="lesson-toolbar"><span>${ch.sections.indexOf(s)+1} / ${ch.sections.length} 구간 · ${Math.max(2,Math.round(s.text.length/450))}분 읽기</span><div class="toolbar-actions"><div class="reader-size"><button class="small-button" id="font-down" aria-label="본문 글자 줄이기">가−</button><button class="small-button" id="font-up" aria-label="본문 글자 키우기">가＋</button></div><button class="small-button" id="bookmark" aria-pressed="${bookmarked}">${bookmarked?'책갈피 저장됨':'책갈피'}</button><a class="small-button" href="materials/learning/${ch.file}" download>원문</a></div></div>
 ${labs[s.id]?labHTML(labs[s.id]):''}<article class="article">${s===ch.sections[0]?ch.intro_html||'':''}${s.html}</article>
 <div class="lesson-footer">${prev?`<a class="secondary" href="${href(prev)}">이전 구간</a>`:'<a class="secondary" href="#/home">학습 지도</a>'}<button class="primary" id="complete-next">${done?(next?'다음 구간으로':'설명 연습으로'):(next?'이해했어요 · 다음 구간':'이해했어요 · 설명 연습')}</button><button class="small-button" id="toggle-done">${done?'완료 표시 취소':'이 구간만 완료 표시'}</button></div></div>
 <aside class="lesson-rail"><div class="outline-block"><p class="rail-heading">이번 단원의 흐름</p><ol class="section-nav">${ch.sections.map(x=>`<li><a href="#/learn/${ch.id}/${x.id}" class="${x.id===s.id?'active':''}" ${x.id===s.id?'aria-current="step"':''}>${state.completed.includes(x.id)?'<span class="checked">✓</span>':''}${x.title}</a></li>`).join('')}</ol></div><div><label class="rail-heading" for="section-note">내 말로 정리하기</label><textarea class="note-area" id="section-note" placeholder="무엇을 알았나요? 어떤 조건에서 틀릴 수 있나요?">${esc(state.notes[s.id]||'')}</textarea><p class="note-caption" id="note-status">입력한 내용은 이 브라우저에 저장됩니다.</p><a class="small-button" href="#/case">공통 사례 살펴보기</a></div></aside></div>`;
@@ -132,7 +137,7 @@ $('#document-view').innerHTML=`<h3>${d.id} · ${esc(d.title)}</h3><div class="me
 $$('[data-doc]').forEach(el=>el.classList.toggle('active',el.dataset.doc===d.id));
 }
 function $$(s){return [...document.querySelectorAll(s)]}
-const resourceTabs=[['glossary','용어집'],['evidence','주장별 근거'],['sources','전체 출처'],['examples','개발자 실습'],['plan','학습 계획']];
+const resourceTabs=[['glossary','용어집'],['evidence','주장별 근거'],['sources','전체 출처'],['examples','개발자 실습'],['plan','학습 계획'],['deep-research','심화 근거']];
 function resource(){
 const id=route[1]||'glossary',r=C.resources[id];if(!r){notFound();return}
 $('#breadcrumb').textContent='용어와 근거';
@@ -147,7 +152,7 @@ function notFound(){$('#main').innerHTML='<div class="route-error"><h1>학습 �
 function render(){
 route=location.hash.replace(/^#\/?/,'').split('/').filter(Boolean);currentSection=null;currentChapter=null;
 closeMenu();
-if(route[0]==='learn')lesson();else if(route[0]==='case')casePage();else if(route[0]==='resource')resource();else if(route[0]==='practice')practice();else home();
+if(route[0]==='learn')lesson();else if(route[0]==='deep')deepPage();else if(route[0]==='case')casePage();else if(route[0]==='resource')resource();else if(route[0]==='practice')practice();else home();
 nav();document.title=(currentSection?currentSection.title+' — ':'')+'기업 지식 연구실';
 window.scrollTo({top:0,behavior:'instant'});document.documentElement.style.setProperty('--body-size',state.font+'px');
 }

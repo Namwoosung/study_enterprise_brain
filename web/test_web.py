@@ -103,7 +103,7 @@ with sync_playwright() as p:
         go("/"+item["route"])
         expect(page.locator(".article")).to_be_visible()
         assert len(page.locator(".article").inner_text())>80,item["id"]
-    passed("all 54 mapped sections render")
+    passed("all mapped foundation and deep sections render")
     for key in ["glossary","evidence","sources","examples","plan","case-guide"]:
         go("/#/resource/"+key)
         expect(page.locator(".article")).to_be_visible()
@@ -139,6 +139,6 @@ with sync_playwright() as p:
     passed("mobile layouts and navigation")
     mobile.close();context.close();browser.close()
 assert not errors,errors
-report={"checks":results,"passed":len(results),"console_errors":errors,"viewports":["1440x1000","390x844"],"coverage_sections":54}
+report={"checks":results,"passed":len(results),"console_errors":errors,"viewports":["1440x1000","390x844"],"coverage_sections":len(coverage)}
 (OUT/"report.json").write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding="utf-8")
 print(json.dumps(report,ensure_ascii=False))

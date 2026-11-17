@@ -322,5 +322,77 @@
     "source": "learning/M8_synthesis.md",
     "route": "#/learn/m8/m8-06",
     "characters": 1353
+  },
+  {
+    "id": "d1-01",
+    "source": "learning/deep/D1_semantics.md",
+    "route": "#/learn/d1/d1-01",
+    "characters": 790
+  },
+  {
+    "id": "d1-02",
+    "source": "learning/deep/D1_semantics.md",
+    "route": "#/learn/d1/d1-02",
+    "characters": 648
+  },
+  {
+    "id": "d1-03",
+    "source": "learning/deep/D1_semantics.md",
+    "route": "#/learn/d1/d1-03",
+    "characters": 948
+  },
+  {
+    "id": "d1-04",
+    "source": "learning/deep/D1_semantics.md",
+    "route": "#/learn/d1/d1-04",
+    "characters": 973
+  },
+  {
+    "id": "d1-05",
+    "source": "learning/deep/D1_semantics.md",
+    "route": "#/learn/d1/d1-05",
+    "characters": 686
+  },
+  {
+    "id": "d1-06",
+    "source": "learning/deep/D1_semantics.md",
+    "route": "#/learn/d1/d1-06",
+    "characters": 672
+  },
+  {
+    "id": "d2-01",
+    "source": "learning/deep/D2_resolution.md",
+    "route": "#/learn/d2/d2-01",
+    "characters": 629
+  },
+  {
+    "id": "d2-02",
+    "source": "learning/deep/D2_resolution.md",
+    "route": "#/learn/d2/d2-02",
+    "characters": 659
+  },
+  {
+    "id": "d2-03",
+    "source": "learning/deep/D2_resolution.md",
+    "route": "#/learn/d2/d2-03",
+    "characters": 689
+  },
+  {
+    "id": "d2-04",
+    "source": "learning/deep/D2_resolution.md",
+    "route": "#/learn/d2/d2-04",
+    "characters": 702
+  },
+  {
+    "id": "d2-05",
+    "source": "learning/deep/D2_resolution.md",
+    "route": "#/learn/d2/d2-05",
+    "characters": 781
+  },
+  {
+    "id": "d2-06",
+    "source": "learning/deep/D2_resolution.md",
+    "route": "#/learn/d2/d2-06",
+    "characters": 657
   }
 ]

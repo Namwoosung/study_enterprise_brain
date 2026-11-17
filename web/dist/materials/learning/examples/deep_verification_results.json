@@ -1,0 +1,34 @@
+{
+  "date": "2026-11-18",
+  "checks": [
+    {
+      "name": "targetClass can miss an untyped record",
+      "status": "PASS"
+    },
+    {
+      "name": "targetSubjectsOf detects missing field",
+      "status": "PASS"
+    },
+    {
+      "name": "range alone without inference fails class check",
+      "status": "PASS"
+    },
+    {
+      "name": "RDFS range inference changes class result",
+      "status": "PASS"
+    },
+    {
+      "name": "SHACL class honors subclass path without general inference",
+      "status": "PASS"
+    },
+    {
+      "name": "candidate and conditional matching recall",
+      "status": "PASS"
+    },
+    {
+      "name": "connected components can bridge unlike endpoints",
+      "status": "PASS"
+    }
+  ],
+  "scope": "Synthetic counterexamples; not a full OWL DL reasoner, trained ER model, or performance benchmark."
+}
