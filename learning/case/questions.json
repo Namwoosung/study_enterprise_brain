@@ -1,0 +1,156 @@
+[
+  {
+    "id": "Q01",
+    "question": "RUN001에 기록된 장비는?",
+    "expected": "E01",
+    "evidence": [
+      "runs.csv#RUN001"
+    ]
+  },
+  {
+    "id": "Q02",
+    "question": "RUN002에 기록된 절차는?",
+    "expected": "D02",
+    "evidence": [
+      "runs.csv#RUN002"
+    ]
+  },
+  {
+    "id": "Q03",
+    "question": "RUN001 시점 E01의 유효 절차는?",
+    "expected": "D01",
+    "evidence": [
+      "runs.csv#RUN001",
+      "D01#p1",
+      "D01#p2"
+    ]
+  },
+  {
+    "id": "Q04",
+    "question": "RUN002 시점 E01의 유효 절차는?",
+    "expected": "D02",
+    "evidence": [
+      "runs.csv#RUN002",
+      "D02#p1"
+    ]
+  },
+  {
+    "id": "Q05",
+    "question": "E01과 E02는 같은 장비인가?",
+    "expected": "아니다. 사이트와 serial이 다르다.",
+    "evidence": [
+      "equipment.csv#E01",
+      "equipment.csv#E02",
+      "D05#p1"
+    ]
+  },
+  {
+    "id": "Q06",
+    "question": "E05는 E01의 다른 이름인가?",
+    "expected": "아니다. E01의 구성 모듈이다.",
+    "evidence": [
+      "D05#p2"
+    ]
+  },
+  {
+    "id": "Q07",
+    "question": "I01의 원인이 E01이라고 확정되었는가?",
+    "expected": "아니다. 원인 미확정이며 인과 결론을 내릴 수 없다.",
+    "evidence": [
+      "D06#p2",
+      "D08#p1"
+    ]
+  },
+  {
+    "id": "Q08",
+    "question": "OBS002의 yes는 불량률인가?",
+    "expected": "아니다. 검토 요청 플래그다.",
+    "evidence": [
+      "observations.csv#OBS002",
+      "D06#p2"
+    ]
+  },
+  {
+    "id": "Q09",
+    "question": "D02가 E02에도 적용되는가?",
+    "expected": "이 사례에서는 아니다.",
+    "evidence": [
+      "D02#p1",
+      "D03#p1"
+    ]
+  },
+  {
+    "id": "Q10",
+    "question": "담당자 경험은 공식 절차인가?",
+    "expected": "아니다.",
+    "evidence": [
+      "D09#p2"
+    ]
+  },
+  {
+    "id": "Q11",
+    "question": "D02는 언제 서비스에 수집되었는가?",
+    "expected": "2026-11-04T08:00:00+09:00",
+    "evidence": [
+      "D11#p1"
+    ]
+  },
+  {
+    "id": "Q12",
+    "question": "2026-11-03 서비스가 D02 본문을 이미 알고 있었는가?",
+    "expected": "이 수집 모델에서는 아니다.",
+    "evidence": [
+      "D11#p2"
+    ]
+  },
+  {
+    "id": "Q13",
+    "question": "일반 사용자에게 D07 고유 파생 주장을 제공해도 되는가?",
+    "expected": "이 사례 정책에서는 안 된다.",
+    "evidence": [
+      "D14#p1"
+    ]
+  },
+  {
+    "id": "Q14",
+    "question": "최신 절차 질의에 D12만 사용해도 되는가?",
+    "expected": "안 된다. 승인·유효 시점을 확인한다.",
+    "evidence": [
+      "D12#p2",
+      "D02#p1"
+    ]
+  },
+  {
+    "id": "Q15",
+    "question": "로트 L02와 연결되는 작업 장비는?",
+    "expected": "E03와 E01",
+    "evidence": [
+      "runs.csv#RUN008",
+      "runs.csv#RUN002"
+    ]
+  },
+  {
+    "id": "Q16",
+    "question": "장비 점검이 I01의 원인을 증명하는가?",
+    "expected": "아니다.",
+    "evidence": [
+      "D13#p2"
+    ]
+  },
+  {
+    "id": "Q17",
+    "question": "현재 자료로 다음 주 불량률을 계산할 수 있는가?",
+    "expected": "자료 부족. 불량률 정의·관측·예측 모델도 제공되지 않았다.",
+    "evidence": []
+  },
+  {
+    "id": "Q18",
+    "question": "핵심 기록 문제의 예시는?",
+    "expected": "장비 별칭 혼동, 절차 개정 수집 지연, 오래된 참고 메모",
+    "evidence": [
+      "D10#p1",
+      "D11#p2",
+      "D12#p2"
+    ]
+  }
+]

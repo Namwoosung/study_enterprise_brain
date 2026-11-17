@@ -1,0 +1,18 @@
+@prefix ex: <https://example.org/fab/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:RunShape a sh:NodeShape ;
+  sh:targetClass ex:Run ;
+  sh:property [
+    sh:path ex:forLot ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ex:Lot
+  ] ;
+  sh:property [
+    sh:path ex:usedEquipment ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ex:Equipment
+  ] ;
+  sh:property [
+    sh:path ex:usedDocument ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ex:Document
+  ] ;
+  sh:property [
+    sh:path ex:occurredAt ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:dateTime
+  ] .

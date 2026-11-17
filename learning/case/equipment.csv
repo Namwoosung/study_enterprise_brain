@@ -1,0 +1,6 @@
+id,label,site,serial,kind,alias,parent
+E01,NORTH 검사장비,NORTH,SN101,InspectionTool,검사기 1호,
+E02,SOUTH 검사장비,SOUTH,SN202,InspectionTool,검사기 1호,
+E03,NORTH 코팅장비,NORTH,SN303,CoatingTool,코터 A,
+E04,SOUTH 코팅장비,SOUTH,SN404,CoatingTool,코터 B,
+E05,E01 센서 모듈,NORTH,SN505,Component,검사기 1호 센서,E01

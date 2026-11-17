@@ -1,0 +1,326 @@
+[
+  {
+    "id": "m1-01",
+    "source": "learning/M1_problem.md",
+    "route": "#/learn/m1/m1-01",
+    "characters": 769
+  },
+  {
+    "id": "m1-02",
+    "source": "learning/M1_problem.md",
+    "route": "#/learn/m1/m1-02",
+    "characters": 931
+  },
+  {
+    "id": "m1-03",
+    "source": "learning/M1_problem.md",
+    "route": "#/learn/m1/m1-03",
+    "characters": 878
+  },
+  {
+    "id": "m1-04",
+    "source": "learning/M1_problem.md",
+    "route": "#/learn/m1/m1-04",
+    "characters": 720
+  },
+  {
+    "id": "m1-05",
+    "source": "learning/M1_problem.md",
+    "route": "#/learn/m1/m1-05",
+    "characters": 905
+  },
+  {
+    "id": "m1-06",
+    "source": "learning/M1_problem.md",
+    "route": "#/learn/m1/m1-06",
+    "characters": 609
+  },
+  {
+    "id": "m2-01",
+    "source": "learning/M2_representation.md",
+    "route": "#/learn/m2/m2-01",
+    "characters": 618
+  },
+  {
+    "id": "m2-02",
+    "source": "learning/M2_representation.md",
+    "route": "#/learn/m2/m2-02",
+    "characters": 716
+  },
+  {
+    "id": "m2-03",
+    "source": "learning/M2_representation.md",
+    "route": "#/learn/m2/m2-03",
+    "characters": 1003
+  },
+  {
+    "id": "m2-04",
+    "source": "learning/M2_representation.md",
+    "route": "#/learn/m2/m2-04",
+    "characters": 915
+  },
+  {
+    "id": "m2-05",
+    "source": "learning/M2_representation.md",
+    "route": "#/learn/m2/m2-05",
+    "characters": 1171
+  },
+  {
+    "id": "m2-06",
+    "source": "learning/M2_representation.md",
+    "route": "#/learn/m2/m2-06",
+    "characters": 872
+  },
+  {
+    "id": "m2-07",
+    "source": "learning/M2_representation.md",
+    "route": "#/learn/m2/m2-07",
+    "characters": 784
+  },
+  {
+    "id": "m2-08",
+    "source": "learning/M2_representation.md",
+    "route": "#/learn/m2/m2-08",
+    "characters": 1290
+  },
+  {
+    "id": "m3-01",
+    "source": "learning/M3_acquisition.md",
+    "route": "#/learn/m3/m3-01",
+    "characters": 871
+  },
+  {
+    "id": "m3-02",
+    "source": "learning/M3_acquisition.md",
+    "route": "#/learn/m3/m3-02",
+    "characters": 1202
+  },
+  {
+    "id": "m3-03",
+    "source": "learning/M3_acquisition.md",
+    "route": "#/learn/m3/m3-03",
+    "characters": 1230
+  },
+  {
+    "id": "m3-04",
+    "source": "learning/M3_acquisition.md",
+    "route": "#/learn/m3/m3-04",
+    "characters": 1062
+  },
+  {
+    "id": "m3-05",
+    "source": "learning/M3_acquisition.md",
+    "route": "#/learn/m3/m3-05",
+    "characters": 711
+  },
+  {
+    "id": "m3-06",
+    "source": "learning/M3_acquisition.md",
+    "route": "#/learn/m3/m3-06",
+    "characters": 575
+  },
+  {
+    "id": "m4-01",
+    "source": "learning/M4_integration.md",
+    "route": "#/learn/m4/m4-01",
+    "characters": 460
+  },
+  {
+    "id": "m4-02",
+    "source": "learning/M4_integration.md",
+    "route": "#/learn/m4/m4-02",
+    "characters": 604
+  },
+  {
+    "id": "m4-03",
+    "source": "learning/M4_integration.md",
+    "route": "#/learn/m4/m4-03",
+    "characters": 686
+  },
+  {
+    "id": "m4-04",
+    "source": "learning/M4_integration.md",
+    "route": "#/learn/m4/m4-04",
+    "characters": 445
+  },
+  {
+    "id": "m4-05",
+    "source": "learning/M4_integration.md",
+    "route": "#/learn/m4/m4-05",
+    "characters": 766
+  },
+  {
+    "id": "m4-06",
+    "source": "learning/M4_integration.md",
+    "route": "#/learn/m4/m4-06",
+    "characters": 1145
+  },
+  {
+    "id": "m4-07",
+    "source": "learning/M4_integration.md",
+    "route": "#/learn/m4/m4-07",
+    "characters": 1013
+  },
+  {
+    "id": "m5-01",
+    "source": "learning/M5_validation.md",
+    "route": "#/learn/m5/m5-01",
+    "characters": 749
+  },
+  {
+    "id": "m5-02",
+    "source": "learning/M5_validation.md",
+    "route": "#/learn/m5/m5-02",
+    "characters": 1004
+  },
+  {
+    "id": "m5-03",
+    "source": "learning/M5_validation.md",
+    "route": "#/learn/m5/m5-03",
+    "characters": 481
+  },
+  {
+    "id": "m5-04",
+    "source": "learning/M5_validation.md",
+    "route": "#/learn/m5/m5-04",
+    "characters": 566
+  },
+  {
+    "id": "m5-05",
+    "source": "learning/M5_validation.md",
+    "route": "#/learn/m5/m5-05",
+    "characters": 903
+  },
+  {
+    "id": "m5-06",
+    "source": "learning/M5_validation.md",
+    "route": "#/learn/m5/m5-06",
+    "characters": 817
+  },
+  {
+    "id": "m5-07",
+    "source": "learning/M5_validation.md",
+    "route": "#/learn/m5/m5-07",
+    "characters": 902
+  },
+  {
+    "id": "m6-01",
+    "source": "learning/M6_lifecycle.md",
+    "route": "#/learn/m6/m6-01",
+    "characters": 629
+  },
+  {
+    "id": "m6-02",
+    "source": "learning/M6_lifecycle.md",
+    "route": "#/learn/m6/m6-02",
+    "characters": 546
+  },
+  {
+    "id": "m6-03",
+    "source": "learning/M6_lifecycle.md",
+    "route": "#/learn/m6/m6-03",
+    "characters": 688
+  },
+  {
+    "id": "m6-04",
+    "source": "learning/M6_lifecycle.md",
+    "route": "#/learn/m6/m6-04",
+    "characters": 536
+  },
+  {
+    "id": "m6-05",
+    "source": "learning/M6_lifecycle.md",
+    "route": "#/learn/m6/m6-05",
+    "characters": 484
+  },
+  {
+    "id": "m6-06",
+    "source": "learning/M6_lifecycle.md",
+    "route": "#/learn/m6/m6-06",
+    "characters": 832
+  },
+  {
+    "id": "m6-07",
+    "source": "learning/M6_lifecycle.md",
+    "route": "#/learn/m6/m6-07",
+    "characters": 491
+  },
+  {
+    "id": "m7-01",
+    "source": "learning/M7_retrieval.md",
+    "route": "#/learn/m7/m7-01",
+    "characters": 739
+  },
+  {
+    "id": "m7-02",
+    "source": "learning/M7_retrieval.md",
+    "route": "#/learn/m7/m7-02",
+    "characters": 801
+  },
+  {
+    "id": "m7-03",
+    "source": "learning/M7_retrieval.md",
+    "route": "#/learn/m7/m7-03",
+    "characters": 1848
+  },
+  {
+    "id": "m7-04",
+    "source": "learning/M7_retrieval.md",
+    "route": "#/learn/m7/m7-04",
+    "characters": 1077
+  },
+  {
+    "id": "m7-05",
+    "source": "learning/M7_retrieval.md",
+    "route": "#/learn/m7/m7-05",
+    "characters": 848
+  },
+  {
+    "id": "m7-06",
+    "source": "learning/M7_retrieval.md",
+    "route": "#/learn/m7/m7-06",
+    "characters": 1048
+  },
+  {
+    "id": "m7-07",
+    "source": "learning/M7_retrieval.md",
+    "route": "#/learn/m7/m7-07",
+    "characters": 687
+  },
+  {
+    "id": "m8-01",
+    "source": "learning/M8_synthesis.md",
+    "route": "#/learn/m8/m8-01",
+    "characters": 531
+  },
+  {
+    "id": "m8-02",
+    "source": "learning/M8_synthesis.md",
+    "route": "#/learn/m8/m8-02",
+    "characters": 1462
+  },
+  {
+    "id": "m8-03",
+    "source": "learning/M8_synthesis.md",
+    "route": "#/learn/m8/m8-03",
+    "characters": 1035
+  },
+  {
+    "id": "m8-04",
+    "source": "learning/M8_synthesis.md",
+    "route": "#/learn/m8/m8-04",
+    "characters": 895
+  },
+  {
+    "id": "m8-05",
+    "source": "learning/M8_synthesis.md",
+    "route": "#/learn/m8/m8-05",
+    "characters": 1043
+  },
+  {
+    "id": "m8-06",
+    "source": "learning/M8_synthesis.md",
+    "route": "#/learn/m8/m8-06",
+    "characters": 1353
+  }
+]

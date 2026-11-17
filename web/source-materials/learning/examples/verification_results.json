@@ -1,0 +1,149 @@
+{
+  "date": "2026-11-18",
+  "environment": {
+    "python": "3.14.6",
+    "rdflib": "7.6.0",
+    "pyshacl": "0.40.2",
+    "owlrl": "7.6.2"
+  },
+  "checks": [
+    {
+      "name": "unique IDs: E01",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "unique IDs: RUN001",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "unique IDs: OBS001",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "unique IDs: P01",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "table rows",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "snapshot includes all recorded runs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "run foreign keys",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "observation foreign keys",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "all recorded procedures apply in synthetic baseline",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "half-open version boundary",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "late ingestion means no available valid E01 procedure",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "name": "44 claims with existing evidence",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "18 questions evidence references",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "hypothesis remains distinct",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "SQL L02 both events",
+      "status": "PASS",
+      "detail": "[('RUN008', 'L02', 'E03', '2026-11-03T07:02:00+09:00', 'D04'), ('RUN002', 'L02', 'E01', '2026-11-03T10:00:00+09:00', 'D02')]"
+    },
+    {
+      "name": "SPARQL teaching subset",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "RDFS subclass inference",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "domain infers a type",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "OWL RL functional property equality",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "SHACL complete record",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "SHACL missing document rejected",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "SHACL wrong-but-well-formed document passes",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "temporal check rejects wrong document",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "evaluation arithmetic",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "zero-error illustrative upper bound",
+      "status": "PASS",
+      "detail": "0.029513049607039932"
+    },
+    {
+      "name": "review queue arithmetic",
+      "status": "PASS",
+      "detail": ""
+    }
+  ],
+  "not_executed": [
+    "Neo4j server/Cypher",
+    "NVIDIA Auto Ontology deployment",
+    "Microsoft GraphRAG pipeline",
+    "RAPTOR pipeline",
+    "LLM extraction or benchmark"
+  ],
+  "scope": "Synthetic case consistency and small examples. Not real-world semantic correctness or full OWL DL conformance."
+}

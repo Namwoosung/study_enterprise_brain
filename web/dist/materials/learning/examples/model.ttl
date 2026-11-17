@@ -1,0 +1,27 @@
+@prefix ex: <https://example.org/fab/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:Equipment a owl:Class .
+ex:InspectionTool a owl:Class ; rdfs:subClassOf ex:Equipment .
+ex:Lot a owl:Class .
+ex:Run a owl:Class .
+ex:Document a owl:Class .
+ex:usedEquipment a owl:ObjectProperty ; rdfs:domain ex:Run ; rdfs:range ex:Equipment .
+ex:forLot a owl:ObjectProperty ; rdfs:domain ex:Run ; rdfs:range ex:Lot .
+ex:usedDocument a owl:ObjectProperty ; rdfs:domain ex:Run ; rdfs:range ex:Document .
+ex:occurredAt a owl:DatatypeProperty ; rdfs:range xsd:dateTime .
+ex:E01 a ex:InspectionTool .
+ex:E02 a ex:InspectionTool .
+ex:L01 a ex:Lot .
+ex:L02 a ex:Lot .
+ex:D01 a ex:Document .
+ex:D02 a ex:Document .
+ex:RUN001 a ex:Run ;
+  ex:forLot ex:L01 ; ex:usedEquipment ex:E01 ; ex:usedDocument ex:D01 ;
+  ex:occurredAt "2026-11-02T09:00:00+09:00"^^xsd:dateTime .
+ex:RUN002 a ex:Run ;
+  ex:forLot ex:L02 ; ex:usedEquipment ex:E01 ; ex:usedDocument ex:D02 ;
+  ex:occurredAt "2026-11-03T10:00:00+09:00"^^xsd:dateTime .
