@@ -1,0 +1,402 @@
+{
+  "schema_version": 1,
+  "plan_version": "2.0",
+  "updated_on": "2026-11-18",
+  "project_status": "execution_plan_prepared_rebuild_not_started",
+  "requested_model": {
+    "display": "GPT-6.2.sol",
+    "tool_alias": "gpt-6.2-sol",
+    "reasoning_effort": "high",
+    "root_selection": "user_ui",
+    "subagent_fork_turns": "none"
+  },
+  "trigger": "전면 개편 진행해",
+  "current_batch": "B00",
+  "active_unit": null,
+  "baseline": {
+    "root_content_commit": "5fb21403697b4b95c269f505894c1583d3cad04d",
+    "content_quality": "rejected_by_user",
+    "old_main_characters": 111077,
+    "old_concepts_characters": 51001,
+    "new_estimated_characters": [
+      300000,
+      450000
+    ],
+    "estimate_is_acceptance_gate": false
+  },
+  "next_actions": [
+    "git status --short 및 git -C web status --short를 확인하고 현재 파일과 상태를 대조한다.",
+    "START_HERE.md와 EXECUTION_PROTOCOL.md B00/B01, CURRICULUM_BLUEPRINT.md U04/U05/U13, TECHNICAL_HANDOFF.md를 읽는다.",
+    "learning-v2/에 실제 사용할 최소 manifest·units·research·examples 구조를 만든다. 기존 production build 입력은 아직 바꾸지 않는다.",
+    "U04 대표 수업의 W3C 근거 절을 재확인하고, 기존 운행 표본/fixture를 검토해 RDF 표현과 Property Graph 비교 수업 본문을 실제 작성한다.",
+    "U05 모델 설계·U13 RAG 중간 과정의 대표 수업을 각각 작성·검토하고 다음 묶음을 계속 진행한다."
+  ],
+  "open_decisions": [
+    {
+      "id": "design-direction",
+      "status": "not_presented",
+      "required_before": "final_ui_selection_and_production_replacement",
+      "blocks_independent_content": false,
+      "next": "실제 수업의 HTML 3안을 만든 뒤 한 번에 선택/수정 의견을 요청한다.",
+      "approved_option": null
+    }
+  ],
+  "calibration_samples": [
+    {
+      "unit": "U04",
+      "focus": "표현과 사건 식별 비교",
+      "status": "not_started",
+      "reference": "rebuild/DRIVING_LESSON_SAMPLE.md"
+    },
+    {
+      "unit": "U05",
+      "focus": "도메인 모델의 설계·개정",
+      "status": "not_started",
+      "reference": null
+    },
+    {
+      "unit": "U13",
+      "focus": "RAG 단계별 중간 결과",
+      "status": "not_started",
+      "reference": null
+    }
+  ],
+  "design_prototypes": {
+    "status": "not_started",
+    "artifacts": [],
+    "review_evidence": []
+  },
+  "web_integration": {
+    "status": "not_started",
+    "design_selected": false,
+    "artifacts": [],
+    "review_evidence": []
+  },
+  "deployment": {
+    "status": "unchanged_legacy_site",
+    "project_id": "appgprj_6afcc73c30a081919784724ac346bf41",
+    "url": "https://enterprise-knowledge-lab-namws.sheermackerel2.chatgpt.site",
+    "audience_last_known": "owner-private",
+    "must_recheck_audience": true
+  },
+  "units": [
+    {
+      "id": "U01",
+      "title": "기업 지식과 Enterprise/Second Brain",
+      "dependencies": [],
+      "status": "not_started",
+      "estimated_characters": [
+        10000,
+        14000
+      ],
+      "artifacts": [],
+      "review_evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "U02",
+      "title": "RDB와 Graph DB",
+      "dependencies": [
+        "U01"
+      ],
+      "status": "not_started",
+      "estimated_characters": [
+        12000,
+        17000
+      ],
+      "artifacts": [],
+      "review_evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "U03",
+      "title": "Property Graph와 Neo4j",
+      "dependencies": [
+        "U02"
+      ],
+      "status": "not_started",
+      "estimated_characters": [
+        14000,
+        20000
+      ],
+      "artifacts": [],
+      "review_evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "U04",
+      "title": "Semantic Web·W3C·RDF",
+      "dependencies": [
+        "U02"
+      ],
+      "status": "not_started",
+      "estimated_characters": [
+        20000,
+        28000
+      ],
+      "artifacts": [],
+      "review_evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "U05",
+      "title": "Ontology 도메인 설계",
+      "dependencies": [
+        "U01",
+        "U02"
+      ],
+      "status": "not_started",
+      "estimated_characters": [
+        20000,
+        28000
+      ],
+      "artifacts": [],
+      "review_evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "U06",
+      "title": "RDFS·OWL·SHACL",
+      "dependencies": [
+        "U04",
+        "U05"
+      ],
+      "status": "not_started",
+      "estimated_characters": [
+        20000,
+        28000
+      ],
+      "artifacts": [],
+      "review_evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "U07",
+      "title": "Cypher·SPARQL 읽기",
+      "dependencies": [
+        "U03",
+        "U04"
+      ],
+      "status": "not_started",
+      "estimated_characters": [
+        10000,
+        15000
+      ],
+      "artifacts": [],
+      "review_evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "U08",
+      "title": "Knowledge Graph",
+      "dependencies": [
+        "U03",
+        "U04",
+        "U05"
+      ],
+      "status": "not_started",
+      "estimated_characters": [
+        16000,
+        22000
+      ],
+      "artifacts": [],
+      "review_evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "U09",
+      "title": "수집·정형 매핑·정보 추출",
+      "dependencies": [
+        "U08"
+      ],
+      "status": "not_started",
+      "estimated_characters": [
+        20000,
+        28000
+      ],
+      "artifacts": [],
+      "review_evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "U10",
+      "title": "Entity resolution·통합",
+      "dependencies": [
+        "U09"
+      ],
+      "status": "not_started",
+      "estimated_characters": [
+        16000,
+        22000
+      ],
+      "artifacts": [],
+      "review_evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "U11",
+      "title": "검증·사람 검토·암묵지",
+      "dependencies": [
+        "U09",
+        "U10"
+      ],
+      "status": "not_started",
+      "estimated_characters": [
+        16000,
+        22000
+      ],
+      "artifacts": [],
+      "review_evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "U12",
+      "title": "Auto ontology·자동 구축",
+      "dependencies": [
+        "U05",
+        "U09",
+        "U10",
+        "U11"
+      ],
+      "status": "not_started",
+      "estimated_characters": [
+        20000,
+        28000
+      ],
+      "artifacts": [],
+      "review_evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "U13",
+      "title": "Vector RAG",
+      "dependencies": [
+        "U01"
+      ],
+      "status": "not_started",
+      "estimated_characters": [
+        20000,
+        28000
+      ],
+      "artifacts": [],
+      "review_evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "U14",
+      "title": "Graph RAG",
+      "dependencies": [
+        "U08",
+        "U13"
+      ],
+      "status": "not_started",
+      "estimated_characters": [
+        22000,
+        30000
+      ],
+      "artifacts": [],
+      "review_evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "U15",
+      "title": "Tree RAG·RAPTOR",
+      "dependencies": [
+        "U13"
+      ],
+      "status": "not_started",
+      "estimated_characters": [
+        14000,
+        20000
+      ],
+      "artifacts": [],
+      "review_evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "U16",
+      "title": "RAG 평가",
+      "dependencies": [
+        "U13",
+        "U14",
+        "U15"
+      ],
+      "status": "not_started",
+      "estimated_characters": [
+        14000,
+        20000
+      ],
+      "artifacts": [],
+      "review_evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "U17",
+      "title": "지식의 변경·출처·권한",
+      "dependencies": [
+        "U08",
+        "U11"
+      ],
+      "status": "not_started",
+      "estimated_characters": [
+        16000,
+        22000
+      ],
+      "artifacts": [],
+      "review_evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "U18",
+      "title": "반도체 통합 사례·설명 연습",
+      "dependencies": [
+        "U01",
+        "U02",
+        "U03",
+        "U04",
+        "U05",
+        "U06",
+        "U07",
+        "U08",
+        "U09",
+        "U10",
+        "U11",
+        "U12",
+        "U13",
+        "U14",
+        "U15",
+        "U16",
+        "U17"
+      ],
+      "status": "not_started",
+      "estimated_characters": [
+        16000,
+        22000
+      ],
+      "artifacts": [],
+      "review_evidence": [],
+      "blockers": []
+    },
+    {
+      "id": "S01",
+      "title": "자동 KG 구축 survey 해설",
+      "dependencies": [
+        "U08",
+        "U09"
+      ],
+      "status": "not_started",
+      "estimated_characters": [
+        10000,
+        16000
+      ],
+      "artifacts": [],
+      "review_evidence": [],
+      "blockers": []
+    }
+  ],
+  "known_limitations": [
+    "기존 운행 표본은 새 U04 본편 완료가 아니다.",
+    "기존 기능 검사·예제 검사는 새 교재의 교육 효과를 검증하지 않는다.",
+    "아직 새로운 본편·프로토타입·웹을 제작하지 않았다."
+  ]
+}
