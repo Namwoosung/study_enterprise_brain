@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "plan_version": "2.0",
-  "updated_on": "2026-11-18",
-  "project_status": "execution_plan_prepared_rebuild_not_started",
+  "updated_on": "2026-11-19",
+  "project_status": "rebuild_in_progress",
   "requested_model": {
     "display": "GPT-6.2.sol",
     "tool_alias": "gpt-6.2-sol",
@@ -11,8 +11,8 @@
     "subagent_fork_turns": "none"
   },
   "trigger": "전면 개편 진행해",
-  "current_batch": "B00",
-  "active_unit": null,
+  "current_batch": "B03",
+  "active_unit": "U03",
   "baseline": {
     "root_content_commit": "5fb21403697b4b95c269f505894c1583d3cad04d",
     "content_quality": "rejected_by_user",
@@ -25,16 +25,14 @@
     "estimate_is_acceptance_gate": false
   },
   "next_actions": [
-    "git status --short 및 git -C web status --short를 확인하고 현재 파일과 상태를 대조한다.",
-    "START_HERE.md와 EXECUTION_PROTOCOL.md B00/B01, CURRICULUM_BLUEPRINT.md U04/U05/U13, TECHNICAL_HANDOFF.md를 읽는다.",
-    "learning-v2/에 실제 사용할 최소 manifest·units·research·examples 구조를 만든다. 기존 production build 입력은 아직 바꾸지 않는다.",
-    "U04 대표 수업의 W3C 근거 절을 재확인하고, 기존 운행 표본/fixture를 검토해 RDF 표현과 Property Graph 비교 수업 본문을 실제 작성한다.",
-    "U05 모델 설계·U13 RAG 중간 과정의 대표 수업을 각각 작성·검토하고 다음 묶음을 계속 진행한다."
+    "Continue B03 U03 property graph/Neo4j lesson, then expand U05 and U06 semantic reasoning/validation.",
+    "Check design reply before final UI selection; independent authoring continues while pending.",
+    "Expand remaining blueprint-required lessons, then U08-U12 and S01 survey; keep unit status partial until full contract met."
   ],
   "open_decisions": [
     {
       "id": "design-direction",
-      "status": "not_presented",
+      "status": "presented_awaiting_reply",
       "required_before": "final_ui_selection_and_production_replacement",
       "blocks_independent_content": false,
       "next": "실제 수업의 HTML 3안을 만든 뒤 한 번에 선택/수정 의견을 요청한다.",
@@ -45,26 +43,33 @@
     {
       "unit": "U04",
       "focus": "표현과 사건 식별 비교",
-      "status": "not_started",
-      "reference": "rebuild/DRIVING_LESSON_SAMPLE.md"
+      "status": "ready_as_sample_only",
+      "reference": "learning-v2/units/U04/01-rdf-language.md"
     },
     {
       "unit": "U05",
       "focus": "도메인 모델의 설계·개정",
-      "status": "not_started",
-      "reference": null
+      "status": "ready_as_sample_only",
+      "reference": "learning-v2/units/U05/01-domain-model.md"
     },
     {
       "unit": "U13",
       "focus": "RAG 단계별 중간 결과",
-      "status": "not_started",
-      "reference": null
+      "status": "ready_as_sample_only",
+      "reference": "learning-v2/units/U13/01-retrieval-trace.md"
     }
   ],
   "design_prototypes": {
-    "status": "not_started",
-    "artifacts": [],
-    "review_evidence": []
+    "status": "awaiting_user_choice",
+    "artifacts": [
+      "rebuild/prototypes/index.html",
+      "rebuild/prototypes/a.html",
+      "rebuild/prototypes/b.html",
+      "rebuild/prototypes/c.html"
+    ],
+    "review_evidence": [
+      "rebuild/prototypes/QA.md"
+    ]
   },
   "web_integration": {
     "status": "not_started",
@@ -84,13 +89,17 @@
       "id": "U01",
       "title": "기업 지식과 Enterprise/Second Brain",
       "dependencies": [],
-      "status": "not_started",
+      "status": "drafting",
       "estimated_characters": [
         10000,
         14000
       ],
-      "artifacts": [],
-      "review_evidence": [],
+      "artifacts": [
+        "learning-v2/units/U01/01-company-memory.md"
+      ],
+      "review_evidence": [
+        "learning-v2/reviews/U01-review.md"
+      ],
       "blockers": []
     },
     {
@@ -99,13 +108,17 @@
       "dependencies": [
         "U01"
       ],
-      "status": "not_started",
+      "status": "drafting",
       "estimated_characters": [
         12000,
         17000
       ],
-      "artifacts": [],
-      "review_evidence": [],
+      "artifacts": [
+        "learning-v2/units/U02/01-same-question-two-models.md"
+      ],
+      "review_evidence": [
+        "learning-v2/reviews/U02-review.md"
+      ],
       "blockers": []
     },
     {
@@ -129,13 +142,19 @@
       "dependencies": [
         "U02"
       ],
-      "status": "not_started",
+      "status": "reviewing",
       "estimated_characters": [
         20000,
         28000
       ],
-      "artifacts": [],
-      "review_evidence": [],
+      "artifacts": [
+        "learning-v2/units/U04/01-rdf-language.md",
+        "learning-v2/units/U04/02-events-and-property-graphs.md",
+        "learning-v2/units/U04/03-statements-and-context.md"
+      ],
+      "review_evidence": [
+        "learning-v2/reviews/U04-review.md"
+      ],
       "blockers": []
     },
     {
@@ -145,13 +164,17 @@
         "U01",
         "U02"
       ],
-      "status": "not_started",
+      "status": "reviewing",
       "estimated_characters": [
         20000,
         28000
       ],
-      "artifacts": [],
-      "review_evidence": [],
+      "artifacts": [
+        "learning-v2/units/U05/01-domain-model.md"
+      ],
+      "review_evidence": [
+        "learning-v2/reviews/U05-review.md"
+      ],
       "blockers": []
     },
     {
@@ -273,13 +296,17 @@
       "dependencies": [
         "U01"
       ],
-      "status": "not_started",
+      "status": "reviewing",
       "estimated_characters": [
         20000,
         28000
       ],
-      "artifacts": [],
-      "review_evidence": [],
+      "artifacts": [
+        "learning-v2/units/U13/01-retrieval-trace.md"
+      ],
+      "review_evidence": [
+        "learning-v2/reviews/U13-review.md"
+      ],
       "blockers": []
     },
     {
@@ -398,5 +425,9 @@
     "기존 운행 표본은 새 U04 본편 완료가 아니다.",
     "기존 기능 검사·예제 검사는 새 교재의 교육 효과를 검증하지 않는다.",
     "아직 새로운 본편·프로토타입·웹을 제작하지 않았다."
+  ],
+  "execution_notes": [
+    "Subagents stopped due to usage limit on 2026-11-19. Root continues sequential work; do not infer their final tasks completed from files alone.",
+    "Production site remains legacy and private; prototypes are local review artifacts."
   ]
 }
