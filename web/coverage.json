@@ -394,5 +394,569 @@
     "source": "learning/deep/D2_resolution.md",
     "route": "#/learn/d2/d2-06",
     "characters": 657
+  },
+  {
+    "id": "c1-01",
+    "source": "learning/concepts/C01_brains.md",
+    "route": "#/learn/c1/c1-01",
+    "characters": 520
+  },
+  {
+    "id": "c1-02",
+    "source": "learning/concepts/C01_brains.md",
+    "route": "#/learn/c1/c1-02",
+    "characters": 596
+  },
+  {
+    "id": "c1-03",
+    "source": "learning/concepts/C01_brains.md",
+    "route": "#/learn/c1/c1-03",
+    "characters": 559
+  },
+  {
+    "id": "c1-04",
+    "source": "learning/concepts/C01_brains.md",
+    "route": "#/learn/c1/c1-04",
+    "characters": 604
+  },
+  {
+    "id": "c1-05",
+    "source": "learning/concepts/C01_brains.md",
+    "route": "#/learn/c1/c1-05",
+    "characters": 545
+  },
+  {
+    "id": "c1-06",
+    "source": "learning/concepts/C01_brains.md",
+    "route": "#/learn/c1/c1-06",
+    "characters": 436
+  },
+  {
+    "id": "c1-07",
+    "source": "learning/concepts/C01_brains.md",
+    "route": "#/learn/c1/c1-07",
+    "characters": 431
+  },
+  {
+    "id": "c2-01",
+    "source": "learning/concepts/C02_knowledge_graph.md",
+    "route": "#/learn/c2/c2-01",
+    "characters": 466
+  },
+  {
+    "id": "c2-02",
+    "source": "learning/concepts/C02_knowledge_graph.md",
+    "route": "#/learn/c2/c2-02",
+    "characters": 606
+  },
+  {
+    "id": "c2-03",
+    "source": "learning/concepts/C02_knowledge_graph.md",
+    "route": "#/learn/c2/c2-03",
+    "characters": 532
+  },
+  {
+    "id": "c2-04",
+    "source": "learning/concepts/C02_knowledge_graph.md",
+    "route": "#/learn/c2/c2-04",
+    "characters": 439
+  },
+  {
+    "id": "c2-05",
+    "source": "learning/concepts/C02_knowledge_graph.md",
+    "route": "#/learn/c2/c2-05",
+    "characters": 526
+  },
+  {
+    "id": "c2-06",
+    "source": "learning/concepts/C02_knowledge_graph.md",
+    "route": "#/learn/c2/c2-06",
+    "characters": 502
+  },
+  {
+    "id": "c3-01",
+    "source": "learning/concepts/C03_ontology.md",
+    "route": "#/learn/c3/c3-01",
+    "characters": 528
+  },
+  {
+    "id": "c3-02",
+    "source": "learning/concepts/C03_ontology.md",
+    "route": "#/learn/c3/c3-02",
+    "characters": 580
+  },
+  {
+    "id": "c3-03",
+    "source": "learning/concepts/C03_ontology.md",
+    "route": "#/learn/c3/c3-03",
+    "characters": 446
+  },
+  {
+    "id": "c3-04",
+    "source": "learning/concepts/C03_ontology.md",
+    "route": "#/learn/c3/c3-04",
+    "characters": 527
+  },
+  {
+    "id": "c3-05",
+    "source": "learning/concepts/C03_ontology.md",
+    "route": "#/learn/c3/c3-05",
+    "characters": 439
+  },
+  {
+    "id": "c3-06",
+    "source": "learning/concepts/C03_ontology.md",
+    "route": "#/learn/c3/c3-06",
+    "characters": 445
+  },
+  {
+    "id": "c3-07",
+    "source": "learning/concepts/C03_ontology.md",
+    "route": "#/learn/c3/c3-07",
+    "characters": 390
+  },
+  {
+    "id": "c4-01",
+    "source": "learning/concepts/C04_semantic_web.md",
+    "route": "#/learn/c4/c4-01",
+    "characters": 544
+  },
+  {
+    "id": "c4-02",
+    "source": "learning/concepts/C04_semantic_web.md",
+    "route": "#/learn/c4/c4-02",
+    "characters": 511
+  },
+  {
+    "id": "c4-03",
+    "source": "learning/concepts/C04_semantic_web.md",
+    "route": "#/learn/c4/c4-03",
+    "characters": 487
+  },
+  {
+    "id": "c4-04",
+    "source": "learning/concepts/C04_semantic_web.md",
+    "route": "#/learn/c4/c4-04",
+    "characters": 780
+  },
+  {
+    "id": "c4-05",
+    "source": "learning/concepts/C04_semantic_web.md",
+    "route": "#/learn/c4/c4-05",
+    "characters": 387
+  },
+  {
+    "id": "c4-06",
+    "source": "learning/concepts/C04_semantic_web.md",
+    "route": "#/learn/c4/c4-06",
+    "characters": 385
+  },
+  {
+    "id": "c5-01",
+    "source": "learning/concepts/C05_rdf.md",
+    "route": "#/learn/c5/c5-01",
+    "characters": 645
+  },
+  {
+    "id": "c5-02",
+    "source": "learning/concepts/C05_rdf.md",
+    "route": "#/learn/c5/c5-02",
+    "characters": 729
+  },
+  {
+    "id": "c5-03",
+    "source": "learning/concepts/C05_rdf.md",
+    "route": "#/learn/c5/c5-03",
+    "characters": 523
+  },
+  {
+    "id": "c5-04",
+    "source": "learning/concepts/C05_rdf.md",
+    "route": "#/learn/c5/c5-04",
+    "characters": 473
+  },
+  {
+    "id": "c5-05",
+    "source": "learning/concepts/C05_rdf.md",
+    "route": "#/learn/c5/c5-05",
+    "characters": 610
+  },
+  {
+    "id": "c5-06",
+    "source": "learning/concepts/C05_rdf.md",
+    "route": "#/learn/c5/c5-06",
+    "characters": 429
+  },
+  {
+    "id": "c5-07",
+    "source": "learning/concepts/C05_rdf.md",
+    "route": "#/learn/c5/c5-07",
+    "characters": 333
+  },
+  {
+    "id": "c6-01",
+    "source": "learning/concepts/C06_semantics.md",
+    "route": "#/learn/c6/c6-01",
+    "characters": 505
+  },
+  {
+    "id": "c6-02",
+    "source": "learning/concepts/C06_semantics.md",
+    "route": "#/learn/c6/c6-02",
+    "characters": 524
+  },
+  {
+    "id": "c6-03",
+    "source": "learning/concepts/C06_semantics.md",
+    "route": "#/learn/c6/c6-03",
+    "characters": 567
+  },
+  {
+    "id": "c6-04",
+    "source": "learning/concepts/C06_semantics.md",
+    "route": "#/learn/c6/c6-04",
+    "characters": 461
+  },
+  {
+    "id": "c6-05",
+    "source": "learning/concepts/C06_semantics.md",
+    "route": "#/learn/c6/c6-05",
+    "characters": 631
+  },
+  {
+    "id": "c6-06",
+    "source": "learning/concepts/C06_semantics.md",
+    "route": "#/learn/c6/c6-06",
+    "characters": 473
+  },
+  {
+    "id": "c6-07",
+    "source": "learning/concepts/C06_semantics.md",
+    "route": "#/learn/c6/c6-07",
+    "characters": 328
+  },
+  {
+    "id": "c7-01",
+    "source": "learning/concepts/C07_property_graph.md",
+    "route": "#/learn/c7/c7-01",
+    "characters": 568
+  },
+  {
+    "id": "c7-02",
+    "source": "learning/concepts/C07_property_graph.md",
+    "route": "#/learn/c7/c7-02",
+    "characters": 369
+  },
+  {
+    "id": "c7-03",
+    "source": "learning/concepts/C07_property_graph.md",
+    "route": "#/learn/c7/c7-03",
+    "characters": 362
+  },
+  {
+    "id": "c7-04",
+    "source": "learning/concepts/C07_property_graph.md",
+    "route": "#/learn/c7/c7-04",
+    "characters": 561
+  },
+  {
+    "id": "c7-05",
+    "source": "learning/concepts/C07_property_graph.md",
+    "route": "#/learn/c7/c7-05",
+    "characters": 359
+  },
+  {
+    "id": "c7-06",
+    "source": "learning/concepts/C07_property_graph.md",
+    "route": "#/learn/c7/c7-06",
+    "characters": 285
+  },
+  {
+    "id": "c8-01",
+    "source": "learning/concepts/C08_graphdb_neo4j.md",
+    "route": "#/learn/c8/c8-01",
+    "characters": 486
+  },
+  {
+    "id": "c8-02",
+    "source": "learning/concepts/C08_graphdb_neo4j.md",
+    "route": "#/learn/c8/c8-02",
+    "characters": 470
+  },
+  {
+    "id": "c8-03",
+    "source": "learning/concepts/C08_graphdb_neo4j.md",
+    "route": "#/learn/c8/c8-03",
+    "characters": 546
+  },
+  {
+    "id": "c8-04",
+    "source": "learning/concepts/C08_graphdb_neo4j.md",
+    "route": "#/learn/c8/c8-04",
+    "characters": 645
+  },
+  {
+    "id": "c8-05",
+    "source": "learning/concepts/C08_graphdb_neo4j.md",
+    "route": "#/learn/c8/c8-05",
+    "characters": 490
+  },
+  {
+    "id": "c8-06",
+    "source": "learning/concepts/C08_graphdb_neo4j.md",
+    "route": "#/learn/c8/c8-06",
+    "characters": 289
+  },
+  {
+    "id": "c8-07",
+    "source": "learning/concepts/C08_graphdb_neo4j.md",
+    "route": "#/learn/c8/c8-07",
+    "characters": 351
+  },
+  {
+    "id": "c9-01",
+    "source": "learning/concepts/C09_query_reading.md",
+    "route": "#/learn/c9/c9-01",
+    "characters": 517
+  },
+  {
+    "id": "c9-02",
+    "source": "learning/concepts/C09_query_reading.md",
+    "route": "#/learn/c9/c9-02",
+    "characters": 592
+  },
+  {
+    "id": "c9-03",
+    "source": "learning/concepts/C09_query_reading.md",
+    "route": "#/learn/c9/c9-03",
+    "characters": 634
+  },
+  {
+    "id": "c9-04",
+    "source": "learning/concepts/C09_query_reading.md",
+    "route": "#/learn/c9/c9-04",
+    "characters": 560
+  },
+  {
+    "id": "c9-05",
+    "source": "learning/concepts/C09_query_reading.md",
+    "route": "#/learn/c9/c9-05",
+    "characters": 427
+  },
+  {
+    "id": "c9-06",
+    "source": "learning/concepts/C09_query_reading.md",
+    "route": "#/learn/c9/c9-06",
+    "characters": 430
+  },
+  {
+    "id": "c9-07",
+    "source": "learning/concepts/C09_query_reading.md",
+    "route": "#/learn/c9/c9-07",
+    "characters": 331
+  },
+  {
+    "id": "c10-01",
+    "source": "learning/concepts/C10_auto_ontology.md",
+    "route": "#/learn/c10/c10-01",
+    "characters": 473
+  },
+  {
+    "id": "c10-02",
+    "source": "learning/concepts/C10_auto_ontology.md",
+    "route": "#/learn/c10/c10-02",
+    "characters": 533
+  },
+  {
+    "id": "c10-03",
+    "source": "learning/concepts/C10_auto_ontology.md",
+    "route": "#/learn/c10/c10-03",
+    "characters": 421
+  },
+  {
+    "id": "c10-04",
+    "source": "learning/concepts/C10_auto_ontology.md",
+    "route": "#/learn/c10/c10-04",
+    "characters": 523
+  },
+  {
+    "id": "c10-05",
+    "source": "learning/concepts/C10_auto_ontology.md",
+    "route": "#/learn/c10/c10-05",
+    "characters": 435
+  },
+  {
+    "id": "c10-06",
+    "source": "learning/concepts/C10_auto_ontology.md",
+    "route": "#/learn/c10/c10-06",
+    "characters": 463
+  },
+  {
+    "id": "c10-07",
+    "source": "learning/concepts/C10_auto_ontology.md",
+    "route": "#/learn/c10/c10-07",
+    "characters": 383
+  },
+  {
+    "id": "c11-01",
+    "source": "learning/concepts/C11_vector_rag.md",
+    "route": "#/learn/c11/c11-01",
+    "characters": 480
+  },
+  {
+    "id": "c11-02",
+    "source": "learning/concepts/C11_vector_rag.md",
+    "route": "#/learn/c11/c11-02",
+    "characters": 518
+  },
+  {
+    "id": "c11-03",
+    "source": "learning/concepts/C11_vector_rag.md",
+    "route": "#/learn/c11/c11-03",
+    "characters": 389
+  },
+  {
+    "id": "c11-04",
+    "source": "learning/concepts/C11_vector_rag.md",
+    "route": "#/learn/c11/c11-04",
+    "characters": 468
+  },
+  {
+    "id": "c11-05",
+    "source": "learning/concepts/C11_vector_rag.md",
+    "route": "#/learn/c11/c11-05",
+    "characters": 422
+  },
+  {
+    "id": "c11-06",
+    "source": "learning/concepts/C11_vector_rag.md",
+    "route": "#/learn/c11/c11-06",
+    "characters": 402
+  },
+  {
+    "id": "c11-07",
+    "source": "learning/concepts/C11_vector_rag.md",
+    "route": "#/learn/c11/c11-07",
+    "characters": 310
+  },
+  {
+    "id": "c12-01",
+    "source": "learning/concepts/C12_graph_rag.md",
+    "route": "#/learn/c12/c12-01",
+    "characters": 421
+  },
+  {
+    "id": "c12-02",
+    "source": "learning/concepts/C12_graph_rag.md",
+    "route": "#/learn/c12/c12-02",
+    "characters": 370
+  },
+  {
+    "id": "c12-03",
+    "source": "learning/concepts/C12_graph_rag.md",
+    "route": "#/learn/c12/c12-03",
+    "characters": 506
+  },
+  {
+    "id": "c12-04",
+    "source": "learning/concepts/C12_graph_rag.md",
+    "route": "#/learn/c12/c12-04",
+    "characters": 564
+  },
+  {
+    "id": "c12-05",
+    "source": "learning/concepts/C12_graph_rag.md",
+    "route": "#/learn/c12/c12-05",
+    "characters": 394
+  },
+  {
+    "id": "c12-06",
+    "source": "learning/concepts/C12_graph_rag.md",
+    "route": "#/learn/c12/c12-06",
+    "characters": 364
+  },
+  {
+    "id": "c12-07",
+    "source": "learning/concepts/C12_graph_rag.md",
+    "route": "#/learn/c12/c12-07",
+    "characters": 356
+  },
+  {
+    "id": "c13-01",
+    "source": "learning/concepts/C13_tree_rag.md",
+    "route": "#/learn/c13/c13-01",
+    "characters": 389
+  },
+  {
+    "id": "c13-02",
+    "source": "learning/concepts/C13_tree_rag.md",
+    "route": "#/learn/c13/c13-02",
+    "characters": 428
+  },
+  {
+    "id": "c13-03",
+    "source": "learning/concepts/C13_tree_rag.md",
+    "route": "#/learn/c13/c13-03",
+    "characters": 414
+  },
+  {
+    "id": "c13-04",
+    "source": "learning/concepts/C13_tree_rag.md",
+    "route": "#/learn/c13/c13-04",
+    "characters": 413
+  },
+  {
+    "id": "c13-05",
+    "source": "learning/concepts/C13_tree_rag.md",
+    "route": "#/learn/c13/c13-05",
+    "characters": 386
+  },
+  {
+    "id": "c13-06",
+    "source": "learning/concepts/C13_tree_rag.md",
+    "route": "#/learn/c13/c13-06",
+    "characters": 405
+  },
+  {
+    "id": "c13-07",
+    "source": "learning/concepts/C13_tree_rag.md",
+    "route": "#/learn/c13/c13-07",
+    "characters": 342
+  },
+  {
+    "id": "c14-01",
+    "source": "learning/concepts/C14_connections.md",
+    "route": "#/learn/c14/c14-01",
+    "characters": 577
+  },
+  {
+    "id": "c14-02",
+    "source": "learning/concepts/C14_connections.md",
+    "route": "#/learn/c14/c14-02",
+    "characters": 412
+  },
+  {
+    "id": "c14-03",
+    "source": "learning/concepts/C14_connections.md",
+    "route": "#/learn/c14/c14-03",
+    "characters": 443
+  },
+  {
+    "id": "c14-04",
+    "source": "learning/concepts/C14_connections.md",
+    "route": "#/learn/c14/c14-04",
+    "characters": 484
+  },
+  {
+    "id": "c14-05",
+    "source": "learning/concepts/C14_connections.md",
+    "route": "#/learn/c14/c14-05",
+    "characters": 530
+  },
+  {
+    "id": "c14-06",
+    "source": "learning/concepts/C14_connections.md",
+    "route": "#/learn/c14/c14-06",
+    "characters": 744
   }
 ]

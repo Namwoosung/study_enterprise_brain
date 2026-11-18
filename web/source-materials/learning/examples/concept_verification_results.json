@@ -1,0 +1,31 @@
+{
+  "passed": 25,
+  "checks": [
+    "Turtle block 1 parses",
+    "Turtle block 2 parses",
+    "RUN002 example contains exactly four triples",
+    "Published SPARQL returns the two stated rows",
+    "Mandatory document pattern excludes undocumented run",
+    "OPTIONAL retains undocumented run with unbound document",
+    "Cosine orthogonal and aligned unit vectors",
+    "Precision and recall use different denominators",
+    "Accepted error rate is conditional on coverage",
+    "Review capacity and backlog example",
+    "All fourteen concept chapters present",
+    "c1 has ordered sections, sources and self-check",
+    "c2 has ordered sections, sources and self-check",
+    "c3 has ordered sections, sources and self-check",
+    "c4 has ordered sections, sources and self-check",
+    "c5 has ordered sections, sources and self-check",
+    "c6 has ordered sections, sources and self-check",
+    "c7 has ordered sections, sources and self-check",
+    "c8 has ordered sections, sources and self-check",
+    "c9 has ordered sections, sources and self-check",
+    "c10 has ordered sections, sources and self-check",
+    "c11 has ordered sections, sources and self-check",
+    "c12 has ordered sections, sources and self-check",
+    "c13 has ordered sections, sources and self-check",
+    "c14 has ordered sections, sources and self-check"
+  ],
+  "scope": "Synthetic RDF/SPARQL and arithmetic checks; no Neo4j server, LLM benchmark, or production pipeline execution."
+}

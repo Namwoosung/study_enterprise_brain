@@ -14,7 +14,7 @@ function toast(s){$('#toast').textContent=s;$('#toast').classList.add('show');cl
 function nav(){const active=route[0]||'home';$('#sidebar').innerHTML=`
 <a class="brand" href="#/home"><span class="brand-mark"><svg viewBox="0 0 30 30" aria-hidden="true"><path d="M8 7L23 15L8 23Z" fill="none" stroke="white" stroke-width="1.5"/><circle cx="8" cy="7" r="3" fill="white"/><circle cx="23" cy="15" r="3" fill="white"/><circle cx="8" cy="23" r="3" fill="white"/></svg></span>기업 지식 연구실</a>
 <nav class="nav-main"><a href="#/home" class="${active==='home'?'active':''}"><span class="nav-icon">⌘</span>학습 지도</a><a href="#/case" class="${active==='case'?'active':''}"><span class="nav-icon">◇</span>사례 탐색</a><a href="#/practice" class="${active==='practice'?'active':''}"><span class="nav-icon">✓</span>설명 연습</a><a href="#/resource/glossary" class="${active==='resource'?'active':''}"><span class="nav-icon">▤</span>용어와 근거</a></nav>
-<nav class="nav-main"><a href="#/deep"><span class="nav-icon">⌕</span>심화 학습</a></nav><p class="nav-label">차근차근 배우기</p><ol class="chapter-nav">${C.chapters.filter(ch=>ch.level!=='deep').map(ch=>{const done=ch.sections.every(s=>state.completed.includes(s.id));return `<li><a href="#/learn/${ch.id}" class="${currentChapter?.id===ch.id?'active':''}" ${currentChapter?.id===ch.id?'aria-current="page"':''}><span class="chapter-index ${done?'done':''}">${done?'✓':ch.number}</span><span>${ch.title}</span></a></li>`}).join('')}</ol>
+<nav class="nav-main"><a href="#/concepts"><span class="nav-icon">◎</span>개념부터 배우기</a><a href="#/deep"><span class="nav-icon">⌕</span>심화 학습</a></nav><p class="nav-label">사례로 적용하기</p><ol class="chapter-nav">${C.chapters.filter(ch=>ch.level==='foundation').map(ch=>{const done=ch.sections.every(s=>state.completed.includes(s.id));return `<li><a href="#/learn/${ch.id}" class="${currentChapter?.id===ch.id?'active':''}" ${currentChapter?.id===ch.id?'aria-current="page"':''}><span class="chapter-index ${done?'done':''}">${done?'✓':ch.number}</span><span>${ch.title}</span></a></li>`}).join('')}</ol>
 <div class="sidebar-bottom"><div class="progress-label"><span>나의 학습 진행</span><span>${state.completed.length} / ${sections.length}</span></div><div class="progress-track"><div class="progress-fill" style="width:${state.completed.length/sections.length*100}%"></div></div><div class="sidebar-foot">완료 표시는 직접 남깁니다.<br>이해가 어려웠던 곳은 다시 방문하세요.</div></div>`;
 }
 const nodeInfo={
@@ -35,18 +35,67 @@ $('#breadcrumb').textContent='심화 학습 / 내부 원리와 설계 판단';
 const deep=C.chapters.filter(ch=>ch.level==='deep');
 $('#main').innerHTML=`<div class="content-wrap"><div class="home-heading"><div><h1>한 단계 아래로 내려가기</h1><p>정의 다음에 남는 질문을, 반례와 계산으로 풀어봅니다.</p></div><a class="secondary" href="#/resource/deep-research">조사 근거</a></div><div class="study-tip" style="margin:0 0 30px">기본 경로를 유지한 채 필요한 주제부터 확장합니다. <strong>작동 원리 → 작은 반례 → 설계 선택 → 확인 문제</strong> 순서로 읽으세요.</div><div class="roadmap">${deep.map(ch=>`<a class="course-row" href="#/learn/${ch.id}"><span class="course-num">${ch.number}</span><div><h3>${ch.title}</h3><p>${ch.description}</p><div class="tags">${ch.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div><p class="subtle" style="margin-top:12px">먼저 읽기: ${(ch.prerequisites||[]).map(id=>C.chapters.find(c=>c.id===id)?.title||id).join(', ')}</p></div></a>`).join('')}</div></div>`;
 }
+function conceptPage(){
+$('#breadcrumb').textContent='개념 학습 / 기초에서 원리와 발표까지';
+const chapters=C.chapters.filter(ch=>ch.level==='concept'),groups=[...new Set(chapters.map(ch=>ch.phase))];
+$('#main').innerHTML=`<div class="content-wrap"><div class="home-heading"><div><h1>개념을 제대로 이해하기</h1><p>14개 단원 · ${chapters.reduce((n,c)=>n+c.sections.length,0)}개 구간. 기초를 건너뛰지 않고 내부 원리까지.</p></div><a class="secondary" href="#/resource/concept-research">출처와 조사 범위</a></div><div class="study-tip" style="margin:0 0 24px"><strong>어떻게 읽을까요?</strong><br>무엇인지와 등장 배경 → 구성·작동 원리 → 사례·심화 → 확인 문제 순서로 읽습니다. 구현 세부를 외우기보다 정의·예·한계를 자신의 말로 설명하세요.</div><div class="concept-layer-map" aria-label="개념의 역할 지도">${groups.map((g,i)=>`<button class="concept-layer" data-concept-group="${esc(g)}"><small>0${i+1}</small><strong>${g}</strong></button>`).join('')}</div><label class="control-label" for="concept-filter">궁금한 개념 바로 찾기</label><input class="concept-filter" id="concept-filter" type="search" placeholder="예: Second Brain, RDF, SPARQL, Tree RAG"><div class="lab-controls"><button class="choice active" data-concept-group="" aria-pressed="true">전체 흐름</button>${groups.map(g=>`<button class="choice" data-concept-group="${esc(g)}" aria-pressed="false">${g}</button>`).join('')}</div><p class="subtle" id="concept-count" aria-live="polite"></p><div id="concept-list" class="roadmap"></div><div class="study-tip"><strong>이후에는 사례에 적용하세요.</strong><br><a href="#/learn/m3">수집·추출</a> → <a href="#/learn/m4">식별·연결</a> → <a href="#/learn/m5">검증·검토</a> → <a href="#/learn/m6">변경·권한</a>. 기존 적용 경로와 메모·진도는 그대로 이어집니다.</div></div>`;
+let group='';
+function update(){
+const q=$('#concept-filter').value.trim().toLowerCase();
+const shown=chapters.filter(ch=>(!group||ch.phase===group)&&(!q||(ch.title+' '+ch.description+' '+ch.tags.join(' ')).toLowerCase().includes(q)));
+$('#concept-count').textContent=`${shown.length}개 단원 · 원하는 단원을 선택하거나 C1부터 순서대로 읽으세요.`;
+$('#concept-list').innerHTML=shown.length?shown.map(ch=>`<a class="course-row" href="#/learn/${ch.id}/${ch.sections[0].id}"><span class="course-num">C${ch.number}</span><div><span class="concept-phase">${ch.phase}</span><h3>${ch.title}</h3><p>${ch.question}</p><p class="subtle">${ch.description}</p><div class="tags">${ch.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div><span class="row-status">${ch.sections.filter(s=>state.completed.includes(s.id)).length}/${ch.sections.length} 구간 완료</span></div></a>`).join(''):'<p class="empty">일치하는 단원이 없습니다. 전체 흐름을 선택하거나 짧은 용어로 찾아보세요.</p>';
+document.querySelectorAll('[data-concept-group]').forEach(b=>{b.classList.toggle('active',b.dataset.conceptGroup===group);b.setAttribute('aria-pressed',String(b.dataset.conceptGroup===group))});
+}
+$('#concept-filter').oninput=update;
+document.querySelectorAll('[data-concept-group]').forEach(b=>b.onclick=()=>{group=b.dataset.conceptGroup;update()});
+update();
+}
+function conceptLabHTML(type){
+if(type==='representation')return labShell('한 사건, 세 가지 읽기','동일한 합성 기록을 표현하는 방식과 맥락의 차이를 비교합니다.',`<label for="representation-mode" class="control-label">표현 선택</label><select id="representation-mode"><option value="rdf">RDF · 진술 읽기</option><option value="pg">Property Graph · 패턴 읽기</option><option value="context">출처와 주장 · 무엇을 보장하나?</option></select><div id="representation-result" class="lab-result" aria-live="polite"></div>`);
+if(type==='vectorMath')return labShell('벡터의 방향을 직접 바꾸기','실제 문서 임베딩이 아닌 2차원 합성 벡터입니다. 유사도는 정답 확률이 아닙니다.',`<label class="control-label" for="vector-angle">질문 벡터의 각도: <output id="vector-angle-value">0°</output></label><input type="range" id="vector-angle" min="0" max="180" value="0" step="1"><div id="vector-math-result" aria-live="polite"></div>`);
+if(type==='treeStrategy')return labShell('요약 계층을 어떻게 검색할까?','고정된 작은 계층의 경로 비교입니다. RAPTOR 모델을 실행한 검색 결과가 아닙니다.',`<label class="control-label" for="tree-strategy">검색 전략</label><select id="tree-strategy"><option value="traversal">상위에서 자식으로 탐색</option><option value="collapsed">모든 수준에서 함께 선택</option></select><div id="tree-strategy-result" class="lab-result" aria-live="polite"></div>`);
+return '';
+}
+function initConceptLabs(){
+if($('#representation-mode')){
+const update=()=>{
+const mode=$('#representation-mode').value;
+const snippets={
+rdf:['ex:RUN002 a ex:Run ;\n  ex:forLot ex:L02 ;\n  ex:usedEquipment ex:E01 ;\n  ex:usedDocument ex:D02 .','같은 주어의 네 진술입니다. a는 타입, 세미콜론은 주어를 이어 쓰는 표기입니다. 사용 기록을 표현하며 적합성이나 원인을 증명하지 않습니다.'],
+pg:['(r:Run {id:"RUN002"})-[:FOR_LOT]->(:Lot {id:"L02"})\n(r)-[:USED_EQUIPMENT]->(:Equipment {id:"E01"})\n(r)-[:USED_DOCUMENT]->(:Document {id:"D02"})','r은 같은 작업 노드입니다. 라벨·관계 타입·속성을 읽습니다. 이 라벨만으로 OWL의 공리 추론이 자동 실행되지는 않습니다.'],
+context:['작업: RUN002 · 로트: L02\n장비: E01 · 사용 문서: D02\n원천: runs.csv의 RUN002 행\n별도 판단: 당시 유효했나? 원인이 무엇인가?','출처는 주장이 어디서 왔는지를 설명합니다. 기록이 존재한다는 것, 구조가 맞는 것, 현실에서 참인 것은 각각 확인해야 합니다.']
+};const [code,note]=snippets[mode];$('#representation-result').innerHTML=`<pre><code>${esc(code)}</code></pre><p>${note}</p>`;
+};$('#representation-mode').onchange=update;update();
+}
+if($('#vector-angle')){
+const update=()=>{
+const deg=Number($('#vector-angle').value),a=deg*Math.PI/180,q=[Math.cos(a),Math.sin(a)];
+$('#vector-angle-value').textContent=deg+'°';
+const docs=[{id:'A',v:[1,0],x:270,y:130},{id:'B',v:[0,1],x:150,y:10},{id:'C',v:[-1,0],x:30,y:130}].map(d=>({...d,score:q[0]*d.v[0]+q[1]*d.v[1]})).sort((a,b)=>b.score-a.score);
+$('#vector-math-result').innerHTML=`<svg viewBox="0 0 300 170" class="vector-svg" role="img" aria-label="단위 벡터 A는 오른쪽, B는 위쪽, C는 왼쪽. 질문 방향 ${deg}도."><path d="M30 130H270M150 10V150" stroke="#b3c3d5" fill="none"/><path d="M150 130L${150+110*q[0]} ${130-110*q[1]}" stroke="#2362d2" stroke-width="4"/><circle cx="${150+110*q[0]}" cy="${130-110*q[1]}" r="5" fill="#2362d2"/><text x="278" y="135">A</text><text x="155" y="16">B</text><text x="12" y="135">C</text><text x="155" y="157">질문 q = (${q[0].toFixed(2)}, ${q[1].toFixed(2)})</text></svg><div class="vector-scores">${docs.map(d=>`<div><strong>${d.id}</strong><span>${d.score.toFixed(3)}</span></div>`).join('')}</div><p class="result-note">코사인 유사도 순서입니다. 90°에서 B=1, A·C≈0입니다. 텍스트 의미·답변 정확도를 측정하지 않습니다.</p>`;
+};$('#vector-angle').oninput=update;update();
+}
+if($('#tree-strategy')){
+const update=()=>{
+const traversing=$('#tree-strategy').value==='traversal';
+$('#tree-strategy-result').innerHTML=traversing?'<p><strong>주제 요약 → 절차 개정 요약 → D01·D02</strong></p><p>선택한 상위 후보의 자식에서 다음 후보를 고릅니다. 처음에 검토 경과 쪽을 골랐다면 이 절차 원문을 놓칠 수 있습니다.</p>':'<p><strong>공동 후보: 주제 요약 · 절차 요약 · 검토 요약 · D01 · D02 · D07 · D08</strong></p><p>여러 수준을 함께 비교합니다. D02와 D02를 요약한 상위 노드를 동시에 고르면 같은 원천이 중복될 수 있습니다.</p>';
+};$('#tree-strategy').onchange=update;update();
+}
+}
 function home(){
 const last=findSection(state.last)||sections[0],started=state.completed.length>0||state.last!=='m1-01';
 $('#breadcrumb').textContent='학습 지도';
-$('#main').innerHTML=`<div class="content-wrap"><div class="home-heading"><div><h1>연결하고, 검증하고, 설명하기</h1><p>반도체 사례로 배우는 기업 지식의 구성 원리</p></div><span class="date-label">개발자를 위한 4–5일 학습</span></div>
-<section class="hero"><div class="hero-copy"><h2>흩어진 기록은<br>어떻게 지식이 될까?</h2><p>작업 기록 한 줄에서 시작해<br>대상과 관계를 연결하고, 근거를 확인하며,<br>신뢰할 수 있는 답변까지 따라갑니다.</p><a class="primary" href="${started?href(last):'#/learn/m1/m1-01'}">${started?'이어서 학습하기':'첫 질문부터 시작하기'}<span aria-hidden="true">↗</span></a><span class="hero-note">${started?esc(last.chapter.title)+' · '+esc(last.title):'RAG 기본 지식이 있다면 바로 시작할 수 있어요.'}</span></div><div class="hero-graph">${graph()}<div class="graph-caption"><span><i class="dot"></i>노드를 눌러 관계를 살펴보세요</span><span>교육용 합성 사례</span></div></div></section>
-<div class="section-heading"><div><h2>여덟 질문으로 이어지는 학습</h2><p>앞에서 배운 구분이 다음 단계의 판단 기준이 됩니다.</p></div><a href="#/resource/plan">학습 계획 보기</a></div>
-<div class="roadmap">${C.chapters.filter(ch=>ch.level!=='deep').map(ch=>{const done=ch.sections.filter(s=>state.completed.includes(s.id)).length;return `<a class="course-row" href="#/learn/${ch.id}"><span class="course-num">${String(ch.number).padStart(2,'0')}</span><div><h3>${ch.title}</h3><p>${ch.description}</p><div class="tags">${ch.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>${done?`<span class="row-status">${done}/${ch.sections.length} 완료</span>`:''}</div></a>`}).join('')}</div>
+$('#main').innerHTML=`<div class="content-wrap"><div class="home-heading"><div><h1>연결하고, 검증하고, 설명하기</h1><p>반도체 사례로 배우는 기업 지식의 구성 원리</p></div><span class="date-label">개념 → 원리 → 사례 → 설명</span></div>
+<section class="hero"><div class="hero-copy"><h2>흩어진 기록은<br>어떻게 지식이 될까?</h2><p>작업 기록 한 줄에서 시작해<br>대상과 관계를 연결하고, 근거를 확인하며,<br>신뢰할 수 있는 답변까지 따라갑니다.</p><a class="primary" href="${started?href(last):'#/learn/c1/c1-01'}">${started?'이어서 학습하기':'개념부터 시작하기'}<span aria-hidden="true">↗</span></a><span class="hero-note">${started?esc(last.chapter.title)+' · '+esc(last.title):'개념 경로 14단원에서 기초와 심화를 함께 배웁니다.'}</span></div><div class="hero-graph">${graph()}<div class="graph-caption"><span><i class="dot"></i>노드를 눌러 관계를 살펴보세요</span><span>교육용 합성 사례</span></div></div></section>
+<section class="concept-entry"><div><span class="tag">새 개념 학습 경로 · C1–C14</span><h2>이름을 아는 것에서, 원리를 설명하는 것으로</h2><p>Enterprise Brain부터 RDF·OWL, Neo4j, 세 가지 RAG까지. 정의와 배경, 내부 원리, 사례와 한계를 차례로 익힙니다.</p></div><a class="primary" href="#/concepts">전체 개념 지도 보기 ↗</a></section><div class="section-heading"><div><h2>여덟 질문으로 적용하는 학습</h2><p>앞에서 배운 구분이 다음 단계의 판단 기준이 됩니다.</p></div><a href="#/resource/plan">학습 계획 보기</a></div>
+<div class="roadmap">${C.chapters.filter(ch=>ch.level==='foundation').map(ch=>{const done=ch.sections.filter(s=>state.completed.includes(s.id)).length;return `<a class="course-row" href="#/learn/${ch.id}"><span class="course-num">${String(ch.number).padStart(2,'0')}</span><div><h3>${ch.title}</h3><p>${ch.description}</p><div class="tags">${ch.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>${done?`<span class="row-status">${done}/${ch.sections.length} 완료</span>`:''}</div></a>`}).join('')}</div>
 <div class="study-tip"><strong>읽은 뒤, 한 번 설명해 보세요.</strong><br>“무엇을 알게 되었나”, “어떤 조건에서 틀릴 수 있나”, “무슨 근거로 말할 수 있나”를 짧게 남깁니다. 정의를 아는 것에서 판단하고 설명하는 단계로 나아가는 연습입니다.</div></div>`;
 }
-const labs={'m2-05':'inference','m4-02':'identity','m5-02':'validation','m5-05':'queue','m6-01':'time','m7-05':'retrieval'};
+const labs={'m2-05':'inference','m4-02':'identity','m5-02':'validation','m5-05':'queue','m6-01':'time','m7-05':'retrieval','c5-03':'representation','c7-04':'representation','c11-02':'vectorMath','c13-03':'treeStrategy'};
 function labShell(title,desc,body){return `<section class="lab" aria-label="${title}"><div class="lab-head"><h3>${title}</h3><p>${desc}</p></div><div class="lab-body">${body}</div></section>`}
 function labHTML(type){
+if(['representation','vectorMath','treeStrategy'].includes(type))return conceptLabHTML(type);
 if(type==='inference')return labShell('직접 비교 · 추론과 검증','같은 입력에 대해 두 시스템이 서로 다른 질문을 합니다.',`<p>Something usedEquipment E01이 기록되어 있습니다.<br>Something에 Run 타입을 직접 적지 않았다면?</p><div class="lab-controls"><button class="choice active" data-infer="rdfs" aria-pressed="true">RDFS domain 해석</button><button class="choice" data-infer="shape" aria-pressed="false">명시적 타입 검사</button></div><div id="infer-result" class="lab-result good">usedEquipment의 domain이 Run이면, Something이 Run이라는 타입을 <strong>추론</strong>합니다. 입력 거절 규칙으로 읽지 않습니다.</div>`);
 if(type==='identity')return labShell('판단 연습 · 같은 이름, 다른 대상','이름만 보지 말고 사이트·일련번호·구성 관계를 함께 확인하세요.',`<p><strong>SOUTH의 검사기 1호</strong>라는 표현을 발견했습니다. 어디에 연결할까요?</p><div class="lab-controls"><button class="choice" data-identity="E01">E01 · NORTH / SN101</button><button class="choice" data-identity="E02">E02 · SOUTH / SN202</button><button class="choice" data-identity="E05">E05 · E01 센서</button></div><div id="identity-result" class="lab-result" role="status">후보를 선택하고 판단 근거를 확인하세요.</div><p class="result-note">별칭과 사이트 정보의 근거: <a href="#/case/D05">D05 원문</a></p>`);
 if(type==='validation')return labShell('검증 실험 · 통과했는데 왜 틀릴까?','교재의 작은 shape와 별도 시점 검사를 규칙으로 재현합니다. 실제 SHACL 엔진은 개발자 예제에서 실행했습니다.',`<p>RUN002는 <strong>11월 3일 10:00, E01</strong>의 작업입니다. 사용 문서를 바꿔 보세요.</p><label class="control-label" for="document-select">RUN002에 연결할 문서</label><select id="document-select"><option value="D02">D02 · 개정 절차</option><option value="D01">D01 · 이전 절차</option><option value="none">문서 누락</option></select><div id="validation-result" aria-live="polite"></div>`);
@@ -62,7 +111,7 @@ if(!s){notFound();return}
 currentChapter=ch;currentSection=s;state.last=s.id;save();
 const sequence=sections.filter(x=>x.chapter.level===ch.level),idx=sequence.findIndex(x=>x.id===s.id),prev=sequence[idx-1],next=sequence[idx+1],done=state.completed.includes(s.id),bookmarked=state.bookmarks.includes(s.id);
 $('#breadcrumb').textContent=ch.phase+' / '+(ch.sections.indexOf(s)+1)+'번째 질문';
-$('#main').innerHTML=`<div class="lesson-layout"><div class="lesson-main"><div class="lesson-phase">${String(ch.number).padStart(2,'0')} ${ch.level==='deep'?'심화 · ':''}${ch.title}</div><h1 class="lesson-title">${s.title}</h1><p class="goal">${ch.goal}</p><div class="lesson-toolbar"><span>${ch.sections.indexOf(s)+1} / ${ch.sections.length} 구간 · ${Math.max(2,Math.round(s.text.length/450))}분 읽기</span><div class="toolbar-actions"><div class="reader-size"><button class="small-button" id="font-down" aria-label="본문 글자 줄이기">가−</button><button class="small-button" id="font-up" aria-label="본문 글자 키우기">가＋</button></div><button class="small-button" id="bookmark" aria-pressed="${bookmarked}">${bookmarked?'책갈피 저장됨':'책갈피'}</button><a class="small-button" href="materials/learning/${ch.file}" download>원문</a></div></div>
+$('#main').innerHTML=`<div class="lesson-layout"><div class="lesson-main"><div class="lesson-phase">${String(ch.number).padStart(2,'0')} ${ch.level==='concept'?'개념 · ':ch.level==='deep'?'심화 · ':''}${ch.title}</div><h1 class="lesson-title">${s.title}</h1><p class="goal">${ch.goal}</p><div class="lesson-toolbar"><span>${ch.sections.indexOf(s)+1} / ${ch.sections.length} 구간 · ${Math.max(2,Math.round(s.text.length/450))}분 읽기</span><div class="toolbar-actions"><div class="reader-size"><button class="small-button" id="font-down" aria-label="본문 글자 줄이기">가−</button><button class="small-button" id="font-up" aria-label="본문 글자 키우기">가＋</button></div><button class="small-button" id="bookmark" aria-pressed="${bookmarked}">${bookmarked?'책갈피 저장됨':'책갈피'}</button><a class="small-button" href="materials/learning/${ch.file}" download>원문</a></div></div>
 ${labs[s.id]?labHTML(labs[s.id]):''}<article class="article">${s===ch.sections[0]?ch.intro_html||'':''}${s.html}</article>
 <div class="lesson-footer">${prev?`<a class="secondary" href="${href(prev)}">이전 구간</a>`:'<a class="secondary" href="#/home">학습 지도</a>'}<button class="primary" id="complete-next">${done?(next?'다음 구간으로':'설명 연습으로'):(next?'이해했어요 · 다음 구간':'이해했어요 · 설명 연습')}</button><button class="small-button" id="toggle-done">${done?'완료 표시 취소':'이 구간만 완료 표시'}</button></div></div>
 <aside class="lesson-rail"><div class="outline-block"><p class="rail-heading">이번 단원의 흐름</p><ol class="section-nav">${ch.sections.map(x=>`<li><a href="#/learn/${ch.id}/${x.id}" class="${x.id===s.id?'active':''}" ${x.id===s.id?'aria-current="step"':''}>${state.completed.includes(x.id)?'<span class="checked">✓</span>':''}${x.title}</a></li>`).join('')}</ol></div><div><label class="rail-heading" for="section-note">내 말로 정리하기</label><textarea class="note-area" id="section-note" placeholder="무엇을 알았나요? 어떤 조건에서 틀릴 수 있나요?">${esc(state.notes[s.id]||'')}</textarea><p class="note-caption" id="note-status">입력한 내용은 이 브라우저에 저장됩니다.</p><a class="small-button" href="#/case">공통 사례 살펴보기</a></div></aside></div>`;
@@ -75,6 +124,7 @@ $('#toggle-done').onclick=()=>{state.completed=done?state.completed.filter(id=>i
 }
 function setFont(delta){state.font=Math.min(22,Math.max(14,state.font+delta));document.documentElement.style.setProperty('--body-size',state.font+'px');save()}
 function initLab(){
+initConceptLabs();
 if($('#document-select')){$('#document-select').onchange=validateDemo;validateDemo()}
 if($('#review-rate')){$('#review-rate').oninput=queueDemo;$('#review-time').oninput=queueDemo;queueDemo()}
 if($('#event-time')){$('#event-time').onchange=timeDemo;$('#known-time').onchange=timeDemo;timeDemo()}
@@ -152,7 +202,7 @@ function notFound(){$('#main').innerHTML='<div class="route-error"><h1>학습 �
 function render(){
 route=location.hash.replace(/^#\/?/,'').split('/').filter(Boolean);currentSection=null;currentChapter=null;
 closeMenu();
-if(route[0]==='learn')lesson();else if(route[0]==='deep')deepPage();else if(route[0]==='case')casePage();else if(route[0]==='resource')resource();else if(route[0]==='practice')practice();else home();
+if(route[0]==='learn')lesson();else if(route[0]==='concepts')conceptPage();else if(route[0]==='deep')deepPage();else if(route[0]==='case')casePage();else if(route[0]==='resource')resource();else if(route[0]==='practice')practice();else home();
 nav();document.title=(currentSection?currentSection.title+' — ':'')+'기업 지식 연구실';
 window.scrollTo({top:0,behavior:'instant'});document.documentElement.style.setProperty('--body-size',state.font+'px');
 }
