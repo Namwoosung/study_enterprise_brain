@@ -11,8 +11,8 @@
     "subagent_fork_turns": "none"
   },
   "trigger": "전면 개편 진행해",
-  "current_batch": "B03",
-  "active_unit": "U03",
+  "current_batch": "B03_B04_B09_partial",
+  "active_unit": "U08",
   "baseline": {
     "root_content_commit": "5fb21403697b4b95c269f505894c1583d3cad04d",
     "content_quality": "rejected_by_user",
@@ -25,18 +25,20 @@
     "estimate_is_acceptance_gate": false
   },
   "next_actions": [
-    "Continue B03 U03 property graph/Neo4j lesson, then expand U05 and U06 semantic reasoning/validation.",
-    "Check design reply before final UI selection; independent authoring continues while pending.",
-    "Expand remaining blueprint-required lessons, then U08-U12 and S01 survey; keep unit status partial until full contract met."
+    "Write U07 paired Cypher/SPARQL reading lesson with intermediate rows and duplicate/OPTIONAL cases.",
+    "Continue U09 source-to-candidate extraction examples, U10 resolution and U11 review before U12 auto ontology; read survey sections alongside.",
+    "Expand U06 OWL axioms/inference/profiles and remaining blueprint-required foundations; do not mark partial units ready.",
+    "Integrate new lessons into approved B reader using sync_manifest.py and reader/build.py; production packaging, learning-record migration and Sites deployment remain."
   ],
   "open_decisions": [
     {
       "id": "design-direction",
-      "status": "presented_awaiting_reply",
+      "status": "approved",
       "required_before": "final_ui_selection_and_production_replacement",
       "blocks_independent_content": false,
-      "next": "실제 수업의 HTML 3안을 만든 뒤 한 번에 선택/수정 의견을 요청한다.",
-      "approved_option": null
+      "next": "Apply approved B layout as remaining lessons and figures are integrated; no repeat approval request.",
+      "approved_option": "B",
+      "approved_on": "2026-11-19"
     }
   ],
   "calibration_samples": [
@@ -60,7 +62,7 @@
     }
   ],
   "design_prototypes": {
-    "status": "awaiting_user_choice",
+    "status": "selected_B",
     "artifacts": [
       "rebuild/prototypes/index.html",
       "rebuild/prototypes/a.html",
@@ -72,10 +74,15 @@
     ]
   },
   "web_integration": {
-    "status": "not_started",
-    "design_selected": false,
-    "artifacts": [],
-    "review_evidence": []
+    "status": "in_progress",
+    "design_selected": true,
+    "artifacts": [
+      "rebuild/reader/dist/index.html",
+      "rebuild/reader/build.py"
+    ],
+    "review_evidence": [
+      "rebuild/reader/QA.md"
+    ]
   },
   "deployment": {
     "status": "unchanged_legacy_site",
@@ -127,12 +134,14 @@
       "dependencies": [
         "U02"
       ],
-      "status": "not_started",
+      "status": "drafting",
       "estimated_characters": [
         14000,
         20000
       ],
-      "artifacts": [],
+      "artifacts": [
+        "learning-v2/units/U03/01-property-graph.md"
+      ],
       "review_evidence": [],
       "blockers": []
     },
@@ -184,12 +193,14 @@
         "U04",
         "U05"
       ],
-      "status": "not_started",
+      "status": "drafting",
       "estimated_characters": [
         20000,
         28000
       ],
-      "artifacts": [],
+      "artifacts": [
+        "learning-v2/units/U06/01-inference-and-validation.md"
+      ],
       "review_evidence": [],
       "blockers": []
     },
@@ -217,12 +228,14 @@
         "U04",
         "U05"
       ],
-      "status": "not_started",
+      "status": "drafting",
       "estimated_characters": [
         16000,
         22000
       ],
-      "artifacts": [],
+      "artifacts": [
+        "learning-v2/units/U08/01-from-links-to-knowledge.md"
+      ],
       "review_evidence": [],
       "blockers": []
     },

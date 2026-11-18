@@ -34,7 +34,13 @@
       "prerequisites": [
         "U02"
       ],
-      "lessons": []
+      "lessons": [
+        {
+          "id": "U03-L01",
+          "title": "속성 그래프에서 무엇을 노드와 관계로 만들까요",
+          "path": "units/U03/01-property-graph.md"
+        }
+      ]
     },
     {
       "id": "U04",
@@ -82,7 +88,13 @@
         "U04",
         "U05"
       ],
-      "lessons": []
+      "lessons": [
+        {
+          "id": "U06-L01",
+          "title": "같은 데이터에서 추론과 검증이 다른 답을 내는 이유",
+          "path": "units/U06/01-inference-and-validation.md"
+        }
+      ]
     },
     {
       "id": "U07",
@@ -101,7 +113,13 @@
         "U04",
         "U05"
       ],
-      "lessons": []
+      "lessons": [
+        {
+          "id": "U08-L01",
+          "title": "연결된 자료를 질문에 답하는 Knowledge Graph로 발전시키기",
+          "path": "units/U08/01-from-links-to-knowledge.md"
+        }
+      ]
     },
     {
       "id": "U09",

@@ -3,7 +3,9 @@
 > **현재 실행 기준(2026-11-18):** 다음 명령 **‘전면 개편 진행해’**는 [실행 진입점](rebuild/START_HERE.md)과 [진행 상태](rebuild/STATE.json)를 읽고 시작한다. GPT-6.2.sol / high reasoning에서 이어갈 [단원별 상세 명세](rebuild/CURRICULUM_BLUEPRINT.md), [제작·검토 절차](rebuild/EXECUTION_PROTOCOL.md), [기술 인수인계](rebuild/TECHNICAL_HANDOFF.md)를 준비했다. 기존 자료는 사용자가 학습 품질을 거부한 개편 대상이다. [실패 분석](REBUILD_PLAN.md)과 [운행 설명 표본](rebuild/DRIVING_LESSON_SAMPLE.md)은 배경 자료이며, 표본 하나를 전체 범위나 설명 수준의 상한으로 삼지 않는다.
 
 작성일: 2026-11-17  
-상태: 기존 교재·웹 구현 후 전면 개편 요청을 반영한 실행 계획 2.0 준비. 새 본편과 화면 프로토타입은 아직 제작하지 않음.
+현재 개편 산출물: [새 교재 안내](learning-v2/README.md) · [선택된 B안의 로컬 학습 화면](rebuild/reader/dist/index.html). 전체 제작은 진행 중이며 기존 운영 사이트는 아직 교체하지 않았다.
+
+상태: 전면 개편 진행 중. 새 본문을 집필·검토하고, 사용자가 선택한 B안으로 작성된 수업들의 로컬 학습 화면을 연결했다. 전체 교재와 운영 사이트 교체는 미완료다.
 
 이 문서는 프로젝트의 목적·배경·발표 범위를 정리한다. 실제 개편 순서와 단원 범위는 최신 사용자 요구를 반영한 rebuild/의 실행 명세를 우선한다.
 

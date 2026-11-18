@@ -1,0 +1,102 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>속성 그래프에서 무엇을 노드와 관계로 만들까요</title><link rel="stylesheet" href="comparison.css"><link rel="stylesheet" href="reader.css"></head><body class="view-b"><a class="skip" href="#lesson">본문으로 이동</a><header class="reader-header"><a href="index.html">기업 지식 학습 교재</a><span>개편 중인 본문 · 선택한 B안</span><button id="menu-toggle" aria-expanded="false" aria-controls="course-nav">수업 목록</button></header><div class="reader-grid"><nav id="course-nav" class="course-nav" aria-label="작성된 수업"><label for="lesson-search">수업 찾기</label><input id="lesson-search" type="search" placeholder="개념 또는 제목"><div class="course-links"><a href="U01-L01.html" data-title="기업은 무엇을 기억하고, 무엇을 설명해야 할까요">U01 기업은 무엇을 기억하고, 무엇을 설명해야 할까요</a><a href="U02-L01.html" data-title="같은 질문을 표와 그래프로 따라가기">U02 같은 질문을 표와 그래프로 따라가기</a><a href="U03-L01.html" data-title="속성 그래프에서 무엇을 노드와 관계로 만들까요">U03 속성 그래프에서 무엇을 노드와 관계로 만들까요</a><a href="U04-L01.html" data-title="데이터의 이름을 공유하는 방법: RDF를 처음부터 읽기">U04 데이터의 이름을 공유하는 방법: RDF를 처음부터 읽기</a><a href="U04-L02.html" data-title="같은 사건을 RDF와 속성 그래프로 표현하기">U04 같은 사건을 RDF와 속성 그래프로 표현하기</a><a href="U04-L03.html" data-title="사건이 일어났다는 말과 문서가 그렇게 주장한다는 말">U04 사건이 일어났다는 말과 문서가 그렇게 주장한다는 말</a><a href="U05-L01.html" data-title="장비 정비 기록에서 도메인 온톨로지 설계하기">U05 장비 정비 기록에서 도메인 온톨로지 설계하기</a><a href="U06-L01.html" data-title="같은 데이터에서 추론과 검증이 다른 답을 내는 이유">U06 같은 데이터에서 추론과 검증이 다른 답을 내는 이유</a><a href="U08-L01.html" data-title="연결된 자료를 질문에 답하는 Knowledge Graph로 발전시키기">U08 연결된 자료를 질문에 답하는 Knowledge Graph로 발전시키기</a><a href="U13-L01.html" data-title="정비 질문 한 건을 Vector RAG 안에서 추적하기">U13 정비 질문 한 건을 Vector RAG 안에서 추적하기</a></div><p>전체 과정 중 작성된 수업입니다. 전체 단원의 완성을 뜻하지 않습니다.</p></nav><main id="lesson" class="lesson"><header><p class="unit-name">U03</p><h1>속성 그래프에서 무엇을 노드와 관계로 만들까요</h1><a class="source-link" href="file:///C:/Users/namws/study_enterprise_brain/learning-v2/units/U03/01-property-graph.md">Markdown 원문</a></header><article>
+<p>회사에 같은 모델의 장비 두 대가 있습니다. 각각 제조번호가 다르고, 정비 이력도 다릅니다. 부품 하나를 떼어 다른 장비에 옮기면 ‘지금 부품이 있는 곳’과 ‘지난주 그 부품이 있었던 곳’도 달라집니다. 이런 자료를 그래프에 넣으려면 원천 표의 단어들을 동그라미로 바꾸는 것보다 더 많은 선택을 해야 합니다.</p>
+<p>이번 수업에서는 <strong>속성 그래프(property graph)</strong>의 기본 요소를 배우고, 정비 사건의 요구가 늘어날 때 모델을 어떻게 바꾸는지 살펴보겠습니다. 설명의 제품 기준은 Neo4j입니다. 다른 속성 그래프 제품이 모든 세부 규칙을 공유한다고 가정하지 않습니다.</p>
+<h2 id="1">1. 노드·라벨·관계 타입·속성의 역할</h2>
+<p>다음은 교육용 장비와 문서의 연결입니다.</p>
+<pre tabindex="0"><code class="language-text">장비 E01 ──USES_MANUAL──▶ 매뉴얼 M17
+  label: Equipment       label: Manual
+  serial: S100           version: 3
+</code></pre>
+<p>노드(node)는 장비 E01이나 매뉴얼 M17처럼 독립적으로 가리킬 대상을 나타냅니다. 관계(relationship)는 두 노드의 연결입니다. Neo4j에서 관계는 출발 노드·도착 노드·방향과 관계 타입 하나를 갖습니다. <code>USES_MANUAL</code>은 이 예제에서 사용하는 관계 타입입니다. 방향은 장비에서 매뉴얼로 정했습니다. 같은 사실을 거꾸로 읽는 질의도 가능하지만 저장한 의미와 방향의 약속은 명확해야 합니다.</p>
+<p>라벨(label)은 노드의 종류나 그룹을 나타냅니다. E01에 Equipment 라벨을 붙이면 장비를 찾는 질의의 범위를 지정할 수 있습니다. 여러 라벨을 붙일 수도 있습니다. 예를 들어 <code>Equipment</code>와 <code>InspectionTool</code>을 함께 붙일 수 있지만, 두 라벨을 붙였다는 사실만으로 그 둘의 논리적인 상하 관계가 선언되지는 않습니다. 분류 규칙을 별도로 설계하고 일관되게 적용해야 합니다.</p>
+<p>속성(property)은 키와 값의 쌍입니다. <code>serial: 'S100'</code>에서 serial은 키, S100은 값입니다. Neo4j에서는 노드와 관계 모두 속성을 가질 수 있습니다. 장비에는 제조번호, 매뉴얼에는 판본, ‘승인했다’는 관계에는 승인 시각을 붙일 수 있습니다. 이렇게 개별 연결의 정보까지 함께 담는 점이 속성 그래프를 이해할 때 중요합니다. <a href="https://neo4j.com/docs/getting-started/appendix/graphdb-concepts/">Neo4j graph database concepts</a></p>
+<p>이 네 요소를 섞지 말고 같은 질문으로 읽어 보세요. E01은 어떤 대상인가, 어떤 종류인가, 무엇과 연결되었는가, 그 대상이나 연결에 어떤 값이 있는가입니다.</p>
+<h2 id="2-cypher">2. Cypher의 괄호를 읽기</h2>
+<p>위 자료를 만드는 코드를 보겠습니다. 기존 DB에 아무 자료도 없는 교육용 공간을 가정합니다. 이 코드는 공식 구문의 읽기 예이며, 여기서 Neo4j 서버로 실행한 결과는 아닙니다.</p>
+<pre tabindex="0"><code class="language-cypher">CREATE (e:Equipment {id: 'E01', serial: 'S100'})
+CREATE (m:Manual {id: 'M17', version: 3})
+CREATE (e)-[:USES_MANUAL]-&gt;(m)
+</code></pre>
+<p><code>CREATE</code>는 데이터를 만드는 명령입니다. <code>(e:Equipment {...})</code>의 괄호는 노드이고, e는 이 질의에서 노드를 다시 가리킬 변수입니다. Equipment는 라벨, 중괄호는 속성입니다. <code>e</code> 자체가 영구적인 장비 ID인 것은 아닙니다. 영속적인 업무 식별자는 예제의 id 속성 E01로 정했습니다.</p>
+<p><code>(e)-[:USES_MANUAL]-&gt;(m)</code>의 대괄호는 관계를 나타냅니다. 출발은 e, 도착은 m이고 타입은 USES_MANUAL입니다. 이번에는 관계를 다시 참조하지 않아서 변수 이름을 생략했습니다.</p>
+<p>다음 질의는 장비 E01이 사용하는 매뉴얼과 판본을 찾습니다.</p>
+<pre tabindex="0"><code class="language-cypher">MATCH (e:Equipment {id: 'E01'})-[:USES_MANUAL]-&gt;(m:Manual)
+RETURN m.id AS manualId, m.version AS version
+</code></pre>
+<p><code>MATCH</code>는 패턴에 맞는 대상을 찾습니다. RETURN은 결과로 내보낼 값을 정하고, AS는 결과 열의 이름을 붙입니다. <code>m.version</code>은 찾아낸 노드 m의 version 속성입니다. 예상 결과는 M17·3 한 행입니다.</p>
+<p>화살표를 뒤집은 <code>(m)-[:USES_MANUAL]-&gt;(e)</code>를 찾으면 이 입력에서는 매칭되지 않습니다. 반면 방향을 생략한 관계 패턴은 어느 방향의 연결인지 구분하지 않고 찾을 수 있습니다. 후자의 편의 때문에 원천 관계의 방향과 의미를 정하지 않아도 된다는 뜻은 아닙니다. 예를 들어 ‘장비가 문서를 사용한다’와 ‘문서가 장비를 승인한다’는 같은 연결로 취급할 수 없습니다.</p>
+<h2 id="3">3. 속성으로 둘지 노드로 둘지 결정하는 기준</h2>
+<p>장비의 색상 문자열은 단순 속성으로 두기 쉽습니다. 하지만 담당자를 <code>owner: '민수'</code>라고만 저장하면 동명이인이나 부서 이동을 다루기 어렵습니다. 담당자를 독립 노드로 만들면 인사 시스템 ID·소속·다른 장비와의 연결을 함께 관리할 수 있습니다.</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>질문</th>
+<th>속성이 편한 경우</th>
+<th>노드가 필요한 이유가 생기는 경우</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>이 값은 다른 자료와 독립적으로 연결되나요?</td>
+<td>단순 표시명</td>
+<td>사람·부품·문서처럼 여러 자료가 같은 대상을 참조</td>
+</tr>
+<tr>
+<td>값 자체에 이력·근거가 필요한가요?</td>
+<td>현재 상태만 표시</td>
+<td>시점별 소속·장착·측정과 그 원천을 추적</td>
+</tr>
+<tr>
+<td>여러 관계의 중심인가요?</td>
+<td>짧은 설명 값</td>
+<td>정비 사건이 장비·담당자·부품·보고서를 연결</td>
+</tr>
+</tbody>
+</table></div>
+<p>이 표가 모든 필드를 노드로 만들라는 뜻은 아닙니다. 날짜나 숫자를 무조건 별도 노드로 바꾸면 단순 조회도 복잡해질 수 있습니다. 반대로 연결해야 할 대상을 문자열 목록에만 묻어 두면 별도 질의와 무결성 관리가 어려워집니다. 답할 질문과 관리할 정보의 수명에 따라 선택합니다.</p>
+<h2 id="4">4. 관계의 속성이 유용한 경우</h2>
+<p>담당자가 매뉴얼을 두 번 검토했다고 합시다. 같은 사람과 같은 문서라도 서로 다른 검토 기록입니다.</p>
+<pre tabindex="0"><code class="language-text">민수 ─REVIEWED {reviewId: R1, at: 09:00, result: 보완}─▶ M17
+민수 ─REVIEWED {reviewId: R2, at: 14:00, result: 승인}─▶ M17
+</code></pre>
+<p>관계 각각이 검토 발생을 나타냅니다. 같은 두 노드 사이에 타입이 같은 관계가 여러 개 있어도 서로 다른 관계로 나타낼 수 있습니다. 관계 속성의 reviewId는 원천 검토 기록에 대응하도록 정한 업무 식별자입니다. ‘사람과 문서가 이미 연결됐으니 검토도 한 번뿐’이라고 판단하면 오후의 검토를 잃습니다.</p>
+<p>다음처럼 r 변수로 각 관계를 받아 시각과 결과를 읽습니다.</p>
+<pre tabindex="0"><code class="language-cypher">MATCH (:Person {id: 'P1'})-[r:REVIEWED]-&gt;(:Manual {id: 'M17'})
+RETURN r.reviewId, r.at, r.result
+ORDER BY r.at
+</code></pre>
+<p>이 읽기 예에서는 두 관계의 속성으로 R1과 R2를 구분합니다. 실제 저장 시각의 자료형과 시간대는 데이터 계약에서 정해야 합니다. 위 도식의 09:00 같은 표시는 문맥을 보여주기 위한 축약이지 날짜·시간대 없는 값이 언제나 충분하다는 설계가 아닙니다.</p>
+<h2 id="5">5. 관계를 사건 노드로 바꿀 때</h2>
+<p>검토에 근거 보고서, 공동 검토자, 승인 취소, 이견, 후속 작업을 연결해야 한다면 어떻게 할까요? 관계가 여러 대상을 연결하는 중심이 되어야 합니다. Neo4j의 일반 관계 끝점은 노드이므로 다른 관계를 검토 관계 자체에 바로 이어 붙이는 대신, 검토를 독립 노드로 만들 수 있습니다.</p>
+<pre tabindex="0"><code class="language-text">검토 R2 ─PERFORMED_BY→ 민수
+검토 R2 ─ABOUT→ 매뉴얼 M17
+검토 R2 ─USED_EVIDENCE→ 보고서 D12
+검토 R2 ─RESULTED_IN→ 후속 작업 W9
+</code></pre>
+<p>이제 검토 노드에 시각·결과를 두고 여러 관련 대상을 연결합니다. 표현이 길어졌지만 질문도 늘었습니다. 단순히 선 수가 적다는 이유로 관계 속성 방식이 언제나 낫다고 판단할 수 없습니다.</p>
+<p>RDF 비교 수업에서는 세 운행을 사건 노드로 표현하고 속성 그래프에서는 관계로 표현했습니다. 두 모델의 구조 차이를 드러내기 위한 비교였습니다. 실제 모델링에서 속성 그래프도 사건 노드를 사용할 수 있습니다. 어떤 객체를 식별하고 참조해야 하는지가 선택의 기준입니다. <a href="U04-L02.html">반복 사건 비교</a></p>
+<h2 id="6-neo4j-dbms">6. Neo4j는 이 모델을 다루는 DBMS입니다</h2>
+<p>Neo4j는 속성 그래프를 저장하고 질의하는 DBMS입니다. Cypher는 질의 언어이며, Neo4j Browser 같은 도구는 사람이 쿼리와 결과를 다루는 화면입니다. 애플리케이션은 드라이버를 통해 질의를 보낼 수 있습니다. 그래프를 화면에서 동그라미와 선으로 보여주는 기능은 저장·질의 기능과 구분해서 이해해야 합니다.</p>
+<p>또한 실제 시스템에는 트랜잭션이 필요합니다. 부품 교체 이력을 넣으면서 기존 장착을 종료하고 새 장착을 시작해야 한다면 중간 상태만 반영되지 않도록 하나의 논리 작업으로 다룰 수 있어야 합니다. 트랜잭션은 관련 변경이 함께 처리되도록 DB가 제공하는 수단입니다. 그러나 트랜잭션이 성공했다고 물리적인 부품 교체가 실제로 일어났다는 사실까지 검증되는 것은 아닙니다. DB 안의 일관성과 업무 사실의 일치는 서로 다른 확인입니다.</p>
+<h2 id="7-merge">7. MERGE와 제약은 무엇을 보장하나요</h2>
+<p>같은 파일을 다시 적재할 때 CREATE만 반복하면 중복 노드가 생길 수 있습니다. MERGE는 지정한 패턴에 맞는 것이 있으면 찾고, 없으면 만드는 데 사용합니다.</p>
+<pre tabindex="0"><code class="language-cypher">MERGE (e:Equipment {id: 'E01'})
+SET e.serial = 'S100'
+</code></pre>
+<p>이 예는 id를 식별 기준으로 삼고 serial을 갱신합니다. 반대로 <code>MERGE (e:Equipment {id:'E01', serial:'S200'})</code>처럼 바뀔 수 있는 속성까지 패턴에 넣으면, 예전 serial S100인 노드가 전체 패턴과 일치하지 않을 수 있습니다. 식별 기준과 수정할 속성을 분리해 생각해야 합니다. MERGE가 이름 유사도를 보고 실세계의 동일 장비를 판단하는 것은 아닙니다. <a href="https://neo4j.com/docs/cypher-manual/current/clauses/merge/">Cypher MERGE</a></p>
+<p>업무 식별자의 중복을 막으려면 고유성 제약을 함께 검토합니다.</p>
+<pre tabindex="0"><code class="language-cypher">CREATE CONSTRAINT equipment_id_unique
+FOR (e:Equipment) REQUIRE e.id IS UNIQUE
+</code></pre>
+<p>이 명령은 Equipment의 id 값이 중복되지 않도록 하는 제약입니다. 모든 장비 노드에 id가 반드시 존재해야 한다는 요구와는 다릅니다. 존재 요구에는 별도 제약이 필요하며, 일부 제약은 에디션 조건이 있습니다. 공식 current 문서의 property existence constraint는 Enterprise Edition으로 표시되어 있습니다. 제품 기능을 소개할 때는 사용하는 버전과 에디션에서 지원하는지 확인해야 합니다. <a href="https://neo4j.com/docs/cypher-manual/current/schema/constraints/create-constraints/">Neo4j constraints</a></p>
+<p>동시에 여러 적재 작업이 실행되는 환경에서는 MERGE 패턴과 제약의 상호작용도 확인해야 합니다. 특히 식별 속성의 유일성을 MERGE라는 단어 하나로 대체해서 설명하면 안 됩니다. 관계를 이미 찾은 두 노드 사이에서 병합하는 경우의 잠금 동작과, 노드 식별 패턴의 유일성 요구도 구분해야 합니다. <a href="https://neo4j.com/docs/cypher-manual/current/clauses/merge/#query-merge-using-constraints">MERGE와 제약·동시 실행</a></p>
+<h2 id="8">8. 인덱스와 스키마가 있는 그래프</h2>
+<p>‘스키마가 유연하다’는 말은 저장 구조·검사 규칙·업무 의미가 필요 없다는 뜻이 아닙니다. 팀마다 <code>Equipment</code>, <code>Machine</code>, <code>Tool</code>을 제각각 만들고 E01을 복제하면 질의가 빠뜨리는 대상이 늘어납니다. 필요한 라벨·관계·속성·업무 ID를 합의하고 제약과 적재 검사를 적용할 수 있습니다.</p>
+<p>인덱스는 특정 ID 같은 조건으로 시작 노드를 찾을 때 도움을 줄 수 있습니다. 고유성 제약을 지원하는 인덱스가 만들어지는 경우도 있지만, 모든 제약이 인덱스인 것은 아닙니다. 실행 계획을 보면 시작점을 어떻게 찾고 관계를 확장하는지 확인할 수 있습니다. 따라서 ‘관계가 직접 연결돼 있으니 인덱스는 필요 없다’는 설명은 지나친 단순화입니다. 앞 수업의 데이터 모델·질의·엔진 구분으로 돌아가 보세요. <a href="https://neo4j.com/docs/cypher-manual/current/planning-and-tuning/execution-plans/">Neo4j query plans</a></p>
+<h2 id="9">9. 설명해 볼 문제</h2>
+<p><strong>문제 1:</strong> 사람 노드에 <code>manuals: ['M17','M18']</code>라는 문자열 배열만 저장한 경우와 문서 노드로 관계를 만든 경우는 무엇이 달라질까요?</p>
+<p><strong>해설:</strong> 배열은 값을 보여주기 쉽습니다. 하지만 문서 판본·작성자·근거와 연결해 질의하려면 문자열을 실제 문서와 대응시켜야 합니다. 문서를 독립 노드로 만들면 여러 사람의 검토·문서의 판본·출처를 같은 대상에 연결하기 쉽습니다. 단순 표시가 목적이라면 배열이 충분한 경우도 있습니다.</p>
+<p><strong>문제 2:</strong> 검토 결과를 승인에서 철회로 바꾸면 이전 승인 기록이 사라져도 되나요?</p>
+<p><strong>해설:</strong> 현재 상태만 필요한지, 당시 승인과 나중 철회를 각각 설명해야 하는지에 따라 다릅니다. 후자라면 승인 사건과 철회 사건, 그 연결과 시각을 보존할 수 있습니다. 속성 하나 덮어쓰기를 사건 이력의 자동 보존으로 착각하면 안 됩니다.</p>
+<p><strong>문제 3:</strong> 고유성 제약을 넣었으니 ‘ETCH-7’과 ‘E01’이 같은 실물인지도 해결됐나요?</p>
+<p><strong>해설:</strong> 두 문자열은 다른 값이므로 제약을 통과할 수 있습니다. 같은 실물인지 판단하는 entity resolution과 대표 식별자·별칭 매핑이 별도로 필요합니다. DB가 값 중복을 막는 일과 실세계 동일성을 판정하는 일을 구분해야 합니다.</p></article><nav class="pager" aria-label="수업 이동"><a href="U02-L01.html">이전 수업: 같은 질문을 표와 그래프로 따라가기</a><a href="U04-L01.html">다음 작성 수업: 데이터의 이름을 공유하는 방법: RDF를 처음부터 읽기</a></nav></main><aside class="reader-example"><nav class="lesson-outline" aria-label="수업 안 목차"><h2>이 수업에서</h2><a href="#1">1. 노드·라벨·관계 타입·속성의 역할</a><a href="#2-cypher">2. Cypher의 괄호를 읽기</a><a href="#3">3. 속성으로 둘지 노드로 둘지 결정하는 기준</a><a href="#4">4. 관계의 속성이 유용한 경우</a><a href="#5">5. 관계를 사건 노드로 바꿀 때</a><a href="#6-neo4j-dbms">6. Neo4j는 이 모델을 다루는 DBMS입니다</a><a href="#7-merge">7. MERGE와 제약은 무엇을 보장하나요</a><a href="#8">8. 인덱스와 스키마가 있는 그래프</a><a href="#9">9. 설명해 볼 문제</a></nav></aside></div><script src="comparison.js"></script><script src="reader.js"></script></body></html>
