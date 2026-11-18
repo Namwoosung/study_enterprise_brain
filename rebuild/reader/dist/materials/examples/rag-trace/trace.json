@@ -1,0 +1,152 @@
+{
+  "kind": "educational-simulation",
+  "asOf": "2026-04-10",
+  "equipment": "PX-47",
+  "question": "PX-47 정비 뒤 E17이 다시 떴습니다. 지금 기준으로 복귀 판정 기준과 꼭 남길 기록은 무엇인가요?",
+  "semanticQuery": "PX-47 E17 정비 후 운전 재개 판정 기준과 필수 이력 항목",
+  "queryVector": [1, 0],
+  "lexicalTerms": {
+    "E17": 1,
+    "복귀": 2,
+    "판정": 2,
+    "기록": 3
+  },
+  "topK": 3,
+  "rrfConstant": 60,
+  "evidenceCharacterBudget": 100,
+  "documents": [
+    {
+      "id": "D01",
+      "title": "PX-47 정비 매뉴얼",
+      "version": "v2",
+      "kind": "manual",
+      "equipment": "PX-47",
+      "effectiveFrom": "2025-03-01",
+      "effectiveUntilExclusive": "2026-03-01",
+      "chunks": [
+        {
+          "id": "D01a",
+          "locator": "p.8 §3.2 표 3, E17 행",
+          "text": "PX-47 복귀 판정 | E17 | 점검 모드에서 오류 재발 없이 8분 연속 관찰.",
+          "vector": [10, 1]
+        }
+      ]
+    },
+    {
+      "id": "D02",
+      "title": "PX-47 정비 매뉴얼",
+      "version": "v3",
+      "kind": "manual",
+      "equipment": "PX-47",
+      "effectiveFrom": "2026-03-01",
+      "effectiveUntilExclusive": null,
+      "chunks": [
+        {
+          "id": "D02a",
+          "locator": "p.9 §3.2 표 3, E17 행",
+          "text": "PX-47 복귀 판정 | E17 | 점검 모드에서 오류 재발 없이 12분 연속 관찰.",
+          "vector": [4, 2],
+          "rerank": 3
+        },
+        {
+          "id": "D02b",
+          "locator": "p.8 §3.1",
+          "text": "PX-47 E17 점검 준비 | 점검 모드를 지정하고 시험 시각을 확인합니다.",
+          "vector": [3, 1],
+          "rerank": 0
+        }
+      ]
+    },
+    {
+      "id": "D03",
+      "title": "PX-48 정비 매뉴얼",
+      "version": "v1",
+      "kind": "manual",
+      "equipment": "PX-48",
+      "effectiveFrom": "2026-03-04",
+      "effectiveUntilExclusive": null,
+      "chunks": [
+        {
+          "id": "D03a",
+          "locator": "p.6 §3.2 표 2, E17 행",
+          "text": "PX-48 복귀 판정 | E17 | 점검 모드에서 오류 재발 없이 15분 연속 관찰.",
+          "vector": [6, 1]
+        }
+      ]
+    },
+    {
+      "id": "D04",
+      "title": "PX-47 서비스 지침 SB-47",
+      "version": "r1",
+      "kind": "directive",
+      "equipment": "PX-47",
+      "effectiveFrom": "2026-03-10",
+      "effectiveUntilExclusive": null,
+      "chunks": [
+        {
+          "id": "D04a",
+          "locator": "p.2 §2",
+          "text": "PX-47 E17 복귀 승인 요청에는 재현 시각과 시험 결과를 기록합니다.",
+          "vector": [2, 3],
+          "rerank": 3
+        }
+      ]
+    },
+    {
+      "id": "D05",
+      "title": "정비 관측 일지 W-207",
+      "version": "r1",
+      "kind": "observation",
+      "equipment": "PX-47",
+      "effectiveFrom": null,
+      "effectiveUntilExclusive": null,
+      "observedOn": "2026-03-20",
+      "chunks": [
+        {
+          "id": "D05a",
+          "locator": "p.1 관측 2",
+          "text": "담당자는 PX-47을 점검했습니다. 4분째 E17이 다시 발생해 복귀 요청을 보류했습니다.",
+          "vector": [4, 1],
+          "rerank": 1
+        }
+      ]
+    },
+    {
+      "id": "D06",
+      "title": "작업 용어집",
+      "version": "r1",
+      "kind": "glossary",
+      "equipment": "ALL",
+      "effectiveFrom": null,
+      "effectiveUntilExclusive": null,
+      "chunks": [
+        {
+          "id": "D06a",
+          "locator": "p.1 ‘복귀’ 항목",
+          "text": "복귀란 작업 절차에서 운전 재개를 뜻합니다.",
+          "vector": [2, 2],
+          "rerank": 0
+        }
+      ]
+    }
+  ],
+  "boundaryVariant": {
+    "replaces": "D02a",
+    "chunks": [
+      {
+        "id": "D02-s1",
+        "locator": "p.9 §3.2 표 3, E17 행 첫 줄",
+        "text": "PX-47 복귀 판정 | E17 | 점검 모드에서 오류 재발 없이",
+        "vector": [3, 3],
+        "rerank": 2
+      },
+      {
+        "id": "D02-s2",
+        "locator": "p.9 §3.2 표 3, E17 행 둘째 줄",
+        "text": "12분 연속 관찰.",
+        "vector": [1, 4],
+        "rerank": 0
+      }
+    ]
+  }
+}

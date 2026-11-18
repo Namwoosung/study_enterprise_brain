@@ -1,0 +1,53 @@
+{
+  "source_version": "2026-10-fixture-v1",
+  "documents": {
+    "D1#1": "E-17과 E-18은 별개의 식각 장비이며, 식각 장비는 이 사업장의 공정 장비 분류에 속합니다.",
+    "D1#2": "자산 대장에서 ‘식각 장비’로 등록하는 장비 종류를 정비팀에서는 ‘식각기’라고 부릅니다.",
+    "D2#1": "I-51은 2026-10-12 E-17의 완료된 검사 기록입니다. 판정은 적합이고 발행 당시 상태는 확정입니다.",
+    "D2#2": "I-43은 2026-10-02 E-17의 확정 검사 기록입니다. 이전 시스템에서 이관했고 판정 항목은 비어 있습니다.",
+    "D3#1": "R-52는 2026-10-14 E-17에 대해 접수된 검사 요청입니다. 현재 상태는 접수이며 검사 수행 기록은 연결되지 않았습니다.",
+    "D3#2": "R-52의 비고에 ‘진공 성능 우려’가 적혔습니다. 접수자는 구체적 원인을 확인하지 못했습니다.",
+    "D4#1": "2026-10-10 이후 신규 확정 발행분에는 판정을 한 건 기록합니다. 이전 시스템의 이관분에는 결측을 허용합니다.",
+    "D4#2": "검사 기록은 실제 수행 근거와 함께 장비 번호로 등록합니다. 요청 건수와 검사 실적은 별도 집계합니다."
+  },
+  "baseline": {
+    "version": "1.0",
+    "classes": ["Equipment", "ProcessEquipment", "EtchEquipment", "InspectionEntry"],
+    "subclass_of": [["ProcessEquipment", "Equipment"]]
+  },
+  "change": {
+    "version": "1.1",
+    "classes_added": ["InspectionRecord", "InspectionRequest"],
+    "subclass_of_added": [
+      ["EtchEquipment", "ProcessEquipment"],
+      ["InspectionRecord", "InspectionEntry"],
+      ["InspectionRequest", "InspectionEntry"]
+    ],
+    "alt_labels_added": {"EtchEquipment": ["식각기"]},
+    "relation": {"id": "aboutEquipment", "domain": "InspectionEntry", "range": "Equipment"},
+    "source_mapping_types": {
+      "inspection_record": "InspectionRecord",
+      "inspection_request": "InspectionRequest"
+    },
+    "validation": {"new_issue_effective_from": "2026-10-10", "final_outcome_min": 1, "final_outcome_max": 1}
+  },
+  "units": [
+    {"id": "E-17", "type": "EtchEquipment", "evidence": "D1#1"},
+    {"id": "E-18", "type": "EtchEquipment", "evidence": "D1#1"}
+  ],
+  "entries": [
+    {"id": "I-51", "equipment": "E-17", "date": "2026-10-12", "source_kind": "inspection_record", "status": "final", "issue_origin": "new", "outcomes": ["적합"], "evidence": "D2#1"},
+    {"id": "I-43", "equipment": "E-17", "date": "2026-10-02", "source_kind": "inspection_record", "status": "final", "issue_origin": "legacy", "outcomes": [], "evidence": "D2#2"},
+    {"id": "R-52", "equipment": "E-17", "date": "2026-10-14", "source_kind": "inspection_request", "status": "received", "issue_origin": "new", "outcomes": [], "evidence": "D3#1"}
+  ],
+  "candidate_decisions": {
+    "K01": {"status": "accepted", "evidence": ["D1#2"], "reason": "두 이름의 적용 범위가 같은 장비 유형이라고 명시합니다."},
+    "K02": {"status": "accepted", "evidence": ["D1#1"], "reason": "식각 장비는 공정 장비의 하위 분류입니다."},
+    "K03": {"status": "rejected", "evidence": ["D1#1"], "reason": "E-17은 자산 개체입니다."},
+    "K04": {"status": "rejected", "evidence": ["D1#1"], "reason": "역방향은 일반 공정 장비를 식각 장비로 만들고 순환을 구성합니다."},
+    "K05": {"status": "accepted", "evidence": ["D2#1", "D3#1", "D4#2"], "reason": "기록과 요청의 조건이 다르며 각각 장비를 가리킵니다."},
+    "K06": {"status": "rejected", "evidence": ["D3#2"], "reason": "근거는 진공 성능 우려만 확인합니다."},
+    "K07": {"status": "revised", "evidence": ["D4#1"], "reason": "판정 개수는 전역 공리 대신 신규 확정 발행 시의 유효성 규칙으로 제한합니다."},
+    "K08": {"status": "rejected", "evidence": ["D2#1", "D3#1", "D4#2"], "reason": "같은 용어로 합치면 집계를 구별할 수 없습니다."}
+  }
+}

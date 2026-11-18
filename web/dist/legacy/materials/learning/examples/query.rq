@@ -1,0 +1,8 @@
+PREFIX ex: <https://example.org/fab/>
+SELECT ?run ?equipment ?document
+WHERE {
+  ?run ex:forLot ex:L02 ;
+       ex:usedEquipment ?equipment ;
+       ex:usedDocument ?document .
+}
+ORDER BY ?run

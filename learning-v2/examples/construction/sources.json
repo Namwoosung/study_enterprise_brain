@@ -1,0 +1,201 @@
+{
+  "description": "교육용 합성 자료. 설비 운영 지침이나 장비 사양이 아니다.",
+  "registry": {
+    "version": "2026-11-18.snap1",
+    "time_basis": "+09:00",
+    "locations": [
+      [
+        "N",
+        "N03",
+        "북동 N03"
+      ],
+      [
+        "S",
+        "N03",
+        "남동 N03"
+      ]
+    ],
+    "assets": [
+      [
+        "N",
+        "A017",
+        "Q-17",
+        "N03",
+        "I"
+      ],
+      [
+        "S",
+        "A055",
+        "Q-17",
+        "N03",
+        "I"
+      ],
+      [
+        "N",
+        "A018",
+        "Q-18",
+        null,
+        "I"
+      ]
+    ],
+    "observations": [
+      [
+        "N",
+        "O14",
+        "A017",
+        "2026-11-18T10:05:00+09:00",
+        1300,
+        "mW",
+        "W"
+      ],
+      [
+        "N",
+        "O15",
+        "A017",
+        "2026-11-18T10:08:00+09:00",
+        null,
+        "mW",
+        "M"
+      ]
+    ]
+  },
+  "maintenance": {
+    "id": "WO-29",
+    "revision": 2,
+    "page": 1,
+    "date": "2026-11-18",
+    "time_basis": "+09:00",
+    "sentences": [
+      "11월 18일, 북동 N03에서 장비 Q-17(SN A017)을 점검했다.",
+      "정비팀은 해당 장비의 펌프 P100을 제거하고 P200을 설치했다.",
+      "교체 뒤 알람 A-17은 10:00~10:15에 관찰되지 않았다.",
+      "담당자는 이전 알람이 P100의 마모 때문일 수 있다고 기록했다.",
+      "다음 관찰 창에 같은 알람이 반복되면 기록 검토를 요청할 예정이다."
+    ],
+    "event_triggers": [
+      {"sentence": 2, "start": 21, "end": 25, "text": "제거하고"},
+      {"sentence": 2, "start": 32, "end": 36, "text": "설치했다"}
+    ],
+    "spans": {
+      "m1": {
+        "sentence": 1,
+        "start": 9,
+        "end": 15,
+        "text": "북동 N03"
+      },
+      "m2": {
+        "sentence": 1,
+        "start": 21,
+        "end": 25,
+        "text": "Q-17"
+      },
+      "m3": {
+        "sentence": 1,
+        "start": 29,
+        "end": 33,
+        "text": "A017"
+      },
+      "m4": {
+        "sentence": 2,
+        "start": 0,
+        "end": 3,
+        "text": "정비팀"
+      },
+      "m5": {
+        "sentence": 2,
+        "start": 5,
+        "end": 10,
+        "text": "해당 장비"
+      },
+      "m6": {
+        "sentence": 2,
+        "start": 15,
+        "end": 19,
+        "text": "P100"
+      },
+      "m7": {
+        "sentence": 2,
+        "start": 26,
+        "end": 30,
+        "text": "P200"
+      },
+      "m8": {
+        "sentence": 3,
+        "start": 5,
+        "end": 12,
+        "text": "알람 A-17"
+      },
+      "m9": {
+        "sentence": 3,
+        "start": 14,
+        "end": 25,
+        "text": "10:00~10:15"
+      },
+      "m10": {
+        "sentence": 4,
+        "start": 5,
+        "end": 10,
+        "text": "이전 알람"
+      },
+      "m11": {
+        "sentence": 4,
+        "start": 12,
+        "end": 16,
+        "text": "P100"
+      },
+      "m12": {
+        "sentence": 5,
+        "start": 0,
+        "end": 7,
+        "text": "다음 관찰 창"
+      },
+      "m13": {
+        "sentence": 5,
+        "start": 9,
+        "end": 14,
+        "text": "같은 알람"
+      }
+    }
+  },
+  "manual": {
+    "id": "MAN-Q",
+    "revision": "3.2",
+    "page": 7,
+    "section": "2.4.1",
+    "caption": "표 2 · 보조 모듈 M7이 등록된 Q 시리즈만",
+    "headers": [
+      "표시 코드",
+      "기록 화면",
+      "비고"
+    ],
+    "rows": [
+      [
+        "A-17",
+        "신호 탭¹",
+        "모듈 M7"
+      ],
+      [
+        "A-18",
+        "이력 탭",
+        "모듈 M7"
+      ]
+    ],
+    "footnote": "¹ 이 표의 매핑은 표시 소프트웨어 3.2에만 적용합니다."
+  },
+  "evaluation": {
+    "reference": [
+      "inspection",
+      "replacement_old_P100_new_P200",
+      "A17_not_observed_in_window",
+      "wear_hypothesis",
+      "conditional_review_intent"
+    ],
+    "predicted": [
+      "inspection",
+      "replacement_old_P100_new_P200",
+      "A17_not_observed_in_window",
+      "confirmed_wear_cause",
+      "review_already_requested"
+    ]
+  }
+}

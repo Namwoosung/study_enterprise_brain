@@ -1,0 +1,13 @@
+{
+  "checks": [
+    "12 Turtle examples parse with expected triple counts",
+    "Turtle/RDFXML/JSONLD encode the same graph",
+    "Reification example does not contain the original asserted triple",
+    "Named graph query returns graphR17 and P7"
+  ],
+  "limits": [
+    "No Neo4j run",
+    "No RDF1.2 execution",
+    "No human learning outcome measurement"
+  ]
+}

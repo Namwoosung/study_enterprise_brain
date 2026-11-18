@@ -1,0 +1,174 @@
+[
+  {
+    "id": "c1",
+    "title": "Second Brain · Enterprise Brain",
+    "question": "개인 기억에서 조직의 공유 지식으로 무엇이 달라질까?",
+    "description": "목적·등장 배경·구성 역할·기억과 행동·물리 통합의 선택을 배웁니다.",
+    "phase": "목적과 의미",
+    "tags": [
+      "Second Brain",
+      "Enterprise Brain"
+    ]
+  },
+  {
+    "id": "c2",
+    "title": "Knowledge Graph",
+    "question": "연결된 데이터가 어떻게 지식으로 활용될까?",
+    "description": "노드·관계에서 사건·주장·추론·품질까지 연결합니다.",
+    "phase": "목적과 의미",
+    "tags": [
+      "Knowledge Graph",
+      "KG",
+      "지식 그래프"
+    ]
+  },
+  {
+    "id": "c3",
+    "title": "Ontology",
+    "question": "같은 말을 같은 뜻으로 쓰게 하려면?",
+    "description": "클래스·개체·공리와 스키마·매핑·버전의 차이를 익힙니다.",
+    "phase": "목적과 의미",
+    "tags": [
+      "Ontology",
+      "온톨로지",
+      "Taxonomy",
+      "Schema"
+    ]
+  },
+  {
+    "id": "c4",
+    "title": "Semantic Web · W3C",
+    "question": "표준은 어떤 상호운용을 가능하게 할까?",
+    "description": "Linked Data와 RDF·OWL·SPARQL·SHACL의 역할을 구별합니다.",
+    "phase": "표현과 표준",
+    "tags": [
+      "Semantic Web",
+      "W3C",
+      "Linked Data"
+    ]
+  },
+  {
+    "id": "c5",
+    "title": "RDF Graph",
+    "question": "한 진술을 어떻게 교환 가능한 그래프로 적을까?",
+    "description": "Triple·IRI·값·구문·dataset·출처 표현을 익힙니다.",
+    "phase": "표현과 표준",
+    "tags": [
+      "RDF graph",
+      "RDF",
+      "Turtle",
+      "IRI"
+    ]
+  },
+  {
+    "id": "c6",
+    "title": "RDFS · OWL · SHACL",
+    "question": "의미를 추론하는 것과 입력을 검사하는 것은 어떻게 다를까?",
+    "description": "열린 세계·동일성·존재와 개수·프로파일·검사 대상을 이해합니다.",
+    "phase": "표현과 표준",
+    "tags": [
+      "OWL",
+      "RDFS",
+      "SHACL",
+      "W3C - RDF/OWL"
+    ]
+  },
+  {
+    "id": "c7",
+    "title": "Property Graph",
+    "question": "노드와 관계에 속성을 붙이면 무엇이 달라질까?",
+    "description": "값·노드·사건 선택과 RDF 변환 시 정보 보존을 비교합니다.",
+    "phase": "저장과 질의",
+    "tags": [
+      "Property graph",
+      "Label",
+      "관계 속성"
+    ]
+  },
+  {
+    "id": "c8",
+    "title": "Graph DB · Neo4j",
+    "question": "그래프 저장소가 맡는 책임은 어디까지일까?",
+    "description": "DB의 역할·인덱스·탐색 비용·트랜잭션·제품 선택을 다룹니다.",
+    "phase": "저장과 질의",
+    "tags": [
+      "Graph db",
+      "Neo4j",
+      "그래프 DB"
+    ]
+  },
+  {
+    "id": "c9",
+    "title": "Cypher · SPARQL 읽기",
+    "question": "이 쿼리는 어떤 질문에 답하고 무엇을 빠뜨릴까?",
+    "description": "같은 사례의 두 쿼리를 읽고 필터·누락·중복·집계를 이해합니다.",
+    "phase": "저장과 질의",
+    "tags": [
+      "Cypher",
+      "SPARQL",
+      "질의"
+    ]
+  },
+  {
+    "id": "c10",
+    "title": "Auto ontology",
+    "question": "무엇을 자동 생성하고 어떤 결과를 검토할까?",
+    "description": "학습·매핑·식별·제품 사용례·평가·변경 관리를 분리합니다.",
+    "phase": "자동화와 검색",
+    "tags": [
+      "Auto ontology",
+      "Ontology learning",
+      "NVIDIA"
+    ]
+  },
+  {
+    "id": "c11",
+    "title": "Vector RAG",
+    "question": "비슷한 표현을 찾는 것이 왜 근거 검색에 도움이 될까?",
+    "description": "임베딩·코사인·청킹·ANN·hybrid·reranking을 이해합니다.",
+    "phase": "자동화와 검색",
+    "tags": [
+      "Vector rag",
+      "Embedding",
+      "HNSW",
+      "ANN"
+    ]
+  },
+  {
+    "id": "c12",
+    "title": "Graph RAG",
+    "question": "관계는 근거를 어떻게 조립해 줄까?",
+    "description": "일반 접근과 Microsoft 구현, local/global, 오류 전파를 구분합니다.",
+    "phase": "자동화와 검색",
+    "tags": [
+      "Graph rag",
+      "GraphRAG",
+      "Microsoft"
+    ]
+  },
+  {
+    "id": "c13",
+    "title": "Tree RAG",
+    "question": "세부와 전체 맥락을 어떻게 함께 찾을까?",
+    "description": "문서 트리·요약 트리·RAPTOR·검색 전략·요약 손실을 배웁니다.",
+    "phase": "자동화와 검색",
+    "tags": [
+      "Tree rag",
+      "RAPTOR",
+      "계층 검색"
+    ]
+  },
+  {
+    "id": "c14",
+    "title": "전체 연결과 발표 점검",
+    "question": "이 개념들을 어떻게 한 설명으로 연결할까?",
+    "description": "수집·검토·암묵지·운영·평가와 발표 준비를 종합합니다.",
+    "phase": "종합",
+    "tags": [
+      "비교",
+      "검증",
+      "암묵지",
+      "평가"
+    ]
+  }
+]

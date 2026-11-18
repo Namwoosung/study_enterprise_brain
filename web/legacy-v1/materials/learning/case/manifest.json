@@ -1,0 +1,10 @@
+{
+  "synthetic": true,
+  "timezone": "Asia/Seoul",
+  "tables": 4,
+  "table_rows": 34,
+  "documents": 14,
+  "claims": 44,
+  "questions": 18,
+  "snapshot": "2026-11-04T18:00:00+09:00"
+}

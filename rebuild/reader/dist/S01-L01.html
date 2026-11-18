@@ -1,0 +1,219 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>별첨 1: 자동 KG 구축 survey를 읽는 지도와 지식 획득</title><link rel="stylesheet" href="comparison.css"><link rel="stylesheet" href="reader.css"></head><body class="view-b" data-lesson="S01-L01"><a class="skip" href="#lesson">본문으로 이동</a><header class="reader-header"><a href="index.html">기업 지식 학습 교재</a><span>개념에서 원리와 적용까지</span><button id="menu-toggle" aria-expanded="false" aria-controls="course-nav">수업 목록</button></header><div class="reader-grid"><nav id="course-nav" class="course-nav" aria-label="학습 수업"><label for="lesson-search">수업 찾기</label><input id="lesson-search" type="search" placeholder="본문까지 검색"><div class="course-links"><div class="nav-unit"><p>U01 · 기업 지식과 Enterprise/Second Brain</p><a href="U01-L01.html" data-title="기업은 무엇을 기억하고, 무엇을 설명해야 할까요">기업은 무엇을 기억하고, 무엇을 설명해야 할까요</a></div><div class="nav-unit"><p>U02 · RDB와 Graph DB</p><a href="U02-L01.html" data-title="같은 질문을 표와 그래프로 따라가기">같은 질문을 표와 그래프로 따라가기</a></div><div class="nav-unit"><p>U03 · Property Graph와 Neo4j</p><a href="U03-L01.html" data-title="속성 그래프에서 무엇을 노드와 관계로 만들까요">속성 그래프에서 무엇을 노드와 관계로 만들까요</a></div><div class="nav-unit"><p>U04 · Semantic Web·W3C·RDF</p><a href="U04-L01.html" data-title="데이터의 이름을 공유하는 방법: RDF를 처음부터 읽기">데이터의 이름을 공유하는 방법: RDF를 처음부터 읽기</a><a href="U04-L02.html" data-title="같은 사건을 RDF와 속성 그래프로 표현하기">같은 사건을 RDF와 속성 그래프로 표현하기</a><a href="U04-L03.html" data-title="사건이 일어났다는 말과 문서가 그렇게 주장한다는 말">사건이 일어났다는 말과 문서가 그렇게 주장한다는 말</a></div><div class="nav-unit"><p>U05 · Ontology 도메인 설계</p><a href="U05-L01.html" data-title="장비 정비 기록에서 도메인 온톨로지 설계하기">장비 정비 기록에서 도메인 온톨로지 설계하기</a><a href="U05-L02.html" data-title="이름과 의미를 재사용할 때 일치하는 범위를 정하기">이름과 의미를 재사용할 때 일치하는 범위를 정하기</a><a href="U05-L03.html" data-title="모델을 개정한 뒤 같은 질문에 다시 답하기">모델을 개정한 뒤 같은 질문에 다시 답하기</a></div><div class="nav-unit"><p>U06 · RDFS·OWL·SHACL</p><a href="U06-L01.html" data-title="같은 데이터에서 추론과 검증이 다른 답을 내는 이유">같은 데이터에서 추론과 검증이 다른 답을 내는 이유</a></div><div class="nav-unit"><p>U08 · Knowledge Graph</p><a href="U08-L01.html" data-title="연결된 자료를 질문에 답하는 Knowledge Graph로 발전시키기">연결된 자료를 질문에 답하는 Knowledge Graph로 발전시키기</a><a href="U08-L02.html" data-title="고객의 보고를 어떤 지식으로 보여 줄까요?">고객의 보고를 어떤 지식으로 보여 줄까요?</a><a href="U08-L03.html" data-title="같은 질문으로 세 가지 구축 방식을 비교하기">같은 질문으로 세 가지 구축 방식을 비교하기</a></div><div class="nav-unit"><p>U09 · 수집·정형 매핑·정보 추출</p><a href="U09-L01.html" data-title="표의 한 행에서 근거가 있는 주장까지">표의 한 행에서 근거가 있는 주장까지</a><a href="U09-L02.html" data-title="정비 문장에서 지식 후보를 추출하기">정비 문장에서 지식 후보를 추출하기</a><a href="U09-L03.html" data-title="표와 본문이 섞인 문서를 읽고 추출 결과를 채점하기">표와 본문이 섞인 문서를 읽고 추출 결과를 채점하기</a></div><div class="nav-unit"><p>U10 · Entity resolution·통합</p><a href="U10-L01.html" data-title="서로 다른 기록에서 같은 장비를 찾기">서로 다른 기록에서 같은 장비를 찾기</a><a href="U10-L02.html" data-title="하나의 잘못된 연결이 다섯 레코드를 합칠 때">하나의 잘못된 연결이 다섯 레코드를 합칠 때</a><a href="U10-L03.html" data-title="같은 장비의 서로 다른 값들을 통합하기">같은 장비의 서로 다른 값들을 통합하기</a></div><div class="nav-unit"><p>U11 · 검증·사람 검토·암묵지</p><a href="U11-L01.html" data-title="형식에 맞는 주장, 원문에 맞는 주장, 사실로 확인된 주장">형식에 맞는 주장, 원문에 맞는 주장, 사실로 확인된 주장</a><a href="U11-L02.html" data-title="검토 대기열에 무엇을 보낼지 결정하기">검토 대기열에 무엇을 보낼지 결정하기</a><a href="U11-L03.html" data-title="숙련자의 판단을 조건이 붙은 지식으로 옮기기">숙련자의 판단을 조건이 붙은 지식으로 옮기기</a></div><div class="nav-unit"><p>U12 · Auto ontology·자동 구축</p><a href="U12-L01.html" data-title="자동 온톨로지 구축에서 무엇을 학습할까요">자동 온톨로지 구축에서 무엇을 학습할까요</a><a href="U12-L02.html" data-title="검사 문서에서 개념과 공리 후보를 만드는 과정">검사 문서에서 개념과 공리 후보를 만드는 과정</a><a href="U12-L03.html" data-title="후보를 평가하고 온톨로지 개정을 배포하기">후보를 평가하고 온톨로지 개정을 배포하기</a><a href="U12-L04.html" data-title="NVIDIA Auto Ontology가 데이터베이스에서 만드는 의미 계층">NVIDIA Auto Ontology가 데이터베이스에서 만드는 의미 계층</a></div><div class="nav-unit"><p>U13 · Vector RAG</p><a href="U13-L01.html" data-title="정비 질문 한 건을 Vector RAG 안에서 추적하기">정비 질문 한 건을 Vector RAG 안에서 추적하기</a><a href="U13-L02.html" data-title="같은 자료에서도 질문에 따라 검색을 바꾸기">같은 자료에서도 질문에 따라 검색을 바꾸기</a></div><div class="nav-unit"><p>U14 · Graph RAG</p><a href="U14-L01.html" data-title="부품 교체 기록에서 승인 근거까지 경로를 따라가기">부품 교체 기록에서 승인 근거까지 경로를 따라가기</a><a href="U14-L02.html" data-title="문서 전체의 변화를 묻는다면 무엇을 검색하나요?">문서 전체의 변화를 묻는다면 무엇을 검색하나요?</a><a href="U14-L03.html" data-title="그래프 질의를 선택하고 틀린 관계의 파급을 따라가기">그래프 질의를 선택하고 틀린 관계의 파급을 따라가기</a></div><div class="nav-unit"><p>U15 · Tree RAG·RAPTOR</p><a href="U15-L01.html" data-title="여러 문서의 조각을 묶어 요약 계층 만들기">여러 문서의 조각을 묶어 요약 계층 만들기</a><a href="U15-L02.html" data-title="같은 질문을 두 방식으로 검색해 컨텍스트 비교하기">같은 질문을 두 방식으로 검색해 컨텍스트 비교하기</a></div><div class="nav-unit"><p>U16 · RAG 평가</p><a href="U16-L01.html" data-title="같은 질문과 근거로 검색을 비교하기">같은 질문과 근거로 검색을 비교하기</a><a href="U16-L02.html" data-title="맞는 답, 근거가 있는 답, 인용이 정확한 답 비교하기">맞는 답, 근거가 있는 답, 인용이 정확한 답 비교하기</a></div><div class="nav-unit"><p>S01 · 자동 KG 구축 survey 해설</p><a href="S01-L01.html" data-title="별첨 1: 자동 KG 구축 survey를 읽는 지도와 지식 획득">별첨 1: 자동 KG 구축 survey를 읽는 지도와 지식 획득</a><a href="S01-L02.html" data-title="별첨 2: 학습 방법을 비교하고 추출 결과를 정제하기">별첨 2: 학습 방법을 비교하고 추출 결과를 정제하기</a><a href="S01-L03.html" data-title="별첨 3: 조건·변화·저장과 논문을 읽은 뒤의 판단">별첨 3: 조건·변화·저장과 논문을 읽은 뒤의 판단</a></div></div><p>기초·지식 구축·검색의 수업을 연결합니다. 논문 해설은 별첨에서 읽습니다.</p></nav><main id="lesson" class="lesson"><header><p class="unit-name">S01</p><h1>별첨 1: 자동 KG 구축 survey를 읽는 지도와 지식 획득</h1><a class="source-link" href="materials/units/S01/01-reading-map-and-acquisition.md">Markdown 원문</a></header><details class="inline-outline"><summary>수업 안에서 이동</summary><a href="#1">1. 이 논문은 어떤 질문에 답하나요</a><a href="#2">2. 예제 하나를 끝까지 읽을 준비</a><a href="#3">3. 전처리는 글자만 꺼내는 작업이 아닙니다</a><a href="#4-entity-discovery">4. Entity discovery를 세 작업으로 풀기</a><a href="#5">5. ‘이 장비’를 놓치면 문장 사이의 연결이 끊어집니다</a><a href="#6">6. 관계 추출은 무엇을 예측하나요</a><a href="#7">7. 이 절을 읽은 뒤 확인할 설명</a></details><article>
+<p>이 별첨은 <em>A Comprehensive Survey on Automatic Knowledge Graph Construction</em>을 읽기 위한 해설입니다. 본편의 학습 순서를 이 논문의 목차로 바꾸지는 않습니다. 논문이 어떤 문제를 묶어 다루는지 먼저 파악하고, 기법을 읽을 때 입력·출력·가정·실패를 찾는 연습을 하겠습니다. 원문의 모든 인용 연구를 재현하거나 번역한 자료는 아닙니다.</p>
+<p>기준은 Zhong 등의 <a href="https://arxiv.org/html/2302.05019v1">arXiv 공개본 v1, 2023-02-10</a>입니다. <a href="https://doi.org/10.1145/3618295">ACM 출판본 DOI</a>와 공개본의 판본을 구분합니다. 아래 절·그림 번호는 공개본을 기준으로 합니다. 웹 HTML의 변환 과정에서 수식이나 출판 메타데이터가 어색하게 보이면 연결된 PDF와 대조하는 것이 좋습니다. 본문에 등장하는 당시 도구 목록을 현재 지원 상태나 권장 제품 목록으로 읽지 않습니다.</p>
+<p>출판 메타데이터에서는 온라인 공개일이 2023-11-30, 권·호는 <em>ACM Computing Surveys</em> 56(4), 인쇄호 날짜는 2024-04-30으로 구분됩니다. 따라서 ‘2023 공개본’과 ‘2024 저널 호’가 같은 연구를 가리킬 수 있습니다. 공개본과 출판본에서 같은 절 번호라고 가정하지 않고 제목으로 대응시킵니다. 이 별첨에서 직접 읽고 번호를 붙인 본문은 공개본 v1입니다. <a href="https://api.crossref.org/works/10.1145/3618295">출판사 등록 Crossref 메타데이터</a></p>
+<h2 id="1">1. 이 논문은 어떤 질문에 답하나요</h2>
+<p>다음 작업을 생각해 보세요. 회사의 PDF·웹 문서·표에서 개체와 관계를 얻고, 이미 있는 지식과 합친 뒤, 시간이 지나 바뀌는 내용도 관리해야 합니다. 한 번의 문장 추출로 끝나는 작업이 아닙니다. 논문은 이를 <strong>획득(acquisition), 정제(refinement), 변화(evolution)</strong>의 축으로 정리하고 전처리·저장·남은 연구 과제를 연결합니다. 이 큰 지도는 공개본의 그림 1과 §1.2에서 확인할 수 있습니다.</p>
+<p>여기서 survey는 새로운 알고리즘 하나의 성능만 검증하는 논문과 성격이 다릅니다. 여러 연구가 어떤 문제를 해결하려 했는지 비교할 수 있는 분류를 제공합니다. 따라서 읽을 때 ‘이 논문의 알고리즘을 구현하자’보다 ‘내 문제는 어떤 하위 과제이며 그 과제의 방법은 어떤 조건을 가정하나’를 묻는 편이 유용합니다.</p>
+<p>다음 표는 논문 목차를 실제 작업으로 옮긴 학습용 지도입니다. 오른쪽 설명과 사례는 이 교재가 만든 해석입니다.</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>공개본 위치</th>
+<th>찾을 문제</th>
+<th>업무 예에서 확인할 것</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>§2 배경</td>
+<td>무엇을 KG 구축이라고 부르는가</td>
+<td>문장에 나온 이름과 정규화된 개체가 같은지</td>
+</tr>
+<tr>
+<td>§3 전처리</td>
+<td>내용과 구조를 어떻게 보존하는가</td>
+<td>표 제목·열 이름·각주가 값과 함께 남았는지</td>
+</tr>
+<tr>
+<td>§4 획득</td>
+<td>개체·타입·동일 지시·관계를 어떻게 얻는가</td>
+<td>‘이 장비’가 무엇인지, 관계의 주체·대상이 맞는지</td>
+</tr>
+<tr>
+<td>§5 정제</td>
+<td>빈 연결과 중복·다중 원천을 어떻게 다루는가</td>
+<td>예측 후보와 확인된 사실을 구분했는지</td>
+</tr>
+<tr>
+<td>§6 변화</td>
+<td>조건·시간이 바뀌면 어떤 지식이 성립하는가</td>
+<td>현재 부품과 당시 부품을 다르게 답할 수 있는지</td>
+</tr>
+<tr>
+<td>§7 저장</td>
+<td>지식을 어떤 시스템으로 보관·조회하는가</td>
+<td>표현 모델과 DB 제품을 같은 층으로 착각하지 않는지</td>
+</tr>
+<tr>
+<td>§8 논의</td>
+<td>아직 무엇이 어려운가</td>
+<td>긴 문맥·다중 모달·사람 검토에서 남는 책임</td>
+</tr>
+</tbody>
+</table></div>
+<p>본편과 원문 그림의 연결도 함께 보세요.</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>별첨의 내용</th>
+<th>함께 읽을 본편</th>
+<th>공개본의 확인 위치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>전체 구축 지도</td>
+<td>U08 Knowledge Graph</td>
+<td><a href="https://arxiv.org/html/2302.05019v1#S1">그림 1·§1</a></td>
+</tr>
+<tr>
+<td>인식·타입·연결</td>
+<td>U09 원천과 추출</td>
+<td><a href="https://arxiv.org/html/2302.05019v1#S4.SS1">그림 3·§4.1</a></td>
+</tr>
+<tr>
+<td>동일성·다중 원천 통합</td>
+<td>U10 식별과 통합</td>
+<td><a href="https://arxiv.org/html/2302.05019v1#S5.SS2">§5.2</a></td>
+</tr>
+<tr>
+<td>사람 검토·협업</td>
+<td>U11 품질과 검토</td>
+<td><a href="https://arxiv.org/html/2302.05019v1#S8.SS5">§8.5</a></td>
+</tr>
+<tr>
+<td>모델 후보와 개정</td>
+<td>U12 Auto ontology</td>
+<td>§4~6의 구축 과제와 대조. ontology learning을 KG population과 구분</td>
+</tr>
+<tr>
+<td>조건·시간·변화</td>
+<td>U17 운영 수명주기</td>
+<td><a href="https://arxiv.org/html/2302.05019v1#S6">그림 17·§6</a></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="2">2. 예제 하나를 끝까지 읽을 준비</h2>
+<p>다음 네 문장을 교육용 기록 D17로 사용하겠습니다.</p>
+<blockquote>
+<p>① 장비 E01은 모델 T20이다.<br />
+② 11월 18일 이 장비에서 펌프 P7을 제거했다.<br />
+③ 새 펌프 P8을 같은 위치에 설치했다.<br />
+④ 담당자는 P7 마모가 알람의 원인일 수 있다고 적었지만, 시험으로 확인하지는 않았다.</p>
+</blockquote>
+<p>이름과 사건·시간·수치는 합성입니다. 이 문단에서 바로 만들 수 있는 것은 무엇일까요? E01·T20·P7·P8이라는 문자열을 찾을 수 있습니다. 하지만 문자열만 찾으면 ‘이 장비’를 잃고, P7과 P8의 역할을 바꾸고, 원인 가능성을 확정 인과로 만들 수도 있습니다. 논문 속 과제 이름들은 이런 서로 다른 오류를 분리해 생각하게 합니다.</p>
+<p>다음 네 질문을 먼저 답해 보세요.</p>
+<ol>
+<li>E01과 ‘이 장비’는 같은 종류의 이름인가요?</li>
+<li>‘펌프’라는 일반 종류와 특정 부품 P7을 구분해야 하나요?</li>
+<li>P7과 P8이 같은 문장에 함께 나온다는 이유로 같은 개체로 합쳐도 되나요?</li>
+<li>문장 ④에서 알 수 있는 것이 실제 원인인가요, 원인에 대한 미확인 주장인가요?</li>
+</ol>
+<p>첫 질문은 지시 표현, 둘째는 타입과 개체, 셋째는 동일성과 역할, 넷째는 주장과 사실의 차이입니다. 뒤에서 각각 어떤 과제와 연결되는지 확인하겠습니다.</p>
+<h2 id="3">3. 전처리는 글자만 꺼내는 작업이 아닙니다</h2>
+<p>논문 §3의 내용을 읽을 때는 내용 추출과 구조 해석을 나눠 보세요. 업무 문서에 이를 적용하는 한 예를 만들겠습니다.</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>장비</th>
+<th>부품</th>
+<th>사용 조건</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E01</td>
+<td>P7</td>
+<td>교체 전 기록용</td>
+</tr>
+<tr>
+<td>E01</td>
+<td>P8</td>
+<td>11월 18일 교체 이후</td>
+</tr>
+</tbody>
+</table></div>
+<p>이 표를 단순 문자열 <code>E01 P7 E01 P8</code>로 바꾸면 두 부품의 조건이 사라집니다. 장비와 부품을 찾는 데 성공해도 어느 시점에 어느 관계를 사용해야 하는지 알 수 없습니다. 각 행에 열 이름과 조건을 붙여 남기는 편이 다음 처리에서 해석하기 쉽습니다.</p>
+<pre tabindex="0"><code class="language-text">행 1: 장비=E01, 부품=P7, 조건=교체 전 기록용
+행 2: 장비=E01, 부품=P8, 조건=11월 18일 교체 이후
+</code></pre>
+<p>웹페이지라면 메뉴·광고·본문을 구분하는 문제가 추가됩니다. 반면 반복되는 모양의 표를 처리할 때는 문서 구조를 이용하는 규칙이 유용할 수 있습니다. 구조가 바뀌면 그 규칙도 깨질 수 있습니다. 그러므로 논문의 전처리 모델을 읽을 때는 ‘어떤 특징으로 본문과 구조를 구분하는가, 다른 서식에서도 그 가정이 유지되는가’를 찾습니다.</p>
+<p>원문 위치를 버리지 않는 것도 중요합니다. 후보 관계가 틀렸을 때 구조 해석이 잘못됐는지, 관계 추출이 잘못됐는지 다시 봐야 하기 때문입니다. 이 위치 보존은 이후 본편의 후보 검토와 연결하는 교재 설계입니다.</p>
+<h2 id="4-entity-discovery">4. Entity discovery를 세 작업으로 풀기</h2>
+<p>논문 §4.1과 그림 3은 개체 발견에 관련된 과제를 묶습니다. 본편 U09의 상세 예와 연결해 다음처럼 이해할 수 있습니다.</p>
+<p><strong>개체명 인식(NER)</strong>은 문장에서 대상 언급의 위치와 유형을 찾는 작업입니다. 예를 들어 E01을 장비 언급, P7을 부품 언급으로 표시합니다. 여기서 mention은 원문에 나타난 언급, span은 그 언급의 글자 구간입니다. 실제 문서에 ‘E01 장비’가 있으면 어느 범위가 하나의 mention인지도 결정해야 합니다.</p>
+<p><strong>타입 부여(entity typing)</strong>는 그 언급이나 개체가 어떤 종류인지 더 자세히 분류하는 문제입니다. P7을 일반 부품으로 볼지 펌프로 볼지 결정할 때 문맥과 유형 체계가 필요합니다. 모든 등장 위치에서 가장 상세한 타입을 무조건 붙이는 것이 목표는 아닙니다. 이 문서에서 확인할 수 있는 범위와 이용 목적을 보아야 합니다.</p>
+<p><strong>개체 연결(entity linking)</strong>은 이 mention이 기준 지식 안의 어느 개체를 가리키는지 대응시키는 작업입니다. ‘펌프 P7’이 사내 부품 ID PART-0007인지 확인하는 것입니다. 같은 짧은 코드가 다른 사업장에도 있을 수 있으므로 별칭·시리얼·위치·문서 범위를 함께 살핍니다. 연결할 기준 개체가 없을 때 새 개체를 제안할 수도 있지만, 그 제안 역시 식별 정책이 필요합니다.</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>문서에서 얻은 것</th>
+<th>판정할 문제</th>
+<th>가능한 출력</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E01이라는 글자 구간</td>
+<td>NER</td>
+<td>장비 mention</td>
+</tr>
+<tr>
+<td>문서가 설명하는 E01의 역할</td>
+<td>typing</td>
+<td>장비 실물 유형</td>
+</tr>
+<tr>
+<td>사내 대장의 E01/현장 별칭</td>
+<td>linking</td>
+<td>기준 개체 ASSET-001</td>
+</tr>
+</tbody>
+</table></div>
+<p>이 세 단계의 이름을 기억하는 목적은 순서도를 외우는 것이 아닙니다. 원문 이름은 맞게 찾았는데 다른 장비에 붙인 경우는 NER 성공·linking 실패일 수 있습니다. 단계별 결과가 있어야 원인을 진단할 수 있습니다.</p>
+<h2 id="5">5. ‘이 장비’를 놓치면 문장 사이의 연결이 끊어집니다</h2>
+<p>문장 ②의 ‘이 장비’는 문장 ①의 E01을 다시 가리킵니다. 서로 다른 표현이 같은 대상을 가리키는지 찾는 작업이 coreference resolution, 동일 지시 해소입니다. 사내 대장의 기준 ID를 찾는 linking과 목표가 다릅니다. 문서 안에서 E01과 ‘이 장비’를 먼저 묶을 수 있어도, E01이 어느 사업장의 실물인지 아직 모를 수 있습니다.</p>
+<p>대표적인 신경망 접근을 원리 수준에서 보면, 후보 span을 찾고 각 span이 앞의 어떤 언급을 가리키는지 점수화합니다. 연결할 선행 언급이 없다는 선택도 필요합니다. 모든 명사구를 무조건 앞 대상에 붙이면 새로 등장한 장비를 잘못 합칩니다. 이 구조는 <a href="https://aclanthology.org/D17-1018.pdf">Lee et al.의 end-to-end coreference 모델 §2</a>에서 구체화됩니다. 해당 모델의 세부 점수와 학습을 재현하는 과정은 이 별첨의 필수 범위가 아닙니다.</p>
+<p>우리 문장에서는 E01↔‘이 장비’가 같은 지시 묶음입니다. P7과 ‘새 펌프 P8’은 둘 다 펌프지만 같은 실물이 아닙니다. 동일 타입과 동일 개체를 구분해야 한다는 점을 이 예에서도 확인할 수 있습니다.</p>
+<h2 id="6">6. 관계 추출은 무엇을 예측하나요</h2>
+<p>관계 추출은 대상들의 어떤 연결이 원문에 표현되어 있는지 얻는 작업입니다. D17에서 다음 후보를 비교해 보세요.</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>후보</th>
+<th>원문 근거</th>
+<th>판단</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E01 hasModel T20</td>
+<td>문장 ①</td>
+<td>직접 표현됨</td>
+</tr>
+<tr>
+<td>교체 사건 removed P7</td>
+<td>문장 ②</td>
+<td>직접 표현됨. 사건 ID는 모델링 필요</td>
+</tr>
+<tr>
+<td>같은 교체 installed P8</td>
+<td>문장 ③</td>
+<td>앞 문맥과 같은 위치 연결 필요</td>
+</tr>
+<tr>
+<td>P7 causes 알람</td>
+<td>문장 ④</td>
+<td>확정 표현으로 저장하면 원문보다 강함</td>
+</tr>
+</tbody>
+</table></div>
+<p>관계 타입을 미리 정한 분류 방식은 <code>removed</code>, <code>installed</code> 같은 정해진 선택지에서 찾습니다. Open extraction은 미리 고정하지 않은 관계 표현을 얻는 방향입니다. 후자는 ‘떼어 냈다’, ‘제거했다’ 같은 표현을 발견할 수 있지만, 그것들을 같은 업무 관계로 정렬하는 일이 남습니다. 전자는 운영 모델에 맞추기 쉽지만 목록 밖 관계를 놓치기 쉽습니다.</p>
+<p>문장 하나에 장비·부품·시각·위치·담당자가 함께 참여하면 이항 관계 하나로 전부 담기 어렵습니다. 사건 노드를 중심에 두고 참여자와 값을 연결하는 모델이 도움이 되는 이유입니다. 추출 모델의 출력과 최종 그래프 표현은 같은 선택이 아니므로, 논문의 튜플과 회사의 사건 모델을 기계적으로 같다고 보지 않습니다.</p>
+<h2 id="7">7. 이 절을 읽은 뒤 확인할 설명</h2>
+<p>‘문장에서 이름을 뽑았으니 KG가 완성됐다’는 말에 다음과 같이 답할 수 있으면 됩니다.</p>
+<blockquote>
+<p>이름의 구간을 찾는 것, 종류를 분류하는 것, 같은 대상을 묶는 것, 기준 개체에 연결하는 것, 그 사이의 관계를 얻는 것은 서로 다른 문제입니다. 예를 들어 E01은 찾았지만 ‘이 장비’와 연결하지 못하면 교체 사건의 대상이 빠지고, P7의 원인 가능성을 확정 관계로 만들면 원문보다 강한 지식이 됩니다.</p>
+</blockquote>
+<p>다음 별첨에서는 이런 모델을 어떤 데이터로 학습하고, 결과를 어떻게 정제하는지 비교합니다. <a href="S01-L02.html">별첨 2</a></p></article><section class="study-note" aria-labelledby="note-title"><h2 id="note-title">내 말로 설명하기</h2><p>이 수업의 개념을 새 예로 설명하고, 아직 헷갈리는 점을 남겨 보세요.</p><textarea id="lesson-note" rows="6" aria-label="수업 메모"></textarea><div class="study-actions"><label><input type="checkbox" id="lesson-complete"> 학습 표시</label><label><input type="checkbox" id="lesson-bookmark"> 책갈피</label><button id="export-learning">기록 내려받기</button></div><p id="save-status" role="status">이 브라우저에 저장합니다.</p></section><nav class="pager" aria-label="수업 이동"><a href="U16-L02.html">이전 수업: 맞는 답, 근거가 있는 답, 인용이 정확한 답 비교하기</a><a href="S01-L02.html">다음 수업: 별첨 2: 학습 방법을 비교하고 추출 결과를 정제하기</a></nav></main><aside class="reader-example"><section class="trace evidence-demo" data-demo="survey-process"><h2>같은 문단에서 다른 작업 찾기</h2><p>별첨 1의 합성 문단을 과제별로 나눕니다. 모델 실행 결과가 아닌 설명용 전개입니다.</p><label for="evidence-choice">비교할 항목</label><select id="evidence-choice"><option value="mention">원문 언급</option><option value="coref">동일 지시</option><option value="relation">관계와 사건</option><option value="condition">주장과 조건</option></select><div class="evidence-result" aria-live="polite"></div><script type="application/json" class="demo-data">{"mention": {"title": "원문 언급", "output": "E01, 이 장비, P7, 새 펌프 P8", "reason": "문서의 글자 구간입니다. 아직 기준 개체 ID가 아닙니다."}, "coref": {"title": "동일 지시", "output": "E01 ↔ 이 장비", "reason": "같은 대상을 가리킵니다. P7과 P8은 같은 종류라도 별개의 실물입니다."}, "relation": {"title": "관계와 사건", "output": "교체 사건 → 제거 P7 / 설치 P8 / 대상 E01", "reason": "참여자 역할과 원문 위치를 보존합니다. 추출 결과를 그래프 모델에 매핑해야 합니다."}, "condition": {"title": "주장과 조건", "output": "P7 마모 → 알람 원인 가능성 / 시험 미확인", "reason": "가능성과 부정을 버리면 확정 인과로 과장됩니다. 사실 채택은 별도 판단입니다."}}</script></section></aside></div><script src="comparison.js"></script><script src="search-index.js"></script><script src="reader.js"></script></body></html>

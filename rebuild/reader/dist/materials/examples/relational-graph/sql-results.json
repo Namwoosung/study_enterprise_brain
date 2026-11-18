@@ -1,0 +1,15 @@
+{
+  "engine": "sqlite3 3.50.4",
+  "query_source": "units/U02/01-same-question-two-models.md",
+  "rows": [
+    [
+      "D1",
+      "민수",
+      "지연"
+    ]
+  ],
+  "limits": [
+    "Cypher not executed",
+    "Not a performance benchmark"
+  ]
+}

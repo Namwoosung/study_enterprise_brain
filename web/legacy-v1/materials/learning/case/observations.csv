@@ -1,0 +1,13 @@
+id,run,metric,value,unit
+OBS001,RUN001,review_flag,no,boolean
+OBS002,RUN002,review_flag,yes,boolean
+OBS003,RUN003,review_flag,no,boolean
+OBS004,RUN004,review_flag,no,boolean
+OBS005,RUN005,review_flag,no,boolean
+OBS006,RUN006,review_flag,no,boolean
+OBS007,RUN007,record_complete,yes,boolean
+OBS008,RUN008,record_complete,yes,boolean
+OBS009,RUN009,record_complete,yes,boolean
+OBS010,RUN010,record_complete,yes,boolean
+OBS011,RUN011,record_complete,yes,boolean
+OBS012,RUN012,record_complete,yes,boolean

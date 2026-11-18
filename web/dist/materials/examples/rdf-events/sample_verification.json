@@ -1,0 +1,20 @@
+{
+  "checks": [
+    "One direct relation is one triple",
+    "Repeating the identical triple does not encode three events",
+    "One event has six triples in the selected model",
+    "Three events have eighteen triples",
+    "drive1 retains participant and measurements",
+    "drive2 retains participant and measurements",
+    "drive3 retains participant and measurements",
+    "Published SPARQL returns three events and 39km",
+    "Turtle and RDF/XML encode the same graph",
+    "Published SQL preserves three ordered events",
+    "Relational and RDF aggregation agree"
+  ],
+  "passed": 11,
+  "limits": [
+    "Cypher was not executed on Neo4j.",
+    "These checks do not establish learner comprehension or approve a design."
+  ]
+}

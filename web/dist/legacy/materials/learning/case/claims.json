@@ -1,0 +1,398 @@
+[
+  {
+    "id": "C001",
+    "subject": "RUN001",
+    "predicate": "forLot",
+    "object": "L01",
+    "source": "runs.csv#RUN001",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C002",
+    "subject": "RUN001",
+    "predicate": "usedEquipment",
+    "object": "E01",
+    "source": "runs.csv#RUN001",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C003",
+    "subject": "RUN001",
+    "predicate": "usedDocument",
+    "object": "D01",
+    "source": "runs.csv#RUN001",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C004",
+    "subject": "RUN002",
+    "predicate": "forLot",
+    "object": "L02",
+    "source": "runs.csv#RUN002",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C005",
+    "subject": "RUN002",
+    "predicate": "usedEquipment",
+    "object": "E01",
+    "source": "runs.csv#RUN002",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C006",
+    "subject": "RUN002",
+    "predicate": "usedDocument",
+    "object": "D02",
+    "source": "runs.csv#RUN002",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C007",
+    "subject": "RUN003",
+    "predicate": "forLot",
+    "object": "L03",
+    "source": "runs.csv#RUN003",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C008",
+    "subject": "RUN003",
+    "predicate": "usedEquipment",
+    "object": "E02",
+    "source": "runs.csv#RUN003",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C009",
+    "subject": "RUN003",
+    "predicate": "usedDocument",
+    "object": "D03",
+    "source": "runs.csv#RUN003",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C010",
+    "subject": "RUN004",
+    "predicate": "forLot",
+    "object": "L04",
+    "source": "runs.csv#RUN004",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C011",
+    "subject": "RUN004",
+    "predicate": "usedEquipment",
+    "object": "E01",
+    "source": "runs.csv#RUN004",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C012",
+    "subject": "RUN004",
+    "predicate": "usedDocument",
+    "object": "D02",
+    "source": "runs.csv#RUN004",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C013",
+    "subject": "RUN005",
+    "predicate": "forLot",
+    "object": "L05",
+    "source": "runs.csv#RUN005",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C014",
+    "subject": "RUN005",
+    "predicate": "usedEquipment",
+    "object": "E02",
+    "source": "runs.csv#RUN005",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C015",
+    "subject": "RUN005",
+    "predicate": "usedDocument",
+    "object": "D03",
+    "source": "runs.csv#RUN005",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C016",
+    "subject": "RUN006",
+    "predicate": "forLot",
+    "object": "L06",
+    "source": "runs.csv#RUN006",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C017",
+    "subject": "RUN006",
+    "predicate": "usedEquipment",
+    "object": "E01",
+    "source": "runs.csv#RUN006",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C018",
+    "subject": "RUN006",
+    "predicate": "usedDocument",
+    "object": "D02",
+    "source": "runs.csv#RUN006",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C019",
+    "subject": "RUN007",
+    "predicate": "forLot",
+    "object": "L01",
+    "source": "runs.csv#RUN007",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C020",
+    "subject": "RUN007",
+    "predicate": "usedEquipment",
+    "object": "E03",
+    "source": "runs.csv#RUN007",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C021",
+    "subject": "RUN007",
+    "predicate": "usedDocument",
+    "object": "D04",
+    "source": "runs.csv#RUN007",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C022",
+    "subject": "RUN008",
+    "predicate": "forLot",
+    "object": "L02",
+    "source": "runs.csv#RUN008",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C023",
+    "subject": "RUN008",
+    "predicate": "usedEquipment",
+    "object": "E03",
+    "source": "runs.csv#RUN008",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C024",
+    "subject": "RUN008",
+    "predicate": "usedDocument",
+    "object": "D04",
+    "source": "runs.csv#RUN008",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C025",
+    "subject": "RUN009",
+    "predicate": "forLot",
+    "object": "L03",
+    "source": "runs.csv#RUN009",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C026",
+    "subject": "RUN009",
+    "predicate": "usedEquipment",
+    "object": "E04",
+    "source": "runs.csv#RUN009",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C027",
+    "subject": "RUN009",
+    "predicate": "usedDocument",
+    "object": "D04",
+    "source": "runs.csv#RUN009",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C028",
+    "subject": "RUN010",
+    "predicate": "forLot",
+    "object": "L04",
+    "source": "runs.csv#RUN010",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C029",
+    "subject": "RUN010",
+    "predicate": "usedEquipment",
+    "object": "E03",
+    "source": "runs.csv#RUN010",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C030",
+    "subject": "RUN010",
+    "predicate": "usedDocument",
+    "object": "D04",
+    "source": "runs.csv#RUN010",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C031",
+    "subject": "RUN011",
+    "predicate": "forLot",
+    "object": "L05",
+    "source": "runs.csv#RUN011",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C032",
+    "subject": "RUN011",
+    "predicate": "usedEquipment",
+    "object": "E04",
+    "source": "runs.csv#RUN011",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C033",
+    "subject": "RUN011",
+    "predicate": "usedDocument",
+    "object": "D04",
+    "source": "runs.csv#RUN011",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C034",
+    "subject": "RUN012",
+    "predicate": "forLot",
+    "object": "L06",
+    "source": "runs.csv#RUN012",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C035",
+    "subject": "RUN012",
+    "predicate": "usedEquipment",
+    "object": "E03",
+    "source": "runs.csv#RUN012",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C036",
+    "subject": "RUN012",
+    "predicate": "usedDocument",
+    "object": "D04",
+    "source": "runs.csv#RUN012",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C037",
+    "subject": "E05",
+    "predicate": "partOf",
+    "object": "E01",
+    "source": "D05#p2",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C038",
+    "subject": "E01",
+    "predicate": "locatedAt",
+    "object": "NORTH",
+    "source": "equipment.csv#E01",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C039",
+    "subject": "E02",
+    "predicate": "locatedAt",
+    "object": "SOUTH",
+    "source": "equipment.csv#E02",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C040",
+    "subject": "I01",
+    "predicate": "concerns",
+    "object": "L02",
+    "source": "D06#p1",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C041",
+    "subject": "I01",
+    "predicate": "hasState",
+    "object": "unresolved",
+    "source": "D08#p1",
+    "epistemic": "recorded",
+    "status": "source_supported"
+  },
+  {
+    "id": "C042",
+    "subject": "D02",
+    "predicate": "supersedes",
+    "object": "D01",
+    "source": "D02#p1",
+    "epistemic": "policy",
+    "status": "source_supported"
+  },
+  {
+    "id": "C043",
+    "subject": "E01",
+    "predicate": "needsSensorCheck",
+    "object": "I01",
+    "source": "D07#p1",
+    "epistemic": "hypothesis",
+    "status": "source_supported"
+  },
+  {
+    "id": "C044",
+    "subject": "P01",
+    "predicate": "reportsExperience",
+    "object": "screen_context_check",
+    "source": "D09#p1",
+    "epistemic": "experience",
+    "status": "source_supported"
+  }
+]

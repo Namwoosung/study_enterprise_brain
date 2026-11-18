@@ -129,12 +129,12 @@ https://enterprise-knowledge-lab-namws.sheermackerel2.chatgpt.site
 
 현재 audience는 배포 전에 `get_site`로 재확인한다. 이전에는 owner-private였으며 공개 전환은 요청되지 않았다. 새 Site를 만들지 않는다.
 
-배포할 때 호스트 catalog의 Sites SKILL.md를 읽는다. 현재 경로는 `C:/Users/namws/.codex/plugins/cache/openai-curated-remote/sites/1.1.6/skills/sites/SKILL.md`이며 설치 버전에 따라 바뀔 수 있다. 관련 도구는 ALL_TOOLS에서 sites/get_site/create_source_repository_write_credential/save_version_and_deploy_private 등을 검색한다.
+배포할 때 호스트 catalog의 Sites SKILL.md를 읽는다. 현재 경로는 `C:/Users/namws/.codex/plugins/cache/openai-curated-remote/sites/1.1.7/skills/sites/SKILL.md`이며 설치 버전에 따라 바뀔 수 있다. 관련 도구는 ALL_TOOLS에서 sites/get_site/create_source_repository_write_credential/save_version_and_deploy_private 등을 검색한다.
 
 작업 시작 시 기존 Sites 소스의 최신 상태를 확인하고, helper의 opening 절차로 로컬 소스와 상태를 맞춘다. 원격 변경을 덮어쓰지 않는다. 웹 편집 뒤 검증이 끝나면 helper로 소스 동기화·commit/push·패키징한다.
 
 ```text
-node C:/Users/namws/.codex/plugins/cache/openai-curated-remote/sites/1.1.6/scripts/site-workflow.mjs --project-id appgprj_6afcc73c30a081919784724ac346bf41
+node C:/Users/namws/.codex/plugins/cache/openai-curated-remote/sites/1.1.7/scripts/site-workflow.mjs --project-id appgprj_6afcc73c30a081919784724ac346bf41
 ```
 
 실행 cwd는 `web`, tty 세션을 사용한다. `Ready ... stdin` 이후 write_stdin으로 JSON을 보낸다. 구조는 `{credential, source, commands, archivePath}`이며 `source`는 세션에서 받은 **완전한 이전 opening 결과**, commands는 아직 안 한 검사/빌드의 인자 배열이다. opening에서는 archivePath를 생략한다. packaging에서는 절대경로 `C:/Users/namws/study_enterprise_brain/site-deployment.tar.gz`를 쓸 수 있다.

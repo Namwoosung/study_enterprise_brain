@@ -1,65 +1,37 @@
-# 기업 지식 연구실 — 웹 학습 페이지
+# 기업 지식 학습 웹
 
-기준 콘텐츠는 상위 프로젝트의 learning/ Markdown 교재다. 개념 경로 C1~C14의 94개 구간, 사례 적용 M1~M8의 54개 구간, D1~D2의 12개 구간을 합쳐 총 160개 구간이다. 관계 지도·사례 원문·실습·설명 연습·근거를 연결했다.
+현재 기본 화면은 `learning-v2/` 교재를 기반으로 한 B안입니다. 설명 본문과 관련 비교 예제를 나란히 읽고 좁은 화면에서는 설명 사이에서 예제를 확인합니다. Knowledge Graph·수집/추출·동일성·검토, Auto ontology, Vector/Graph/Tree RAG와 평가를 우선 제공합니다. 자동 KG 구축 survey는 별첨입니다. 나머지 기초·운영·통합 단원은 이어 확장합니다.
 
-## 사용하기
+## 실행과 빌드
 
-dist/index.html을 브라우저에서 직접 열어도 읽을 수 있다. 학습 기록의 안정적인 저장과 개발 중 확인에는 로컬 HTTP 서버를 권장한다.
+프로젝트 루트에서 실행합니다.
 
-프로젝트 루트에서 PowerShell:
-
-~~~powershell
+```powershell
+.\.venv\Scripts\python.exe web/build_v2.py
 .\.venv\Scripts\python.exe -m http.server 4173 --bind 127.0.0.1 --directory web/dist
-~~~
+```
 
-브라우저에서 http://127.0.0.1:4173 을 연다. 종료하려면 서버를 실행한 터미널에서 Ctrl+C를 누른다.
+`http://127.0.0.1:4173`에서 읽습니다. `dist/index.html`을 직접 열어도 본문을 볼 수 있지만 브라우저 저장소의 일관된 사용에는 HTTP 주소를 권장합니다. 필요한 변환 패키지는 `requirements.txt`에 고정했습니다.
 
-## 학습 기능
+`build_v2.py`는 상위 교재와 읽기 구성 요소를 `source-materials-v2/`, `course-reader/`로 복사합니다. 독립 Sites 체크아웃에서도 이 스냅샷을 사용해 같은 출력물을 만들 수 있습니다. 원문·fixture·근거 기록은 `dist/materials/`에 함께 배포합니다. 기존 `build.py`는 이전 버전 제작용이며 기본 빌드가 아닙니다.
 
-- 개념 지도 #/concepts: 요청 용어 전체, 단원·역할 필터, 기초와 심화·발표 범위.
-- 학습 지도: 개념 경로 시작, 여덟 적용 질문과 이어서 읽기.
-- 본문: 짧은 구간, 단원 내 목차, 글자 크기, 원문 다운로드.
-- 사례 탐색: L02의 관계 지도, 문서 14개 검색, 원천 표 4개.
-- 설명 연습: 정답을 먼저 보여주지 않는 질문 18개와 근거.
-- 개념 실습 9종: 기존 추론·검증·동일성·문서·용량·시점·검색 비교와 새 표현 비교·2차원 벡터·계층 검색 전략.
-- 검색: 교재 전체 구간의 제목·본문·주제.
-- 내 기록: 구간별 메모·책갈피·완료 표시·연습 답안, Markdown 내보내기.
+## 읽기 기능과 자료 보존
 
-기록은 브라우저 localStorage에 저장한다. 다른 기기와 동기화하지 않는다. 실제 LLM·검색 엔진·Neo4j 서버 호출은 없다. D07 권한 표시는 합성 정책을 설명하는 학습 자료이며 실제 권한 통제의 구현 데모가 아니다.
+수업 안 목차, 본문 전체 검색, 수업 이동, 원문 보기, 메모·책갈피·학습 표시·이어서 읽기와 JSON 기록 내려받기를 제공합니다. 날짜별 관계 경로, Local/Global의 입력, 요약 계층과 선택 컨텍스트, 온톨로지 후보의 채택 근거, 사람 검토 용량을 본문과 대조할 수 있습니다. 화면은 동봉 fixture의 결과를 보여 주며 실제 LLM·Neo4j·검색 엔진을 호출하지 않습니다.
 
-## 콘텐츠를 수정하고 빌드하기
-
-상위 learning/이 있으면 build.py가 최신 교재를 source-materials/로 복사한다. 독립된 웹 저장소에서는 포함된 source-materials/를 사용한다. dist/materials/에 원본을 함께 배포한다.
-
-~~~powershell
-.\.venv\Scripts\python.exe -m pip install -r web/requirements.txt
-.\.venv\Scripts\python.exe web/build.py
-node --check web/app.js
-~~~
-
-단독 체크아웃에서는 현재 폴더에서 python build.py를 실행한다. 새 구간을 추가하면 build.py의 구간 수 검증과 학습 대응표를 함께 수정한다.
-
-- index.html: 페이지 틀
-- styles.css: 반응형 레이아웃·읽기 스타일
-- app.js: 이동·검색·학습 기록·실습
-- build.py: Markdown 변환·링크 변환·원천 패키징
-- coverage.json: 원문 ID와 웹 구간 대응
-- source-materials/: 재현 가능한 교재 스냅샷
-- dist/: 바로 배포 가능한 정적 파일
-- .openai/hosting.json: Sites 식별자와 정적 배포 경로
+새 기록은 `knowledge-lab-v2`에 저장합니다. `knowledge-lab-v1`은 덮어쓰지 않으며 내려받기에 함께 포함됩니다. 예전 완료 표시를 새 수업의 완료로 바꾸지 않습니다. `legacy/index.html`에서 이전 교재와 기록을 열 수 있고 예전 `#/…` 주소도 이쪽으로 안내합니다. 브라우저 기록은 다른 기기로 자동 동기화되지 않습니다.
 
 ## 검증
 
-Python Playwright와 Chromium으로 데스크톱 1440×1000, 모바일 390×844를 확인했다. test_web.py는 학습 구간 전체, 원문·링크, 실습 결과, 검색, 저장·복원, 노트 다운로드, 해설 펼치기, 모바일 메뉴와 가로 넘침을 검사한다.
+```powershell
+node --check web/dist/reader.js
+$env:READER_TEST_BASE='http://127.0.0.1:4173'
+$env:READER_TEST_DIST='C:/Users/namws/study_enterprise_brain/web/dist'
+.\.venv\Scripts\python.exe rebuild/reader/check_reader.py
+```
 
-~~~powershell
-.\.venv\Scripts\python.exe -m pip install playwright
-.\.venv\Scripts\python.exe -m playwright install chromium
-.\.venv\Scripts\python.exe web/test_web.py
-~~~
-
-테스트 전에 4173 포트의 서버를 실행한다. 결과·스크린샷은 qa/에 저장되며 배포 소스에는 포함하지 않는다. 기존 기능 검사 18개와 test_concepts.py의 추가 검사 8개 묶음을 통과했고 브라우저 오류는 없었다. 접근성 전체 인증이나 모든 브라우저의 호환성을 검증했다는 의미는 아니다.
+본문과 자료 링크, 전체 수업의 데스크톱·모바일 가로 넘침, 예제 조작, 검색, 기록 저장·복원·내려받기와 이전 기록 보존을 확인합니다. 개별 예제의 산술·질의 검증은 교재의 `examples/`에서 실행합니다. 실제 학습 효과나 상용 시스템의 성능을 측정한 검사는 아닙니다.
 
 ## 배포
 
-Sites의 비공개 개인 사이트로 배포한다. 지정된 Site ID를 재사용하며 새 Site를 반복 생성하지 않는다. 소스 동기화와 배포 패키징은 Sites의 site-workflow 도구를 사용한다. 사용자 학습 메모는 배포 파일에 포함되지 않는다.
+기존 `.openai/hosting.json`의 Site ID와 owner-private 범위를 유지합니다. Sites source helper가 소스 commit/push와 패키징을 담당하고 정확히 그 커밋의 정적 출력물을 배포합니다. 루트 GitHub commit/push와 Sites 배포는 별도 기록합니다.

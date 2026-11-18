@@ -1,0 +1,28 @@
+{
+  "missing_performer": {
+    "conforms": false,
+    "components": [
+      "MinCountConstraintComponent"
+    ]
+  },
+  "typed_performer": {
+    "conforms": true,
+    "components": []
+  },
+  "untyped_before_inference": {
+    "conforms": false,
+    "components": [
+      "ClassConstraintComponent"
+    ]
+  },
+  "untyped_after_rdfs": {
+    "conforms": true,
+    "components": []
+  },
+  "range_infers_manual_as_person": true,
+  "limits": [
+    "Not full OWL consistency verification",
+    "Not verification of real work performer",
+    "Synthetic data only"
+  ]
+}

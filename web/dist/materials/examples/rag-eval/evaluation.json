@@ -1,0 +1,88 @@
+{
+  "kind": "교육용 모의 예",
+  "as_of": "2026-04-10",
+  "questions": [
+    {
+      "id": "Q1",
+      "type": "단일 사실",
+      "question": "지금 PX-47의 E17 복귀 판정 관찰 시간은?",
+      "answerable": true,
+      "gold": ["D02a"],
+      "rankings": {
+        "Vector": ["D02a", "D02b", "D05a", "D06a"],
+        "Graph": ["D05a", "D02a", "D02b", "D06a"],
+        "Tree": ["D02a", "D02b", "D06a", "D05a"]
+      }
+    },
+    {
+      "id": "Q2",
+      "type": "다중 관계",
+      "question": "W-207에서 교체한 현장 밸브의 현재 지정 공급사와 그 변경 건의 승인자는?",
+      "answerable": true,
+      "gold": ["G01", "G02", "G03", "G04"],
+      "rankings": {
+        "Vector": ["G01", "G02", "G03", "G08"],
+        "Graph": ["G01", "G02", "G03", "G04"],
+        "Tree": ["G03", "G08", "G01", "G05"]
+      }
+    },
+    {
+      "id": "Q3",
+      "type": "교차 문서",
+      "question": "별관 토요일에는 예약이 몇 시까지 유지되며, 수령 때 무엇을 확인하나요?",
+      "answerable": true,
+      "gold": ["T03", "T02"],
+      "rankings": {
+        "Vector": ["T03", "T05", "T01", "T02"],
+        "Graph": ["T02", "T03", "T04", "T07"],
+        "Tree": ["T03", "T02", "T05", "T01"]
+      }
+    },
+    {
+      "id": "Q4",
+      "type": "절차의 전체 흐름",
+      "question": "주말 대여 절차를 본관·별관 수령, 주말 반납 기한, 기록 연결 순서로 설명해 주세요.",
+      "answerable": true,
+      "gold": ["T01", "T02", "T05", "T07"],
+      "rankings": {
+        "Vector": ["T01", "T03", "T02", "T04"],
+        "Graph": ["T02", "T03", "T01", "T07"],
+        "Tree": ["T01", "T02", "T05", "T07"]
+      }
+    },
+    {
+      "id": "Q5",
+      "type": "최신판과 별도 지침",
+      "question": "지금 PX-47 E17이 재발한 뒤 복귀 판정의 관찰 조건과 기록 항목은?",
+      "answerable": true,
+      "gold": ["D02a", "D04a"],
+      "rankings": {
+        "Vector": ["D02a", "D05a", "D02b", "D06a"],
+        "Graph": ["D04a", "D02a", "D02b", "D05a"],
+        "Tree": ["D02a", "D02b", "D04a", "D05a"]
+      }
+    },
+    {
+      "id": "Q6",
+      "type": "근거 부족",
+      "question": "별관 토요일 예약이 자동 취소되면 대여 보증금은 어떤 수단으로 환급되나요?",
+      "answerable": false,
+      "gold": [],
+      "rankings": {
+        "Vector": ["T03", "T02", "T05", "T08"],
+        "Graph": ["T03", "T02", "T05", "T01"],
+        "Tree": ["T03", "T02", "T01", "T05"]
+      }
+    }
+  ],
+  "generated_example": {
+    "question": "Q5",
+    "context": ["D02a", "D04a", "D05a"],
+    "claims": [
+      {"id": "A1", "text": "현재 PX-47 E17 복귀 관찰 조건은 점검 모드에서 무재발로 12분 연속 관찰하는 것이다.", "requires_citation": true, "support": ["D02a"], "citations": ["D02a"]},
+      {"id": "A2", "text": "복귀 승인 요청에는 재현 시각을 기록한다.", "requires_citation": true, "support": ["D04a"], "citations": ["D04a"]},
+      {"id": "A3", "text": "복귀 승인 요청에는 시험 결과도 기록한다.", "requires_citation": true, "support": ["D04a"], "citations": ["D05a"]},
+      {"id": "A4", "text": "모든 복귀 승인 요청에는 두 번째 관리자 승인이 필요하다.", "requires_citation": true, "support": [], "citations": ["D04a"]}
+    ]
+  }
+}

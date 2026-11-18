@@ -1,0 +1,229 @@
+[
+  {
+    "source_id": "SRC-RDF11",
+    "title": "RDF 1.1 Concepts",
+    "url": "https://www.w3.org/TR/rdf11-concepts/",
+    "version_or_date": "2014 Recommendation",
+    "accessed_on": "2026-11-18",
+    "sections_read": [
+      "1.1-1.8",
+      "3",
+      "4",
+      "5"
+    ],
+    "used_by": [
+      "U04-L01",
+      "U04-L02",
+      "U04-L03"
+    ],
+    "status": "checked_sections_only",
+    "limitations": "전체 정독/구현을 뜻하지 않음. 자세한 주장 범위는 단원 notes와 본문 인용 참조."
+  },
+  {
+    "source_id": "SRC-TURTLE",
+    "title": "RDF 1.1 Turtle",
+    "url": "https://www.w3.org/TR/turtle/",
+    "version_or_date": "2014 Recommendation",
+    "accessed_on": "2026-11-18",
+    "sections_read": [
+      "2.1-2.6"
+    ],
+    "used_by": [
+      "U04-L01"
+    ],
+    "status": "checked_sections_only",
+    "limitations": "전체 정독/구현을 뜻하지 않음. 자세한 주장 범위는 단원 notes와 본문 인용 참조."
+  },
+  {
+    "source_id": "SRC-RDFS",
+    "title": "RDF Schema 1.1",
+    "url": "https://www.w3.org/TR/rdf-schema/",
+    "version_or_date": "2014 Recommendation",
+    "accessed_on": "2026-11-18",
+    "sections_read": [
+      "3.3-3.6",
+      "5.3"
+    ],
+    "used_by": [
+      "U04-L01",
+      "U04-L03"
+    ],
+    "status": "checked_sections_only",
+    "limitations": "전체 정독/구현을 뜻하지 않음. 자세한 주장 범위는 단원 notes와 본문 인용 참조."
+  },
+  {
+    "source_id": "SRC-RDFXML",
+    "title": "RDF XML Syntax",
+    "url": "https://www.w3.org/TR/rdf-syntax-grammar/",
+    "version_or_date": "2014 Recommendation",
+    "accessed_on": "2026-11-18",
+    "sections_read": [
+      "2.2-2.6"
+    ],
+    "used_by": [
+      "U04-L01"
+    ],
+    "status": "checked_sections_only",
+    "limitations": "전체 정독/구현을 뜻하지 않음. 자세한 주장 범위는 단원 notes와 본문 인용 참조."
+  },
+  {
+    "source_id": "SRC-JSONLD",
+    "title": "JSON-LD1.1",
+    "url": "https://www.w3.org/TR/json-ld11/",
+    "version_or_date": "2020 Recommendation",
+    "accessed_on": "2026-11-18",
+    "sections_read": [
+      "basic-concepts",
+      "node-reference"
+    ],
+    "used_by": [
+      "U04-L01"
+    ],
+    "status": "checked_sections_only",
+    "limitations": "전체 정독/구현을 뜻하지 않음. 자세한 주장 범위는 단원 notes와 본문 인용 참조."
+  },
+  {
+    "source_id": "SRC-NARY",
+    "title": "Defining N-ary Relations",
+    "url": "https://www.w3.org/TR/swbp-n-aryRelations/",
+    "version_or_date": "2006 WG Note",
+    "accessed_on": "2026-11-18",
+    "sections_read": [
+      "general-issues",
+      "pattern1"
+    ],
+    "used_by": [
+      "U04-L02"
+    ],
+    "status": "checked_sections_only",
+    "limitations": "전체 정독/구현을 뜻하지 않음. 자세한 주장 범위는 단원 notes와 본문 인용 참조."
+  },
+  {
+    "source_id": "SRC-NEO4J",
+    "title": "Graph database concepts",
+    "url": "https://neo4j.com/docs/getting-started/appendix/graphdb-concepts/",
+    "version_or_date": "current accessed2026-11-18",
+    "accessed_on": "2026-11-18",
+    "sections_read": [
+      "introduction",
+      "nodes",
+      "relationships",
+      "properties"
+    ],
+    "used_by": [
+      "U04-L02"
+    ],
+    "status": "checked_sections_only",
+    "limitations": "전체 정독/구현을 뜻하지 않음. 자세한 주장 범위는 단원 notes와 본문 인용 참조."
+  },
+  {
+    "source_id": "SRC-SEMANTICS",
+    "title": "RDF1.1 Semantics",
+    "url": "https://www.w3.org/TR/rdf11-mt/",
+    "version_or_date": "2014 Recommendation",
+    "accessed_on": "2026-11-18",
+    "sections_read": [
+      "D.1"
+    ],
+    "used_by": [
+      "U04-L03"
+    ],
+    "status": "checked_sections_only",
+    "limitations": "전체 정독/구현을 뜻하지 않음. 자세한 주장 범위는 단원 notes와 본문 인용 참조."
+  },
+  {
+    "source_id": "SRC-TRIG",
+    "title": "RDF1.1 TriG",
+    "url": "https://www.w3.org/TR/trig/",
+    "version_or_date": "2014 Recommendation",
+    "accessed_on": "2026-11-18",
+    "sections_read": [
+      "2"
+    ],
+    "used_by": [
+      "U04-L03"
+    ],
+    "status": "checked_sections_only",
+    "limitations": "전체 정독/구현을 뜻하지 않음. 자세한 주장 범위는 단원 notes와 본문 인용 참조."
+  },
+  {
+    "source_id": "SRC-SPARQL",
+    "title": "SPARQL1.1 Query",
+    "url": "https://www.w3.org/TR/sparql11-query/",
+    "version_or_date": "2013 Recommendation",
+    "accessed_on": "2026-11-18",
+    "sections_read": [
+      "13.3"
+    ],
+    "used_by": [
+      "U04-L03"
+    ],
+    "status": "checked_sections_only",
+    "limitations": "전체 정독/구현을 뜻하지 않음. 자세한 주장 범위는 단원 notes와 본문 인용 참조."
+  },
+  {
+    "source_id": "SRC-RDF12",
+    "title": "RDF1.2 Concepts",
+    "url": "https://www.w3.org/TR/2026/CRD-rdf12-concepts-20261116/",
+    "version_or_date": "2026-11-16 CRD",
+    "accessed_on": "2026-11-18",
+    "sections_read": [
+      "status",
+      "abstract"
+    ],
+    "used_by": [
+      "U04-L03"
+    ],
+    "status": "checked_sections_only",
+    "limitations": "전체 정독/구현을 뜻하지 않음. 자세한 주장 범위는 단원 notes와 본문 인용 참조."
+  },
+  {
+    "source_id": "SRC-SECONDBRAIN",
+    "title": "Second Brain Foundation",
+    "url": "https://www.buildingasecondbrain.com/foundation",
+    "version_or_date": "mutable author marketing",
+    "accessed_on": "2026-11-18",
+    "sections_read": [
+      "Second Brain",
+      "CODE"
+    ],
+    "used_by": [
+      "U01-L01"
+    ],
+    "status": "checked_sections_only",
+    "limitations": "전체 정독/구현을 뜻하지 않음. 자세한 주장 범위는 단원 notes와 본문 인용 참조."
+  },
+  {
+    "source_id": "SRC-WRITER",
+    "title": "Enterprise Brain introduction",
+    "url": "https://writer.com/blog/enterprise-brain/",
+    "version_or_date": "2026-09-09 vendor article",
+    "accessed_on": "2026-11-18",
+    "sections_read": [
+      "intro",
+      "shared context"
+    ],
+    "used_by": [
+      "U01-L01"
+    ],
+    "status": "checked_sections_only",
+    "limitations": "전체 정독/구현을 뜻하지 않음. 자세한 주장 범위는 단원 notes와 본문 인용 참조."
+  },
+  {
+    "source_id": "SRC-KG-SURVEY",
+    "title": "Knowledge Graphs",
+    "url": "https://arxiv.org/html/2003.02320v6",
+    "version_or_date": "v6",
+    "accessed_on": "2026-11-18",
+    "sections_read": [
+      "2 overview",
+      "3 overview",
+      "4 ontology role"
+    ],
+    "used_by": [
+      "U01-L01"
+    ],
+    "status": "checked_sections_only",
+    "limitations": "전체 정독/구현을 뜻하지 않음. 자세한 주장 범위는 단원 notes와 본문 인용 참조."
+  }
+]

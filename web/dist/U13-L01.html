@@ -1,0 +1,398 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>정비 질문 한 건을 Vector RAG 안에서 추적하기</title><link rel="stylesheet" href="comparison.css"><link rel="stylesheet" href="reader.css"></head><body class="view-b" data-lesson="U13-L01"><a class="skip" href="#lesson">본문으로 이동</a><header class="reader-header"><a href="index.html">기업 지식 학습 교재</a><span>개념에서 원리와 적용까지</span><button id="menu-toggle" aria-expanded="false" aria-controls="course-nav">수업 목록</button></header><div class="reader-grid"><nav id="course-nav" class="course-nav" aria-label="학습 수업"><label for="lesson-search">수업 찾기</label><input id="lesson-search" type="search" placeholder="본문까지 검색"><div class="course-links"><div class="nav-unit"><p>U01 · 기업 지식과 Enterprise/Second Brain</p><a href="U01-L01.html" data-title="기업은 무엇을 기억하고, 무엇을 설명해야 할까요">기업은 무엇을 기억하고, 무엇을 설명해야 할까요</a></div><div class="nav-unit"><p>U02 · RDB와 Graph DB</p><a href="U02-L01.html" data-title="같은 질문을 표와 그래프로 따라가기">같은 질문을 표와 그래프로 따라가기</a></div><div class="nav-unit"><p>U03 · Property Graph와 Neo4j</p><a href="U03-L01.html" data-title="속성 그래프에서 무엇을 노드와 관계로 만들까요">속성 그래프에서 무엇을 노드와 관계로 만들까요</a></div><div class="nav-unit"><p>U04 · Semantic Web·W3C·RDF</p><a href="U04-L01.html" data-title="데이터의 이름을 공유하는 방법: RDF를 처음부터 읽기">데이터의 이름을 공유하는 방법: RDF를 처음부터 읽기</a><a href="U04-L02.html" data-title="같은 사건을 RDF와 속성 그래프로 표현하기">같은 사건을 RDF와 속성 그래프로 표현하기</a><a href="U04-L03.html" data-title="사건이 일어났다는 말과 문서가 그렇게 주장한다는 말">사건이 일어났다는 말과 문서가 그렇게 주장한다는 말</a></div><div class="nav-unit"><p>U05 · Ontology 도메인 설계</p><a href="U05-L01.html" data-title="장비 정비 기록에서 도메인 온톨로지 설계하기">장비 정비 기록에서 도메인 온톨로지 설계하기</a><a href="U05-L02.html" data-title="이름과 의미를 재사용할 때 일치하는 범위를 정하기">이름과 의미를 재사용할 때 일치하는 범위를 정하기</a><a href="U05-L03.html" data-title="모델을 개정한 뒤 같은 질문에 다시 답하기">모델을 개정한 뒤 같은 질문에 다시 답하기</a></div><div class="nav-unit"><p>U06 · RDFS·OWL·SHACL</p><a href="U06-L01.html" data-title="같은 데이터에서 추론과 검증이 다른 답을 내는 이유">같은 데이터에서 추론과 검증이 다른 답을 내는 이유</a></div><div class="nav-unit"><p>U08 · Knowledge Graph</p><a href="U08-L01.html" data-title="연결된 자료를 질문에 답하는 Knowledge Graph로 발전시키기">연결된 자료를 질문에 답하는 Knowledge Graph로 발전시키기</a><a href="U08-L02.html" data-title="고객의 보고를 어떤 지식으로 보여 줄까요?">고객의 보고를 어떤 지식으로 보여 줄까요?</a><a href="U08-L03.html" data-title="같은 질문으로 세 가지 구축 방식을 비교하기">같은 질문으로 세 가지 구축 방식을 비교하기</a></div><div class="nav-unit"><p>U09 · 수집·정형 매핑·정보 추출</p><a href="U09-L01.html" data-title="표의 한 행에서 근거가 있는 주장까지">표의 한 행에서 근거가 있는 주장까지</a><a href="U09-L02.html" data-title="정비 문장에서 지식 후보를 추출하기">정비 문장에서 지식 후보를 추출하기</a><a href="U09-L03.html" data-title="표와 본문이 섞인 문서를 읽고 추출 결과를 채점하기">표와 본문이 섞인 문서를 읽고 추출 결과를 채점하기</a></div><div class="nav-unit"><p>U10 · Entity resolution·통합</p><a href="U10-L01.html" data-title="서로 다른 기록에서 같은 장비를 찾기">서로 다른 기록에서 같은 장비를 찾기</a><a href="U10-L02.html" data-title="하나의 잘못된 연결이 다섯 레코드를 합칠 때">하나의 잘못된 연결이 다섯 레코드를 합칠 때</a><a href="U10-L03.html" data-title="같은 장비의 서로 다른 값들을 통합하기">같은 장비의 서로 다른 값들을 통합하기</a></div><div class="nav-unit"><p>U11 · 검증·사람 검토·암묵지</p><a href="U11-L01.html" data-title="형식에 맞는 주장, 원문에 맞는 주장, 사실로 확인된 주장">형식에 맞는 주장, 원문에 맞는 주장, 사실로 확인된 주장</a><a href="U11-L02.html" data-title="검토 대기열에 무엇을 보낼지 결정하기">검토 대기열에 무엇을 보낼지 결정하기</a><a href="U11-L03.html" data-title="숙련자의 판단을 조건이 붙은 지식으로 옮기기">숙련자의 판단을 조건이 붙은 지식으로 옮기기</a></div><div class="nav-unit"><p>U12 · Auto ontology·자동 구축</p><a href="U12-L01.html" data-title="자동 온톨로지 구축에서 무엇을 학습할까요">자동 온톨로지 구축에서 무엇을 학습할까요</a><a href="U12-L02.html" data-title="검사 문서에서 개념과 공리 후보를 만드는 과정">검사 문서에서 개념과 공리 후보를 만드는 과정</a><a href="U12-L03.html" data-title="후보를 평가하고 온톨로지 개정을 배포하기">후보를 평가하고 온톨로지 개정을 배포하기</a><a href="U12-L04.html" data-title="NVIDIA Auto Ontology가 데이터베이스에서 만드는 의미 계층">NVIDIA Auto Ontology가 데이터베이스에서 만드는 의미 계층</a></div><div class="nav-unit"><p>U13 · Vector RAG</p><a href="U13-L01.html" data-title="정비 질문 한 건을 Vector RAG 안에서 추적하기">정비 질문 한 건을 Vector RAG 안에서 추적하기</a><a href="U13-L02.html" data-title="같은 자료에서도 질문에 따라 검색을 바꾸기">같은 자료에서도 질문에 따라 검색을 바꾸기</a></div><div class="nav-unit"><p>U14 · Graph RAG</p><a href="U14-L01.html" data-title="부품 교체 기록에서 승인 근거까지 경로를 따라가기">부품 교체 기록에서 승인 근거까지 경로를 따라가기</a><a href="U14-L02.html" data-title="문서 전체의 변화를 묻는다면 무엇을 검색하나요?">문서 전체의 변화를 묻는다면 무엇을 검색하나요?</a><a href="U14-L03.html" data-title="그래프 질의를 선택하고 틀린 관계의 파급을 따라가기">그래프 질의를 선택하고 틀린 관계의 파급을 따라가기</a></div><div class="nav-unit"><p>U15 · Tree RAG·RAPTOR</p><a href="U15-L01.html" data-title="여러 문서의 조각을 묶어 요약 계층 만들기">여러 문서의 조각을 묶어 요약 계층 만들기</a><a href="U15-L02.html" data-title="같은 질문을 두 방식으로 검색해 컨텍스트 비교하기">같은 질문을 두 방식으로 검색해 컨텍스트 비교하기</a></div><div class="nav-unit"><p>U16 · RAG 평가</p><a href="U16-L01.html" data-title="같은 질문과 근거로 검색을 비교하기">같은 질문과 근거로 검색을 비교하기</a><a href="U16-L02.html" data-title="맞는 답, 근거가 있는 답, 인용이 정확한 답 비교하기">맞는 답, 근거가 있는 답, 인용이 정확한 답 비교하기</a></div><div class="nav-unit"><p>S01 · 자동 KG 구축 survey 해설</p><a href="S01-L01.html" data-title="별첨 1: 자동 KG 구축 survey를 읽는 지도와 지식 획득">별첨 1: 자동 KG 구축 survey를 읽는 지도와 지식 획득</a><a href="S01-L02.html" data-title="별첨 2: 학습 방법을 비교하고 추출 결과를 정제하기">별첨 2: 학습 방법을 비교하고 추출 결과를 정제하기</a><a href="S01-L03.html" data-title="별첨 3: 조건·변화·저장과 논문을 읽은 뒤의 판단">별첨 3: 조건·변화·저장과 논문을 읽은 뒤의 판단</a></div></div><p>기초·지식 구축·검색의 수업을 연결합니다. 논문 해설은 별첨에서 읽습니다.</p></nav><main id="lesson" class="lesson"><header><p class="unit-name">U13</p><h1>정비 질문 한 건을 Vector RAG 안에서 추적하기</h1><a class="source-link" href="materials/units/U13/01-retrieval-trace.md">Markdown 원문</a></header><details class="inline-outline"><summary>수업 안에서 이동</summary><a href="#_1">모델이 읽을 문서를 언제 고르나요?</a><a href="#_2">여섯 문서에서 검색할 단위를 만듭니다</a><a href="#_4">질문과 청크를 벡터로 비교합니다</a><a href="#_7">후보를 고르고 순서를 다시 매깁니다</a><a href="#_11">생성기에 근거를 넣고 인용을 대조합니다</a><a href="#_12">같은 질문에서 표 한 줄만 쪼개 봅니다</a><a href="#_13">설명 연습</a></details><article>
+<blockquote>
+<p><strong>“PX-47 정비 뒤 E17이 다시 떴습니다. 지금 기준으로 복귀 판정 기준과 꼭 남길 기록은 무엇인가요?”</strong></p>
+</blockquote>
+<p>같은 장비 이름과 오류 코드가 적힌 매뉴얼 두 판본을 열었습니다. 한 판에는 8분, 다른 판에는 12분이라고 적혀 있습니다. 별도 서비스 지침에는 복귀를 요청할 때 남길 항목이 있습니다. 정비원이 만료된 문서를 가장 먼저 발견하거나, 매뉴얼에서 관찰 조건을 찾고도 서비스 지침을 놓치면 어떻게 될까요? 문장을 잘 쓰는 도구를 붙여도 어느 근거를 읽혔는지가 답변을 바꿉니다.</p>
+<p>이 수업에서는 문서 여섯 개와 질문 한 건을 따라갑니다. 어디에서 근거가 빠졌는지 중간 결과를 보고 설명할 수 있다면, 다른 업무 문서를 검색하는 시스템에서도 오류를 고칠 위치를 찾을 수 있습니다. 벡터 계산과 검색 용어는 수업 안에서 설명합니다.</p>
+<blockquote>
+<p><strong>교육용 모의 예.</strong> PX 장비, 오류 코드, 판본, 수치, 기록, 벡터, 재정렬 점수와 답변은 모두 합성했습니다. 벡터의 유사도와 순위 결합 점수는 제시한 입력으로 계산합니다. 임베딩 모델, 검색 서비스, 생성 모델의 실측 결과는 이 예에 포함되지 않습니다. <a href="materials/examples/rag-trace/trace.json">예제 데이터</a></p>
+</blockquote>
+<h2 id="_1">모델이 읽을 문서를 언제 고르나요?</h2>
+<p>생성 모델은 입력으로 받은 글에 이어 어떤 글을 만들지 계산합니다. 학습 중에 조정된 수치인 <strong>파라미터</strong>에는 학습에서 익힌 언어 패턴과 지식이 반영됩니다. PX-47 매뉴얼을 이번 달에 개정해도 모델의 파라미터는 그대로입니다. 모델에게 “지금”이라고 말하는 것만으로는 어느 시점에 어느 판본이 유효한지 알 수 없습니다.</p>
+<p><strong>검색 증강 생성</strong>(retrieval-augmented generation, RAG)은 질문을 처리할 때 별도로 관리하는 자료에서 관련 부분을 찾고, 그 내용을 생성에 사용합니다. 이 수업의 응용 프로그램은 문서 개정 때 검색용 데이터를 갱신하고, 질문을 받을 때 필요한 글 조각을 골라 프롬프트에 넣습니다. <strong>프롬프트</strong>는 모델에 전달하는 질문, 답변 지시, 근거 등의 입력입니다. 매뉴얼 내용이 바뀌면 영향을 받는 검색 데이터를 갱신하여 다음 질문에 새 판본을 보낼 수 있습니다.</p>
+<p>Lewis 등의 2020년 논문도 모델 안의 파라미터 지식과 외부에서 검색하는 지식을 결합합니다. 논문의 검색기는 질문과 문단을 각각 벡터로 만든 뒤 벡터의 <strong>내적</strong>이 큰 문단을 찾습니다. 내적은 아래에서 손으로 계산합니다. RAG-Sequence는 후보 문단 하나를 조건으로 전체 답변의 확률을 구한 뒤 문단별 결과를 검색 확률로 가중합합니다. RAG-Token은 출력의 각 <strong>토큰</strong>(모델이 다루는 글의 작은 단위)에서 후보 문단별 확률을 가중합합니다. 학습에서는 문서 인코더와 인덱스를 고정하고 질문 인코더와 생성기를 미세조정했습니다. <strong>인코더</strong>는 입력을 벡터로 바꾸는 모델이며, <strong>미세조정</strong>은 이미 학습한 모델을 추가 데이터로 더 학습시키는 일입니다. 이 수업의 방식은 검색된 문단을 한 프롬프트에 넣어 생성 모델에 전달합니다. 문단별 예측 확률을 합치는 계산과 검색기·생성기 공동 학습은 원논문의 설계에 해당합니다. <a href="https://papers.neurips.cc/paper_files/paper/2020/file/6b493230205f780e1bc26945df7481e5-Paper.pdf#page=2">Lewis et al., NeurIPS 2020, 그림 1과 §2.1–2.4</a></p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>시점</th>
+<th>들어오는 것</th>
+<th>저장하거나 전달하는 것</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>문서를 넣거나 개정할 때</td>
+<td>원본 파일, 적용 장비, 시행일, 종료일</td>
+<td>위치가 표시된 본문 조각, 원문에 대한 메타데이터, 검색용 인덱스</td>
+</tr>
+<tr>
+<td>질문을 받을 때</td>
+<td>사용자 질문, 기준일, 접근 범위</td>
+<td>검색 후보, 선택한 근거와 질문을 붙인 프롬프트, 인용을 포함한 답변</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>메타데이터</strong>는 본문과 별도로 관리하는 장비 코드, 판본, 시행일 같은 정보입니다. <strong>인덱스</strong>는 어떤 문구나 벡터와 일치하는 텍스트를 빠르게 찾도록 만든 검색 자료구조입니다. 둘 다 문서 준비 때 채웁니다. 질문 시점에는 기존 인덱스에 질문을 보내고 반환된 조각을 원문에 연결합니다.</p>
+<h2 id="_2">여섯 문서에서 검색할 단위를 만듭니다</h2>
+<p>질문은 2026년 4월 10일에 들어왔다고 가정합니다. 정비 매뉴얼 v2는 2026년 3월 1일이 시작되는 시점에 효력이 끝났고 그 시점부터 v3가 적용됩니다. D01과 D02는 같은 매뉴얼의 다른 판본이므로 다른 문서 ID를 부여합니다. 아래 표의 날짜와 문서 종류는 점수와 별개로 판단할 때 사용합니다.</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>문서</th>
+<th>원본 이름과 판본</th>
+<th>적용 범위·효력 또는 기록 일자</th>
+<th>예제에서 읽을 내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D01</td>
+<td>PX-47 정비 매뉴얼 v2</td>
+<td>PX-47, 2025-03-01부터 2026-03-01 직전까지</td>
+<td>p.8 §3.2 표 3 E17 행의 8분 조건</td>
+</tr>
+<tr>
+<td>D02</td>
+<td>PX-47 정비 매뉴얼 v3</td>
+<td>PX-47, 2026-03-01부터 시행</td>
+<td>p.8 §3.1 점검 준비, p.9 §3.2 표 3 E17 행의 12분 조건</td>
+</tr>
+<tr>
+<td>D03</td>
+<td>PX-48 정비 매뉴얼 v1</td>
+<td>PX-48, 2026-03-04부터 시행</td>
+<td>p.6 §3.2 표 2 E17 행의 15분 조건</td>
+</tr>
+<tr>
+<td>D04</td>
+<td>PX-47 서비스 지침 SB-47 r1</td>
+<td>PX-47, 2026-03-10부터 시행</td>
+<td>p.2 §2의 복귀 승인 요청에 남길 두 항목</td>
+</tr>
+<tr>
+<td>D05</td>
+<td>정비 관측 일지 W-207 r1</td>
+<td>PX-47, 2026-03-20 관측</td>
+<td>p.1 관측 2의 과거 발생 사례</td>
+</tr>
+<tr>
+<td>D06</td>
+<td>작업 용어집 r1</td>
+<td>공통</td>
+<td>p.1에서 ‘복귀’를 ‘운전 재개’라고 설명</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="_3">파일에서 글과 표의 구조를 꺼냅니다</h3>
+<p><strong>파싱</strong>(parsing)은 파일을 읽어 페이지, 제목, 문단, 표의 행과 열처럼 해석 가능한 단위로 바꾸는 작업입니다. 예를 들어 D02의 p.9에서 화면에 보이는 정보는 다음과 같습니다.</p>
+<p>§3.2 복귀 판정 · 표 3</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>오류 코드</th>
+<th>관찰 조건</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E17</td>
+<td>점검 모드에서 오류 재발 없이<br>12분 연속 관찰.</td>
+</tr>
+</tbody>
+</table></div>
+<p>화면에서 조건 셀이 두 줄이어도 같은 셀입니다. PDF에서 글자의 위치 순서만 따라 추출하면 둘째 줄을 독립 문장으로 꺼낼 수 있습니다. 독자에게는 ‘12분’이 바로 위 조건의 일부라는 점이 보이지만, 표 구조를 잃은 텍스트에서는 어느 코드, 어느 모드, 어떤 동작에 붙는 수치인지 판단하기 어렵습니다.</p>
+<p><strong>청크</strong>(chunk)는 검색 결과 한 건으로 다룰 글 조각입니다. 이 예에서는 제목·표의 행을 보존해 질문에 답하는 데 필요한 내용이 한 청크에 들어가도록 합니다. D02에서는 준비 절과 판정표 행을 각각 만들고, 다른 문서에서는 하나씩 만들어 총 일곱 청크를 얻습니다. 파싱 결과가 표면 열 제목을 붙여 “오류 코드 E17, 관찰 조건 …”처럼 한 줄로 펼칠 수도 있습니다. 이 예는 제목과 코드를 남기고 세로줄로 구분합니다. 실제 문서는 표가 여러 페이지에 걸치거나 한 절이 길어서 여러 단위로 나눠야 할 수 있습니다. <a href="https://learn.microsoft.com/en-us/azure/search/vector-search-how-to-chunk-documents#common-chunking-techniques">Microsoft Learn, Common chunking techniques</a></p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>청크</th>
+<th>검색에 넣는 텍스트</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D01a</td>
+<td>PX-47 복귀 판정 · E17 · 점검 모드에서 오류 재발 없이 8분 연속 관찰.</td>
+</tr>
+<tr>
+<td>D02a</td>
+<td>PX-47 복귀 판정 · E17 · 점검 모드에서 오류 재발 없이 12분 연속 관찰.</td>
+</tr>
+<tr>
+<td>D02b</td>
+<td>PX-47 E17 점검 준비 · 점검 모드를 지정하고 시험 시각을 확인합니다.</td>
+</tr>
+<tr>
+<td>D03a</td>
+<td>PX-48 복귀 판정 · E17 · 점검 모드에서 오류 재발 없이 15분 연속 관찰.</td>
+</tr>
+<tr>
+<td>D04a</td>
+<td>PX-47 E17 복귀 승인 요청에는 재현 시각과 시험 결과를 기록합니다.</td>
+</tr>
+<tr>
+<td>D05a</td>
+<td>담당자는 PX-47을 점검했습니다. 4분째 E17이 다시 발생해 복귀 요청을 보류했습니다.</td>
+</tr>
+<tr>
+<td>D06a</td>
+<td>복귀란 작업 절차에서 운전 재개를 뜻합니다.</td>
+</tr>
+</tbody>
+</table></div>
+<p>표의 가운뎃점은 원 데이터의 세로줄을 읽기 쉽게 표시한 것입니다. 청크를 저장할 때 원래 문서 ID, 판본, 페이지와 절 같은 <strong>출처 위치</strong>를 함께 남깁니다. D02a는 문서 D02의 v3, p.9 §3.2 표 3 E17 행을 가리킵니다. 텍스트에 장비 이름이 보이는 것과 시스템이 적용 장비를 확인하는 일은 별개입니다. “PX-48과 달리 …”처럼 다른 장비를 언급하는 매뉴얼도 있으므로 적용 장비는 문서가 명시한 범위를 별도 필드에 기록합니다.</p>
+<h2 id="_4">질문과 청크를 벡터로 비교합니다</h2>
+<p><strong>임베딩</strong>(embedding)은 글을 숫자 목록인 <strong>벡터</strong>로 바꾼 결과입니다. 검색에서는 관련 있는 표현을 비슷하게 배치하도록 학습한 모델을 사용합니다. “복귀”와 “운전 재개”처럼 표면의 단어가 다른 글도 가까이 놓일 수 있습니다. 숫자 하나마다 업무 항목이나 규정 조건이 대응한다고 가정할 수는 없습니다. 같은 장비의 신구 판본은 표현이 비슷하므로 둘 다 가까이 놓일 수 있고, “8”과 “12”의 차이가 이 예에서 중요하다는 판단도 유사도에 반영된다고 가정할 수 없습니다.</p>
+<p>문서 처리 때 청크별 벡터를 저장해 두고, 질문을 받을 때 질문도 같은 방식으로 비교할 수 있는 공간에 놓습니다. 한 모델을 질문과 청크에 함께 쓰는 방식이 있고, 논문의 DPR처럼 역할별 인코더를 짝지어 쓰는 방식도 있습니다. DPR(Dense Passage Retrieval)은 문단과 질문을 각각 밀집 벡터로 나타내 문단을 찾는 검색 방식입니다. 밀집 벡터는 대부분의 차원이 0이 아닌 숫자 벡터를 뜻합니다. 임베딩 모델을 바꾸면 차원 수가 우연히 같아도 새 질문 벡터와 이전 문서 벡터의 좌표를 그대로 비교할 근거가 없습니다. 문서 벡터와 질의 방식을 호환되는 조합으로 갱신합니다. <a href="https://learn.microsoft.com/en-us/azure/search/vector-search-how-to-generate-embeddings#how-embedding-models-are-used-in-vector-queries">Microsoft Learn, How embedding models are used in vector queries</a> <a href="https://papers.neurips.cc/paper_files/paper/2020/file/6b493230205f780e1bc26945df7481e5-Paper.pdf#page=3">Lewis et al., §2.2</a></p>
+<p>사용자 질문에는 “다시 떴습니다”라는 표현과 “지금”이라는 기준이 있습니다. 검색에 도움이 되도록 의미 검색용 문장을 “PX-47 E17 정비 후 운전 재개 판정 기준과 필수 이력 항목”으로 고쳐 쓸 수 있습니다. 이 작업을 <strong>질문 재작성</strong>이라고 합니다. 장비와 기준 날짜는 필터 조건으로 쓰고, E17은 재작성한 문장과 어휘 검색에 남깁니다. 원 질문도 생성기에 전달합니다. 재작성에 근거도 없이 “10분”, “센서 오류”를 추가하면 그 가정을 뒷받침하는 글을 더 찾게 됩니다. 단어 검색용 입력에는 원문의 “복귀”와 같은 표현을 유지합니다.</p>
+<h3 id="_5">코사인 유사도를 손으로 구합니다</h3>
+<p>예제에서 질문 벡터 q = (1, 0)과 D02a 벡터 d = (4, 2)는 직접 정한 좌표입니다. <strong>내적</strong> q · d는 같은 위치의 숫자를 곱해 더한 값이므로 1 × 4 + 0 × 2 = 4입니다. <strong>벡터의 길이</strong>는 좌표 제곱의 합에 제곱근을 씌운 값입니다. 질문은 길이 1, D02a는 길이 √(4² + 2²) = √20입니다.</p>
+<pre tabindex="0"><code class="language-text">코사인 유사도 = 내적 / (질문 벡터의 길이 × 청크 벡터의 길이)
+D02a의 예    = 4 / (1 × √20) ≈ 0.8944
+</code></pre>
+<p>이 값은 두 방향 사이 각도의 코사인입니다. D02a의 벡터를 두 배로 한 (8, 4)는 내적이 8로 커져도 방향과 코사인 유사도는 같습니다. 벡터를 길이로 나눠 길이 1인 벡터로 만드는 방법을 <strong>길이 정규화</strong>라고 부릅니다. 둘 다 길이 1이면 그 내적이 바로 코사인 유사도입니다. 길이 0인 벡터는 방향이 없어 이 식으로 계산할 수 없습니다. 아래의 0.8944는 같은 식으로 나온 유사도이며, 이 청크가 답변에서 맞을 확률을 뜻하지 않습니다. <a href="https://nlp.stanford.edu/IR-book/html/htmledition/dot-products-1.html">Introduction to Information Retrieval, §6.3.1 Dot products</a></p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th style="text-align: right;">필터 전 순위</th>
+<th>청크</th>
+<th>교육용 벡터</th>
+<th style="text-align: right;">코사인 유사도</th>
+<th>발견되는 내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td>D01a</td>
+<td>(10, 1)</td>
+<td style="text-align: right;">0.9950</td>
+<td>만료된 8분 기준</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>D03a</td>
+<td>(6, 1)</td>
+<td style="text-align: right;">0.9864</td>
+<td>다른 장비의 15분 기준</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>D05a</td>
+<td>(4, 1)</td>
+<td style="text-align: right;">0.9701</td>
+<td>과거 작업의 4분째 재발</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>D02b</td>
+<td>(3, 1)</td>
+<td style="text-align: right;">0.9487</td>
+<td>점검 준비</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>D02a</td>
+<td>(4, 2)</td>
+<td style="text-align: right;">0.8944</td>
+<td>지금 적용할 12분 기준</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td>D06a</td>
+<td>(2, 2)</td>
+<td style="text-align: right;">0.7071</td>
+<td>용어 뜻</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td>D04a</td>
+<td>(2, 3)</td>
+<td style="text-align: right;">0.5547</td>
+<td>남겨야 할 두 기록 항목</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="_6">가까운 벡터를 어디서 어떻게 찾나요?</h3>
+<p>이 표는 일곱 개를 전부 비교하는 <strong>전수 검색</strong>으로 만들었습니다. 대규모 인덱스에서 모든 벡터를 매번 읽는 비용을 줄이려면 <strong>근사 최근접 이웃</strong>(approximate nearest neighbor, ANN) 검색을 쓸 수 있습니다. 같은 비교 기준의 전수 검색이 찾는 가장 가까운 후보를 모두 찾지 못할 수 있는 대신, 검사하는 벡터 수와 응답 시간을 줄일 수 있습니다. 어느 단계에서 빠졌는지 진단하려면 같은 질문과 동일한 비교 기준으로 전수 검색 결과를 대조할 수 있습니다.</p>
+<p>HNSW(Hierarchical Navigable Small World)는 여러 층의 근접 그래프를 만들어 ANN 검색에 사용하는 알고리즘입니다. 벡터를 노드로 두고 이웃을 탐색하는 데 쓰는 연결선을 붙입니다. 검색은 상층의 진입점에서 출발해 질문에 가까운 곳으로 이동하고, 그 위치를 단서로 아래층에 내려가 더 많은 후보를 살핍니다. 여기서 두 청크 사이 연결선은 탐색에 쓰입니다. 업무 지식 그래프(KG)의 연결선은 예를 들어 “PX-47에 매뉴얼 D02가 적용된다”처럼 관계의 의미를 기록합니다. HNSW의 가까운 이웃으로 D01a와 D02a가 함께 나와도, 어떤 매뉴얼이 다른 판본을 대체하는지는 판본 메타데이터나 업무 관계에서 확인해야 합니다. <a href="https://arxiv.org/pdf/1603.09320#page=4">Malkov &amp; Yashunin, §3–4 및 알고리즘 5</a> <a href="https://learn.microsoft.com/en-us/azure/search/vector-search-ranking#about-ann">Microsoft Learn, About ANN</a></p>
+<h2 id="_7">후보를 고르고 순서를 다시 매깁니다</h2>
+<h3 id="_8">장비와 효력을 먼저 검사합니다</h3>
+<p>이 흐름에서는 모든 문서를 읽을 수 있는 사용자를 가정합니다. 검색에 들어갈 청크의 적용 장비가 PX-47 또는 공통인지 확인합니다. 매뉴얼과 지침은 ‘시행일 ≤ 2026-04-10 &lt; 종료일’로 검사하고, 종료일이 비어 있으면 종료 시점이 지정되지 않은 것으로 처리합니다. 일지와 용어집은 참고 자료입니다. 적용 장비가 PX-48인 D03a와 만료된 D01a가 제외됩니다.</p>
+<p><strong>top-k</strong>는 점수 순으로 최대 k개를 가져온다는 뜻입니다. 필터를 적용한 뒤 벡터 상위 3개를 뽑으면 <strong>D05a → D02b → D02a</strong>입니다. 필터를 생략하면 만료 판본과 다른 장비 문서가 앞섭니다. 필터 전의 전체 상위 3개를 확정한 뒤 조건에 맞지 않는 것을 삭제하면 <strong>D05a 한 개</strong>만 남습니다. 이 경우 올바른 D02a는 전체 순위 5위여서 돌아오지 않습니다. 아래 계산에서는 필터 조건을 만족하는 집합에서 상위 후보를 고릅니다. 실제 검색기는 인덱스 구조에 따라 조건 적용 위치가 다릅니다. Azure AI Search 문서에도 전체 결과에서 상위 k건을 먼저 확보하고 조건을 적용하는 모드가 별도로 설명되어 있습니다. <a href="https://learn.microsoft.com/en-us/azure/search/vector-search-filters#set-the-filter-mode">Microsoft Learn, Set the filter mode</a></p>
+<h3 id="_9">단어 일치 목록을 더합니다</h3>
+<p>위 벡터 상위 3개에는 현재 판정 기준이 있지만 필수 기록의 출처 D04a가 없습니다. <strong>어휘 검색</strong>(lexical search)은 문서에 나타난 단어, 코드 등의 표기에 근거해 순위를 매깁니다. 검색할 때마다 문서를 하나씩 열지 않고 “E17이 어느 청크에 들어 있는가?”를 찾는 표를 미리 만들 수 있습니다. 이를 <strong>역색인</strong>이라고 부릅니다. 실제 어휘 검색에 쓰이는 BM25 점수는 문서에서 단어가 나타난 횟수와 문서 길이, 전체 문서에서 그 단어가 얼마나 드문지도 고려합니다. 대상 장비 코드의 정확한 일치가 필요하면 코드 검색과 필터가 유용합니다. “다시 운전해도 되는가”라는 표현에서 “복귀 판정”을 찾는 데는 단어 일치만으로 부족할 수 있습니다. <a href="https://nlp.stanford.edu/IR-book/html/htmledition/okapi-bm25-a-non-binary-model-1.html">Introduction to Information Retrieval, Okapi BM25</a></p>
+<p>여기서는 한 청크에 ‘E17’이 보이면 1점, ‘복귀’ 2점, ‘판정’ 2점, ‘기록’ 3점을 각각 한 번 더하는 어휘 점수를 사용합니다. D04a에는 ‘E17’, ‘복귀’, ‘기록’이 있어 6점, D02a는 ‘E17’, ‘복귀’, ‘판정’이 있어 5점입니다. D05a는 3점, D06a는 2점, D02b는 1점입니다. 따라서 어휘 상위 세 건은 <strong>D04a → D02a → D05a</strong>입니다. D04a는 복귀 판정 기준을 직접 설명하지 않아 모의 벡터 목록에서는 낮았지만, ‘기록’을 찾는 어휘 점수에서 살아납니다.</p>
+<p><strong>하이브리드 검색</strong>(hybrid search)은 이처럼 서로 다른 방식의 결과를 조합합니다. 여기서는 <strong>역순위 결합</strong>(Reciprocal Rank Fusion, RRF)을 사용합니다. 각 목록에서 1 / (60 + 순위)를 구해 같은 청크끼리 합합니다. 60은 예제의 결합 상수이며, 청크가 목록에 없으면 그 목록의 기여분은 0입니다. 코사인 유사도와 어휘 점수는 서로 다른 기준으로 만들어진 값입니다. RRF는 각 목록에서의 위치를 사용합니다. D02a는 벡터 3위와 어휘 2위여서 1/63 + 1/62 ≈ 0.03200입니다. <a href="https://learn.microsoft.com/en-us/azure/search/hybrid-search-ranking#how-rrf-ranking-works">Microsoft Learn, How RRF ranking works</a></p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th style="text-align: right;">결합 순위</th>
+<th>청크</th>
+<th style="text-align: right;">벡터 상위 3개에서</th>
+<th style="text-align: right;">어휘 상위 3개에서</th>
+<th style="text-align: right;">결합 점수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td>D05a</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.03227</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>D02a</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.03200</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>D04a</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.01639</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>D02b</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">0.01613</td>
+</tr>
+</tbody>
+</table></div>
+<p>질문과 표현이 비슷하고 두 검색에 모두 잡힌 과거 일지가 결합 순위 1위입니다. 정비 규칙을 알려주는 문서인지까지는 두 검색에서의 순위로 판별할 수 없습니다. 또한 두 쪽에서 각각 k = 3을 요청해도 중복을 합치면 후보는 네 건입니다. k는 답변에 사용한 근거 개수를 약속하는 숫자가 아닙니다.</p>
+<h3 id="_10">질문과 본문을 함께 보고 재정렬합니다</h3>
+<p><strong>재정렬</strong>(reranking)은 처음 검색에 들어온 후보를 다시 비교해 순서를 바꾸는 단계입니다. 한 방법은 질문과 후보 본문을 함께 읽는 모델에 넣어 질문의 답에 직접 필요한 정보가 있는지 점수화하는 것입니다. 여기서는 직접 채점했습니다. 현재 적용되는 조건과 수치 또는 필수 기록 항목을 명시하면 3점, 조건 일부만 있으면 2점, 관련 관측 사례면 1점, 준비처럼 주제만 가까우면 0점입니다. 동점이면 질문에서 기준을 먼저, 기록을 다음에 물었으므로 기준 근거를 앞에 둡니다. <a href="https://learn.microsoft.com/en-us/azure/search/semantic-search-overview#semantic-capabilities-and-limitations">Microsoft Learn, Semantic capabilities and limitations</a></p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th style="text-align: right;">재정렬 순위</th>
+<th>청크</th>
+<th style="text-align: right;">모의 점수</th>
+<th>확인한 근거</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td>D02a</td>
+<td style="text-align: right;">3</td>
+<td>적용되는 장비와 오류 코드에 대해 관찰 조건과 12분을 함께 명시</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>D04a</td>
+<td style="text-align: right;">3</td>
+<td>복귀 승인 요청에 남길 두 항목 명시</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>D05a</td>
+<td style="text-align: right;">1</td>
+<td>과거 다른 작업 한 건에서 일어난 일</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>D02b</td>
+<td style="text-align: right;">0</td>
+<td>점검 준비 절차 설명</td>
+</tr>
+</tbody>
+</table></div>
+<p>재정렬은 들어온 목록에서 좋은 후보를 위로 올립니다. D04a가 첫 단계에서 들어오지 않았다면 이 예의 재정렬기는 D04a를 볼 수 없습니다. 실제로 모의 벡터 상위 세 건만 넘기면 재정렬 결과는 D02a, D05a, D02b입니다. 기준은 확인할 수 있고 기록 항목은 이 목록에서 확인할 수 없습니다.</p>
+<h2 id="_11">생성기에 근거를 넣고 인용을 대조합니다</h2>
+<p><strong>컨텍스트 구성</strong>(context assembly)은 생성 모델에 넘길 입력을 만드는 단계입니다. 생성기에는 증거 조각의 원문, 식별자, 판본과 위치를 보냅니다. <strong>컨텍스트 예산</strong>은 그 입력에 실을 수 있는 양입니다. 실제 모델에는 토큰 한도가 있어서 지시, 질문, 이전 대화, 가져온 자료와 생성에 남길 공간을 함께 고려합니다. 예제에서는 계산을 단순하게 보여주려고 근거 본문에만 100자 한도를 두었습니다. D02a가 47자, D04a가 41자로 총 88자입니다. 남은 12자에는 다음 청크 D05a(50자)가 들어가지 않습니다. 질문이나 출처 표시는 이 모의 100자에 세지 않습니다.</p>
+<p>서로 겹치는 부분을 반복해서 가져오면 조건 하나가 예산을 소모할 수 있습니다. 예를 들어 같은 문서의 거의 같은 청크가 47자 분량으로 한 건 더 점수 상위에 있다면, 중복 확인 없이 순서대로 붙일 때 두 복제본이 94자를 써서 D04a가 빠집니다. 원문 위치와 겹치는 문장을 비교해 중복을 줄이고, 두 질문 부분에 각각 대답하는 근거가 들어갔는지 확인할 수 있습니다.</p>
+<pre tabindex="0"><code class="language-text">지시: 아래 근거가 뒷받침하는 기준과 기록 항목을 구분하고 각 문장에 근거 ID를 붙입니다.
+      이 작업의 실제 복귀 가능 여부는 시험 관측이 있을 때만 판단합니다.
+질문: PX-47 정비 뒤 E17이 다시 떴습니다. 지금 기준으로 복귀 판정 기준과 꼭 남길 기록은 무엇인가요?
+적용 기준일: 2026-04-10
+[E1] D02 v3 p.9 §3.2 표 3, E17 행
+     PX-47 복귀 판정 | E17 | 점검 모드에서 오류 재발 없이 12분 연속 관찰.
+[E2] D04 r1 p.2 §2
+     PX-47 E17 복귀 승인 요청에는 재현 시각과 시험 결과를 기록합니다.
+</code></pre>
+<p>이 입력으로 만들 수 있는 <strong>교육용 답변 예시</strong>입니다.</p>
+<blockquote>
+<p>2026년 4월 10일 기준으로 PX-47의 E17 복귀 판정에는 점검 모드에서 오류 재발 없이 <strong>12분 연속 관찰</strong>한 결과가 필요합니다. [E1]<br>
+복귀 승인 요청에는 <strong>재현 시각과 시험 결과</strong>를 기록합니다. [E2]<br>
+이번 작업에서 기준을 충족했는지는 해당 시험 결과를 확인해야 합니다.</p>
+</blockquote>
+<p>인용 E1을 펼치면 어떤 판본의 어떤 표 행이 “12분”과 “오류 재발 없이”를 함께 말하는지 찾아갈 수 있습니다. E2의 원문에는 재현 시각과 시험 결과가 있습니다. “재현 시각과 정비 담당자 성명을 남깁니다. [E2]”라고 생성하면 같은 근거 번호를 달았어도 내용이 틀립니다. 검수할 때는 근거 ID가 존재하는지와 해당 원문이 주장을 실제로 뒷받침하는지를 각각 봅니다.</p>
+<h2 id="_12">같은 질문에서 표 한 줄만 쪼개 봅니다</h2>
+<p>이번에는 줄바꿈에서 잘라 표의 의미를 잃었다고 가정합니다. 나머지 조건, 문서와 질문은 그대로 두고 D02a만 두 청크로 바꿉니다.</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>분할 뒤 청크</th>
+<th>검색에 들어가는 텍스트</th>
+<th>벡터와 코사인 유사도</th>
+<th style="text-align: right;">어휘 점수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D02-s1</td>
+<td>PX-47 복귀 판정 · E17 · 점검 모드에서 오류 재발 없이</td>
+<td>(3, 3), 0.7071</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr>
+<td>D02-s2</td>
+<td>12분 연속 관찰.</td>
+<td>(1, 4), 0.2425</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table></div>
+<p>벡터 상위 3개는 D05a, D02b, D02-s1입니다. 세 번째의 코사인 점수는 D06a와 같으므로 이 예에서는 ID 순으로 D02-s1을 먼저 둡니다. 어휘 상위 3개는 D04a, D02-s1, D05a입니다. D02-s2는 두 목록에서 빠져 있어서 결합과 재정렬 어디에도 들어가지 않습니다. 재정렬된 후보는 <strong>D04a → D02-s1 → D05a → D02b</strong>입니다. 100자 예산에는 D04a(41자)와 D02-s1(36자)만 들어갑니다. 기록 항목과 ‘점검 모드에서 오류 재발 없이’라는 조건 일부를 가져왔지만 관찰 시간이 빠졌습니다. 지금 근거에서 확인된 기록 두 항목을 안내하고, 관찰 시간은 확인되지 않았다고 답할 수 있습니다. W-207의 “4분째 재발”은 관찰해야 하는 시간의 근거가 될 수 없습니다.</p>
+<p><strong>겹침</strong>(overlap)은 앞 청크 끝의 일부를 뒤 청크 앞에도 넣는 방법입니다. 둘째 조각에 “E17 · 점검 모드에서 오류 재발 없이”까지 붙이면 수치와 조건의 연결이 다시 보입니다. 이때 적용 장비와 판정이라는 표 제목도 붙여 두면 둘째 조각을 따로 읽을 때 유용합니다. 겹침이 짧아 “없이”만 복제되면 “무엇 없이 12분인가?”를 여전히 복구하기 어렵습니다. 이 예에서는 표의 행을 보존하면 필요한 글이 한 번에 나타납니다. 행 구조를 저장해 두었다면 첫 조각을 찾은 뒤 같은 행의 나머지 부분을 원문에서 더 가져오는 방법도 있습니다. 숫자나 열 구조 자체를 잘못 읽어 버린 경우에는 원본을 다시 파싱해야 합니다. <a href="https://learn.microsoft.com/en-us/azure/search/vector-search-how-to-chunk-documents#common-chunking-techniques">Microsoft Learn, Common chunking techniques</a></p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>답변에서 보인 일</th>
+<th>단계별로 확인할 증거</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8분이라고 답했고 프롬프트에 D01a만 들어 있었음</td>
+<td>효력 조건, 기준일, 후보를 자르는 시점에 문제가 있는지 검사합니다.</td>
+</tr>
+<tr>
+<td>관찰 시간을 못 찾았고 후보에 D02-s1만 있었음</td>
+<td>원문 표의 파싱 결과, 청크 경계, 두 검색의 후보 목록을 검사합니다.</td>
+</tr>
+<tr>
+<td>D04a가 후보에 있었지만 프롬프트에서 빠졌음</td>
+<td>재정렬 순서, 중복 제거와 컨텍스트 예산을 검사합니다.</td>
+</tr>
+<tr>
+<td>프롬프트에 D02a의 12분이 있었는데 답은 8분이었음</td>
+<td>생성 결과와 원문이 일치하는지, 인용이 그 수치를 뒷받침하는지 검사합니다.</td>
+</tr>
+</tbody>
+</table></div>
+<p>근거가 생성기에 들어오기 전에 빠진 문제를 추적할 때는 원문부터 프롬프트까지 봅니다. 프롬프트에 정확한 근거가 들어왔는데도 숫자나 단위가 달라지는 문제는 생성 결과를 프롬프트와 대조해야 찾을 수 있습니다.</p>
+<h2 id="_13">설명 연습</h2>
+<ol>
+<li>질문을 “지금 PX-47의 E17 관찰 시간은 몇 분인가요?”로 줄이면 어떤 문장과 인용이 필요하나요? “2026년 2월 15일 당시”로 바꾼 경우도 답해 보세요.</li>
+<li>현행 질문에 대해 필터 뒤 벡터 상위 3개만 재정렬기에 보내고, 근거 예산도 충분히 줬습니다. 질문의 어느 부분은 여전히 근거를 제시하기 어려운가요?</li>
+<li>“올해 우리 부서에서 정비 후 반복된 알람의 공통 경향은 무엇인가요?”라는 질문이 들어왔습니다. W-207을 포함한 상위 세 건만 읽어도 충분한지, 근거의 범위를 설명해 보세요.</li>
+<li>인사 규정집에 판본 두 개와 대상 직군이 다른 별책이 있습니다. 검색에서 높은 점수를 받은 구판을 어떻게 걸러내고, 답변에서 사용한 원문을 어떻게 확인하겠습니까?</li>
+</ol>
+<details>
+<summary>해설 보기</summary>
+<ol>
+<li>지금의 12분은 D02 v3의 p.9 §3.2 표 3 E17 행으로 뒷받침합니다. “점검 모드에서 오류 재발 없이 연속”이라는 조건도 같이 가져와야 합니다. 2026-02-15로 기준일을 바꾸면 D01 v2의 8분 조건을 사용합니다. D02의 2026-03-01 시행은 그 당시의 근거가 될 수 없습니다.</li>
+<li>기록 항목입니다. 후보 D05a, D02b, D02a 중 어느 것도 재현 시각과 시험 결과를 남기라고 말하지 않습니다. D04a를 가져올 추가 검색이 필요합니다. 생성기에 허용하는 글자 수만 늘려도 미검색 후보는 생기지 않습니다.</li>
+<li>기간과 부서 범위를 정하고 그 범위의 정비 기록과 알람 발생 내역을 충분히 수집해야 합니다. 장비와 정비 사건을 식별해 중복을 정리하고, 반복의 기준을 정한 뒤 횟수와 기준이 되는 전체 정비 건수를 계산할 수 있습니다. 검색 순위의 상위 세 건은 질문과 비슷했던 일부 기록이므로 전체의 발생 빈도는 알 수 없습니다.</li>
+<li>질문의 적용 날짜와 직군을 따로 보존한 뒤 그 조건으로 검색 대상을 한정합니다. 원문 판본과 조항 위치를 청크에 남기고 답변의 주장마다 해당 조항에서 내용을 확인합니다. 다른 직군에 같은 문구가 있더라도 적용 범위를 함께 검사합니다.</li>
+</ol>
+</details>
+<p>U14에서는 문서 사이에 장비, 작업, 오류 관측의 관계를 별도로 기록했을 때 어떤 경로로 근거를 찾을 수 있는지 살펴봅니다. U16에서는 같은 질문과 기준 답변을 준비하고, 검색 단계에서 근거를 놓친 경우와 생성 단계에서 근거를 잘못 사용한 경우를 평가합니다.</p></article><section class="study-note" aria-labelledby="note-title"><h2 id="note-title">내 말로 설명하기</h2><p>이 수업의 개념을 새 예로 설명하고, 아직 헷갈리는 점을 남겨 보세요.</p><textarea id="lesson-note" rows="6" aria-label="수업 메모"></textarea><div class="study-actions"><label><input type="checkbox" id="lesson-complete"> 학습 표시</label><label><input type="checkbox" id="lesson-bookmark"> 책갈피</label><button id="export-learning">기록 내려받기</button></div><p id="save-status" role="status">이 브라우저에 저장합니다.</p></section><nav class="pager" aria-label="수업 이동"><a href="U12-L04.html">이전 수업: NVIDIA Auto Ontology가 데이터베이스에서 만드는 의미 계층</a><a href="U13-L02.html">다음 수업: 같은 자료에서도 질문에 따라 검색을 바꾸기</a></nav></main><aside class="reader-example"><section class="trace"><h2>같은 질문의 근거 선택</h2><p>모의 데이터에서 단계별로 남은 청크입니다. 실제 검색 서비스의 성능 측정이 아닙니다.</p><ol><li>조건 필터 후 벡터 상위 3개<br><code>D05a · D02b · D02a</code></li><li>어휘 검색 상위 3개<br><code>D04a · D02a · D05a</code></li><li>결합 후 재정렬<br><code>D02a → D04a → D05a → D02b</code></li><li>100자 근거 예산<br><strong>D02a + D04a = 88자</strong></li></ol><p>D04a는 필수 기록 항목을 담습니다. 벡터 상위 3개만 사용하면 이 근거가 빠집니다.</p></section></aside></div><script src="comparison.js"></script><script src="search-index.js"></script><script src="reader.js"></script></body></html>
