@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "status": "in_progress",
+  "status": "complete",
   "units": [
     {
       "id": "U01",
@@ -11,6 +11,11 @@
           "id": "U01-L01",
           "title": "기업은 무엇을 기억하고, 무엇을 설명해야 할까요",
           "path": "units/U01/01-company-memory.md"
+        },
+        {
+          "id": "U01-L02",
+          "title": "개인 메모가 팀의 기억이 되려면",
+          "path": "units/U01/02-personal-notes-to-shared-memory.md"
         }
       ]
     },
@@ -25,6 +30,16 @@
           "id": "U02-L01",
           "title": "같은 질문을 표와 그래프로 따라가기",
           "path": "units/U02/01-same-question-two-models.md"
+        },
+        {
+          "id": "U02-L02",
+          "title": "경로가 길어지면 무엇을 계산하나요?",
+          "path": "units/U02/02-variable-paths-and-query-work.md"
+        },
+        {
+          "id": "U02-L03",
+          "title": "그래프 DB를 선택할 때 실행 계획에서 읽을 것",
+          "path": "units/U02/03-read-plans-and-choose.md"
         }
       ]
     },
@@ -39,6 +54,16 @@
           "id": "U03-L01",
           "title": "속성 그래프에서 무엇을 노드와 관계로 만들까요",
           "path": "units/U03/01-property-graph.md"
+        },
+        {
+          "id": "U03-L02",
+          "title": "속성값·식별자·시간을 잘못 정하면 생기는 일",
+          "path": "units/U03/02-values-identity-and-time.md"
+        },
+        {
+          "id": "U03-L03",
+          "title": "파일 재적재·제약·트랜잭션이 맡는 책임",
+          "path": "units/U03/03-ingestion-and-constraints.md"
         }
       ]
     },
@@ -103,6 +128,21 @@
           "id": "U06-L01",
           "title": "같은 데이터에서 추론과 검증이 다른 답을 내는 이유",
           "path": "units/U06/01-inference-and-validation.md"
+        },
+        {
+          "id": "U06-L02",
+          "title": "OWL 공리를 추가하면 어떤 결론이 생기나요?",
+          "path": "units/U06/02-classes-relations-and-inference.md"
+        },
+        {
+          "id": "U06-L03",
+          "title": "‘있다’, ‘모두’, ‘하나’는 입력 검사와 어떻게 다른가요?",
+          "path": "units/U06/03-quantifiers-and-cardinality.md"
+        },
+        {
+          "id": "U06-L04",
+          "title": "추론 결과를 저장할지, 질문할 때 계산할지",
+          "path": "units/U06/04-profiles-and-deployment.md"
         }
       ]
     },
@@ -113,7 +153,23 @@
         "U03",
         "U04"
       ],
-      "lessons": []
+      "lessons": [
+        {
+          "id": "U07-L01",
+          "title": "Cypher와 SPARQL에서 패턴이 결과 행이 되는 과정",
+          "path": "units/U07/01-read-matched-rows.md"
+        },
+        {
+          "id": "U07-L02",
+          "title": "누락값과 중복 매칭 때문에 집계가 바뀌는 경우",
+          "path": "units/U07/02-optional-and-aggregation.md"
+        },
+        {
+          "id": "U07-L03",
+          "title": "경로·그래프 범위·결과 형태를 구별해 읽기",
+          "path": "units/U07/03-paths-graphs-and-results.md"
+        }
+      ]
     },
     {
       "id": "U08",
@@ -337,7 +393,23 @@
         "U08",
         "U11"
       ],
-      "lessons": []
+      "lessons": [
+        {
+          "id": "U17-L01",
+          "title": "‘지금 맞는 답’과 ‘그때 알던 답’을 구별하기",
+          "path": "units/U17/01-time-versions-and-provenance.md"
+        },
+        {
+          "id": "U17-L02",
+          "title": "정정·철회가 파생 지식으로 전파되는 과정",
+          "path": "units/U17/02-retraction-and-incremental-change.md"
+        },
+        {
+          "id": "U17-L03",
+          "title": "권한이 원문에서 답변까지 이어지게 설계하기",
+          "path": "units/U17/03-permissions-and-operating-evidence.md"
+        }
+      ]
     },
     {
       "id": "U18",
@@ -361,7 +433,28 @@
         "U16",
         "U17"
       ],
-      "lessons": []
+      "lessons": [
+        {
+          "id": "U18-L01",
+          "title": "통합 사례 A: 정비 기록에서 원인 가설까지",
+          "path": "units/U18/01-equipment-case.md"
+        },
+        {
+          "id": "U18-L02",
+          "title": "통합 사례 B: 웨이퍼 이력과 문서의 적용 범위",
+          "path": "units/U18/02-wafer-documents-and-inspection.md"
+        },
+        {
+          "id": "U18-L03",
+          "title": "통합 사례 C: 같은 부품, 대체 부품, 조건부 경험",
+          "path": "units/U18/03-parts-suppliers-and-experience.md"
+        },
+        {
+          "id": "U18-L04",
+          "title": "시스템 선택을 설명하고 청중의 질문에 답하기",
+          "path": "units/U18/04-design-and-explain.md"
+        }
+      ]
     },
     {
       "id": "S01",

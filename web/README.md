@@ -1,6 +1,6 @@
 # 기업 지식 학습 웹
 
-현재 기본 화면은 `learning-v2/` 교재를 기반으로 한 B안입니다. 설명 본문과 관련 비교 예제를 나란히 읽고 좁은 화면에서는 설명 사이에서 예제를 확인합니다. Knowledge Graph·수집/추출·동일성·검토, Auto ontology, Vector/Graph/Tree RAG와 평가를 우선 제공합니다. 자동 KG 구축 survey는 별첨입니다. 나머지 기초·운영·통합 단원은 이어 확장합니다.
+현재 기본 화면은 `learning-v2/` 교재 전체 56수업을 기반으로 한 B안입니다. 설명 본문과 관련 비교 예제를 나란히 읽고 좁은 화면에서는 설명 사이에서 예제를 확인합니다. 기초부터 Knowledge Graph·구축·Auto ontology·Vector/Graph/Tree RAG·평가·변경/권한·반도체 통합을 연결합니다. 자동 KG 구축 survey는 별첨입니다.
 
 ## 실행과 빌드
 

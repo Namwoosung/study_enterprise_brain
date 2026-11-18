@@ -9,7 +9,7 @@ ASSETS=HERE/'course-reader'
 if (PROJECT/'learning-v2/manifest.json').exists():
     shutil.copytree(PROJECT/'learning-v2',SOURCE,dirs_exist_ok=True,ignore=shutil.ignore_patterns('__pycache__','*.pyc'))
     ASSETS.mkdir(exist_ok=True)
-    for name in ['build.py','reader.css','reader.js','panels.py']:
+    for name in ['build.py','reader.css','reader.js','panels.py','glossary.json']:
         src=PROJECT/'rebuild/reader'/name
         if src.exists():shutil.copy2(src,ASSETS/name)
     for original,target in [('build.py','comparison_builder.py'),('reading.css','comparison.css'),('reading.js','comparison.js')]:

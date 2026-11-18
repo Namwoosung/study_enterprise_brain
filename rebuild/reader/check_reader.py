@@ -75,6 +75,21 @@ with sync_playwright() as p:
             if lesson['id']=='U11-L02':
                 page.locator('#evidence-choice').select_option('spike')
                 expect(page.locator('.decision-status')).to_contain_text('404')
+            if lesson['id']=='U07-L02':
+                page.locator('#evidence-choice').select_option('values')
+                expect(page.locator('.decision-status')).to_contain_text('30')
+                page.locator('#evidence-choice').select_option('events')
+                expect(page.locator('.decision-status')).to_contain_text('40')
+                assert page.locator('.evidence-result table tr').count()==4
+            if lesson['id']=='U06-L03':
+                page.locator('#evidence-choice').select_option('different')
+                expect(page.locator('.decision-status')).to_contain_text('SHACL')
+            if lesson['id']=='U18-L01':
+                page.locator('#evidence-choice').select_option('C')
+                page.get_by_role('button',name='C06',exact=True).click()
+                expect(page.locator('.source-evidence')).to_contain_text('4.2')
+                expect(page.locator('.source-evidence')).to_contain_text('C06')
+                page.locator('.reader-example').scroll_into_view_if_needed();page.screenshot(path=out/f'corpus-{width}.png')
             if lesson['id'].startswith('S01'):
                 page.locator('#evidence-choice').select_option('coref')
                 expect(page.locator('.decision-status')).to_contain_text('E01')
@@ -84,6 +99,21 @@ with sync_playwright() as p:
     page.goto(base+'/index.html')
     page.locator('#home-search').fill('blocking')
     assert page.locator('#home-results a[href^="U10"]').count()>0
+    page.locator('.course-jumps a[href="#group-U17"]').click()
+    page.goto(base+'/U18-L04.html')
+    page.locator('#lesson-search').fill('blocking')
+    assert page.locator('.nav-unit:visible').count()>0
+    assert page.locator('.nav-unit:not([hidden]) a:not([hidden])').count()<len(lessons)
+    page.locator('#open-glossary').click()
+    expect(page.locator('.glossary-dialog')).to_be_visible()
+    page.locator('.glossary-dialog input').fill('SPARQL')
+    expect(page.locator('.glossary-dialog h3')).to_have_text('SPARQL')
+    expect(page.locator('.glossary-dialog a')).to_have_attribute('href','U07-L01.html')
+    page.keyboard.press('Escape')
+    expect(page.locator('.glossary-dialog')).not_to_be_visible()
+    page.locator('.term-link').first.click()
+    expect(page.locator('.glossary-dialog')).to_be_visible()
+    page.locator('.close-glossary').click()
     page.goto(base+'/U14-L01.html')
     page.evaluate("localStorage.setItem('knowledge-lab-v1',JSON.stringify({notes:{old:'preserved'},completed:['old']}))")
     page.locator('#lesson-note').fill('Explain with another example.')

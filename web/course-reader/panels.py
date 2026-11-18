@@ -8,6 +8,16 @@ def selector(title,description,choices,data,kind):
 
 def panel(lesson,course):
     key=lesson['id']
+    if lesson['unit']=='U18':
+        raw=json.loads((course/'examples/integrated/corpus.json').read_text(encoding='utf-8'))
+        data={prefix:{'title':title,'documents':[d for d in raw['documents'] if d['id'].startswith(prefix)]} for prefix,title in [('A','A · 장비·정비'),('B','B · 웨이퍼·문서·등록 확인'),('C','C · 부품·공급사·경험')]}
+        return selector('원천 자료를 대조하며 읽기','30개 자료 모두 교육용 합성입니다. 원문 ID를 눌러 판·위치·내용·역할 범위를 확인합니다.',[(k,v['title']) for k,v in data.items()],data,'source-corpus')
+    if key=='U07-L02':
+        data={'expanded':{'title':'보고서까지 펼친 행','rows':[['J1',10,'D1a'],['J1',10,'D1b'],['J2',20,'D2'],['J3',10,'미수록']],'total':50,'reason':'보고서 두 개가 같은 작업 J1을 두 번 펼칩니다. 이 상태의 시간 합은 작업 합계가 아닙니다.'},'events':{'title':'작업 ID·시간을 먼저 고유하게','rows':[['J1',10,'D1a·D1b'],['J2',20,'D2'],['J3',10,'미수록']],'total':40,'reason':'이 예는 작업마다 소요 시간 한 값입니다. 고유 작업 세 개의 시간 합은 40분입니다.'},'values':{'title':'시간값만 DISTINCT한 잘못된 집계','rows':[['J1·J3',10,'같은 값으로 합침'],['J2',20,'D2']],'total':30,'reason':'J1과 J3의 시간이 우연히 같습니다. 값만 고유하게 만들면 다른 작업의 시간도 잃습니다.'}}
+        return selector('같은 원천, 다른 집계 단위','본문의 행을 그대로 펼치거나 묶어 봅니다. 실제 쿼리 결과는 동봉 Python에서 확인했습니다.',[(k,v['title']) for k,v in data.items()],data,'row-aggregation')
+    if key=='U06-L03':
+        data={'none':{'title':'책임자 연결 0개','output':'OWL 최대 1: 양립 가능 / SHACL 최소 1: 위반','reason':'최대 한 개는 존재를 요구하지 않습니다. 입력에 값 한 개가 있어야 한다는 조건은 최소 개수로 따로 검사합니다.'},'two':{'title':'P1·P2 두 이름, 상이성 미선언','output':'OWL 최대 1: 동일성 결론 가능 / 원래 두 값 노드를 세는 SHACL: 위반','reason':'이름이 다르다고 별개 개체를 자동 가정하지 않습니다. 이 결론은 실세계에서 두 사람이 같다는 근거를 발견한 것이 아닙니다.'},'different':{'title':'P1·P2 두 이름 + 서로 다름','output':'OWL 최대 1과 충돌 / SHACL 개수도 위반','reason':'서로 다른 두 개체이면서 동시에 하나 이하일 수 없습니다. 원천과 공리 중 무엇을 고칠지는 업무 검토가 필요합니다.'}}
+        return selector('논리 제한과 현재 입력 검사','명세에 따른 설명용 결과입니다. 브라우저에서 OWL·SHACL 엔진을 실행하지 않습니다.',[(k,v['title']) for k,v in data.items()],data,'inference-counterexample')
     if key=='U11-L02':
         raw=json.loads((course/'examples/construction/quality.json').read_text(encoding='utf-8'))['daily'];capacity=raw['reviewers']*raw['minutes_per_reviewer'];h=raw['high'];m=raw['medium'];low=raw['low'];base=h['count']*h['minutes']+m['count']*m['minutes']
         data={'all':{'title':'대상 전체를 사람 검토','workload':base+low['count']*low['minutes'],'capacity':capacity,'reason':'규칙 격리 뒤 216건을 모두 검토합니다. 전수 검토도 시간과 판단 기준이 필요합니다.'},'risk':{'title':'필수 검토 + 낮은 위험군 표본','workload':base+raw['audits']*low['minutes'],'capacity':capacity,'reason':'고위험 36건·중위험 24건을 검토하고 낮은 위험군 8건을 감사합니다. 표본 오류율이 0이라는 보장은 없습니다.'},'spike':{'title':'고위험 10건 추가','workload':base+raw['audits']*low['minutes']+raw['high_spike']*h['minutes'],'capacity':capacity,'reason':'기존 정책의 대상에 고위험 10건이 더 들어왔습니다. 표본만 줄여도 필수 검토가 용량을 넘습니다.'}}

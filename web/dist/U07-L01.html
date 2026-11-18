@@ -1,0 +1,154 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cypher와 SPARQL에서 패턴이 결과 행이 되는 과정</title><link rel="stylesheet" href="comparison.css"><link rel="stylesheet" href="reader.css"></head><body class="view-b" data-lesson="U07-L01"><a class="skip" href="#lesson">본문으로 이동</a><header class="reader-header"><a href="index.html">기업 지식 학습 교재</a><span>개념에서 원리와 적용까지</span><button id="menu-toggle" aria-expanded="false" aria-controls="course-nav">수업 목록</button><button id="open-glossary">용어 찾기</button></header><div class="reader-grid"><nav id="course-nav" class="course-nav" aria-label="학습 수업"><label for="lesson-search">수업 찾기</label><input id="lesson-search" type="search" placeholder="본문까지 검색"><div class="course-links"><div class="nav-unit"><p>U01 · 기업 지식과 Enterprise/Second Brain</p><a href="U01-L01.html" data-title="기업은 무엇을 기억하고, 무엇을 설명해야 할까요">기업은 무엇을 기억하고, 무엇을 설명해야 할까요</a><a href="U01-L02.html" data-title="개인 메모가 팀의 기억이 되려면">개인 메모가 팀의 기억이 되려면</a></div><div class="nav-unit"><p>U02 · RDB와 Graph DB</p><a href="U02-L01.html" data-title="같은 질문을 표와 그래프로 따라가기">같은 질문을 표와 그래프로 따라가기</a><a href="U02-L02.html" data-title="경로가 길어지면 무엇을 계산하나요?">경로가 길어지면 무엇을 계산하나요?</a><a href="U02-L03.html" data-title="그래프 DB를 선택할 때 실행 계획에서 읽을 것">그래프 DB를 선택할 때 실행 계획에서 읽을 것</a></div><div class="nav-unit"><p>U03 · Property Graph와 Neo4j</p><a href="U03-L01.html" data-title="속성 그래프에서 무엇을 노드와 관계로 만들까요">속성 그래프에서 무엇을 노드와 관계로 만들까요</a><a href="U03-L02.html" data-title="속성값·식별자·시간을 잘못 정하면 생기는 일">속성값·식별자·시간을 잘못 정하면 생기는 일</a><a href="U03-L03.html" data-title="파일 재적재·제약·트랜잭션이 맡는 책임">파일 재적재·제약·트랜잭션이 맡는 책임</a></div><div class="nav-unit"><p>U04 · Semantic Web·W3C·RDF</p><a href="U04-L01.html" data-title="데이터의 이름을 공유하는 방법: RDF를 처음부터 읽기">데이터의 이름을 공유하는 방법: RDF를 처음부터 읽기</a><a href="U04-L02.html" data-title="같은 사건을 RDF와 속성 그래프로 표현하기">같은 사건을 RDF와 속성 그래프로 표현하기</a><a href="U04-L03.html" data-title="사건이 일어났다는 말과 문서가 그렇게 주장한다는 말">사건이 일어났다는 말과 문서가 그렇게 주장한다는 말</a></div><div class="nav-unit"><p>U05 · Ontology 도메인 설계</p><a href="U05-L01.html" data-title="장비 정비 기록에서 도메인 온톨로지 설계하기">장비 정비 기록에서 도메인 온톨로지 설계하기</a><a href="U05-L02.html" data-title="이름과 의미를 재사용할 때 일치하는 범위를 정하기">이름과 의미를 재사용할 때 일치하는 범위를 정하기</a><a href="U05-L03.html" data-title="모델을 개정한 뒤 같은 질문에 다시 답하기">모델을 개정한 뒤 같은 질문에 다시 답하기</a></div><div class="nav-unit"><p>U06 · RDFS·OWL·SHACL</p><a href="U06-L01.html" data-title="같은 데이터에서 추론과 검증이 다른 답을 내는 이유">같은 데이터에서 추론과 검증이 다른 답을 내는 이유</a><a href="U06-L02.html" data-title="OWL 공리를 추가하면 어떤 결론이 생기나요?">OWL 공리를 추가하면 어떤 결론이 생기나요?</a><a href="U06-L03.html" data-title="‘있다’, ‘모두’, ‘하나’는 입력 검사와 어떻게 다른가요?">‘있다’, ‘모두’, ‘하나’는 입력 검사와 어떻게 다른가요?</a><a href="U06-L04.html" data-title="추론 결과를 저장할지, 질문할 때 계산할지">추론 결과를 저장할지, 질문할 때 계산할지</a></div><div class="nav-unit"><p>U07 · Cypher·SPARQL 읽기</p><a href="U07-L01.html" data-title="Cypher와 SPARQL에서 패턴이 결과 행이 되는 과정">Cypher와 SPARQL에서 패턴이 결과 행이 되는 과정</a><a href="U07-L02.html" data-title="누락값과 중복 매칭 때문에 집계가 바뀌는 경우">누락값과 중복 매칭 때문에 집계가 바뀌는 경우</a><a href="U07-L03.html" data-title="경로·그래프 범위·결과 형태를 구별해 읽기">경로·그래프 범위·결과 형태를 구별해 읽기</a></div><div class="nav-unit"><p>U08 · Knowledge Graph</p><a href="U08-L01.html" data-title="연결된 자료를 질문에 답하는 Knowledge Graph로 발전시키기">연결된 자료를 질문에 답하는 Knowledge Graph로 발전시키기</a><a href="U08-L02.html" data-title="고객의 보고를 어떤 지식으로 보여 줄까요?">고객의 보고를 어떤 지식으로 보여 줄까요?</a><a href="U08-L03.html" data-title="같은 질문으로 세 가지 구축 방식을 비교하기">같은 질문으로 세 가지 구축 방식을 비교하기</a></div><div class="nav-unit"><p>U09 · 수집·정형 매핑·정보 추출</p><a href="U09-L01.html" data-title="표의 한 행에서 근거가 있는 주장까지">표의 한 행에서 근거가 있는 주장까지</a><a href="U09-L02.html" data-title="정비 문장에서 지식 후보를 추출하기">정비 문장에서 지식 후보를 추출하기</a><a href="U09-L03.html" data-title="표와 본문이 섞인 문서를 읽고 추출 결과를 채점하기">표와 본문이 섞인 문서를 읽고 추출 결과를 채점하기</a></div><div class="nav-unit"><p>U10 · Entity resolution·통합</p><a href="U10-L01.html" data-title="서로 다른 기록에서 같은 장비를 찾기">서로 다른 기록에서 같은 장비를 찾기</a><a href="U10-L02.html" data-title="하나의 잘못된 연결이 다섯 레코드를 합칠 때">하나의 잘못된 연결이 다섯 레코드를 합칠 때</a><a href="U10-L03.html" data-title="같은 장비의 서로 다른 값들을 통합하기">같은 장비의 서로 다른 값들을 통합하기</a></div><div class="nav-unit"><p>U11 · 검증·사람 검토·암묵지</p><a href="U11-L01.html" data-title="형식에 맞는 주장, 원문에 맞는 주장, 사실로 확인된 주장">형식에 맞는 주장, 원문에 맞는 주장, 사실로 확인된 주장</a><a href="U11-L02.html" data-title="검토 대기열에 무엇을 보낼지 결정하기">검토 대기열에 무엇을 보낼지 결정하기</a><a href="U11-L03.html" data-title="숙련자의 판단을 조건이 붙은 지식으로 옮기기">숙련자의 판단을 조건이 붙은 지식으로 옮기기</a></div><div class="nav-unit"><p>U12 · Auto ontology·자동 구축</p><a href="U12-L01.html" data-title="자동 온톨로지 구축에서 무엇을 학습할까요">자동 온톨로지 구축에서 무엇을 학습할까요</a><a href="U12-L02.html" data-title="검사 문서에서 개념과 공리 후보를 만드는 과정">검사 문서에서 개념과 공리 후보를 만드는 과정</a><a href="U12-L03.html" data-title="후보를 평가하고 온톨로지 개정을 배포하기">후보를 평가하고 온톨로지 개정을 배포하기</a><a href="U12-L04.html" data-title="NVIDIA Auto Ontology가 데이터베이스에서 만드는 의미 계층">NVIDIA Auto Ontology가 데이터베이스에서 만드는 의미 계층</a></div><div class="nav-unit"><p>U13 · Vector RAG</p><a href="U13-L01.html" data-title="정비 질문 한 건을 Vector RAG 안에서 추적하기">정비 질문 한 건을 Vector RAG 안에서 추적하기</a><a href="U13-L02.html" data-title="같은 자료에서도 질문에 따라 검색을 바꾸기">같은 자료에서도 질문에 따라 검색을 바꾸기</a></div><div class="nav-unit"><p>U14 · Graph RAG</p><a href="U14-L01.html" data-title="부품 교체 기록에서 승인 근거까지 경로를 따라가기">부품 교체 기록에서 승인 근거까지 경로를 따라가기</a><a href="U14-L02.html" data-title="문서 전체의 변화를 묻는다면 무엇을 검색하나요?">문서 전체의 변화를 묻는다면 무엇을 검색하나요?</a><a href="U14-L03.html" data-title="그래프 질의를 선택하고 틀린 관계의 파급을 따라가기">그래프 질의를 선택하고 틀린 관계의 파급을 따라가기</a></div><div class="nav-unit"><p>U15 · Tree RAG·RAPTOR</p><a href="U15-L01.html" data-title="여러 문서의 조각을 묶어 요약 계층 만들기">여러 문서의 조각을 묶어 요약 계층 만들기</a><a href="U15-L02.html" data-title="같은 질문을 두 방식으로 검색해 컨텍스트 비교하기">같은 질문을 두 방식으로 검색해 컨텍스트 비교하기</a></div><div class="nav-unit"><p>U16 · RAG 평가</p><a href="U16-L01.html" data-title="같은 질문과 근거로 검색을 비교하기">같은 질문과 근거로 검색을 비교하기</a><a href="U16-L02.html" data-title="맞는 답, 근거가 있는 답, 인용이 정확한 답 비교하기">맞는 답, 근거가 있는 답, 인용이 정확한 답 비교하기</a></div><div class="nav-unit"><p>U17 · 지식의 변경·출처·권한</p><a href="U17-L01.html" data-title="‘지금 맞는 답’과 ‘그때 알던 답’을 구별하기">‘지금 맞는 답’과 ‘그때 알던 답’을 구별하기</a><a href="U17-L02.html" data-title="정정·철회가 파생 지식으로 전파되는 과정">정정·철회가 파생 지식으로 전파되는 과정</a><a href="U17-L03.html" data-title="권한이 원문에서 답변까지 이어지게 설계하기">권한이 원문에서 답변까지 이어지게 설계하기</a></div><div class="nav-unit"><p>U18 · 반도체 통합 사례·설명 연습</p><a href="U18-L01.html" data-title="통합 사례 A: 정비 기록에서 원인 가설까지">통합 사례 A: 정비 기록에서 원인 가설까지</a><a href="U18-L02.html" data-title="통합 사례 B: 웨이퍼 이력과 문서의 적용 범위">통합 사례 B: 웨이퍼 이력과 문서의 적용 범위</a><a href="U18-L03.html" data-title="통합 사례 C: 같은 부품, 대체 부품, 조건부 경험">통합 사례 C: 같은 부품, 대체 부품, 조건부 경험</a><a href="U18-L04.html" data-title="시스템 선택을 설명하고 청중의 질문에 답하기">시스템 선택을 설명하고 청중의 질문에 답하기</a></div><div class="nav-unit"><p>S01 · 자동 KG 구축 survey 해설</p><a href="S01-L01.html" data-title="별첨 1: 자동 KG 구축 survey를 읽는 지도와 지식 획득">별첨 1: 자동 KG 구축 survey를 읽는 지도와 지식 획득</a><a href="S01-L02.html" data-title="별첨 2: 학습 방법을 비교하고 추출 결과를 정제하기">별첨 2: 학습 방법을 비교하고 추출 결과를 정제하기</a><a href="S01-L03.html" data-title="별첨 3: 조건·변화·저장과 논문을 읽은 뒤의 판단">별첨 3: 조건·변화·저장과 논문을 읽은 뒤의 판단</a></div></div><p>기초·지식 구축·검색의 수업을 연결합니다. 논문 해설은 별첨에서 읽습니다.</p></nav><main id="lesson" class="lesson"><header><p class="unit-name">U07</p><h1>Cypher와 SPARQL에서 패턴이 결과 행이 되는 과정</h1><a class="source-link" href="materials/units/U07/01-read-matched-rows.md">Markdown 원문</a></header><details class="inline-outline"><summary>수업 안에서 이동</summary><a href="#_1">먼저 같은 질문에 필요한 자료를 고정합니다</a><a href="#_2">질문에서 같은 대상을 묶습니다</a><a href="#_3">값 조건과 출력 제한</a><a href="#_4">같은 사람이 두 번 나오면 무엇을 센 걸까요?</a><a href="#_5">설명 연습</a></details><article>
+<p>그래프의 점과 선을 이해했어도 쿼리에 같은 변수가 여러 번 나오면 헷갈릴 수 있습니다. 이번 단원은 언어의 모든 문법을 익히는 과정이 아닙니다. 질문에서 어떤 패턴을 찾고, 어느 대상을 같은 변수로 묶으며, 그 결과가 몇 행이 되는지 읽는 연습입니다. Cypher는 Neo4j의 속성 그래프, SPARQL 1.1은 RDF 그래프를 기준으로 비교합니다. 두 언어가 모든 세부 의미를 공유하는 것은 아닙니다.</p>
+<h2 id="_1">먼저 같은 질문에 필요한 자료를 고정합니다</h2>
+<p>합성 정비 자료입니다. 소요 시간은 모두 분 단위이고, 원천이 기록한 값입니다. 실제 반도체 작업 시간이나 표준 절차를 뜻하지 않습니다.</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>작업</th>
+<th>대상 장비</th>
+<th>수행자</th>
+<th style="text-align: right;">소요 시간</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>J1</td>
+<td>E01</td>
+<td>P1 민수</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr>
+<td>J2</td>
+<td>E01</td>
+<td>P1 민수</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr>
+<td>J3</td>
+<td>E02</td>
+<td>미수록</td>
+<td style="text-align: right;">10</td>
+</tr>
+</tbody>
+</table></div>
+<p>이 단원에서는 작업을 두 모델 모두 독립 대상으로 둡니다. 속성 그래프에서도 사건을 노드로 둘 수 있다는 U03의 선택을 사용했습니다. RDF에서는 <code>minutes</code>가 작업에서 정수값으로 가는 술어이며, 속성 그래프에서는 작업 노드의 속성입니다.</p>
+<pre tabindex="0"><code class="language-text">J1 → equipment → E01
+J1 → performedBy → P1
+J1의 minutes = 10
+</code></pre>
+<p>RDF 입력 일부는 다음과 같습니다. 세미콜론은 같은 주어 J1을 이어 쓰고 <code>10</code>은 Turtle에서 정수값으로 읽습니다.</p>
+<pre tabindex="0"><code class="language-turtle">@prefix ex: &lt;https://example.org/query/&gt; .
+ex:J1 a ex:Work ; ex:equipment ex:E01 ;
+  ex:performedBy ex:P1 ; ex:minutes 10 .
+ex:P1 a ex:Person ; ex:name &quot;민수&quot; .
+</code></pre>
+<p>속성 그래프에서는 Work 라벨의 J1에 id·minutes 속성을 두고, 장비 노드로 <code>ON_EQUIPMENT</code>, 사람 노드로 <code>PERFORMED_BY</code> 관계를 둡니다. RDF의 술어 이름과 Neo4j 관계 타입의 대소문자가 우연히 다르다는 점은 본질이 아닙니다. 모델에서 어느 부분을 값과 연결로 표현했는지를 읽으면 됩니다.</p>
+<h2 id="_2">질문에서 같은 대상을 묶습니다</h2>
+<p>질문은 “E01에서 정비한 작업 ID와 수행자 이름은?”입니다.</p>
+<pre tabindex="0"><code class="language-cypher">MATCH (w:Work)-[:ON_EQUIPMENT]-&gt;(:Equipment {id:'E01'}),
+      (w)-[:PERFORMED_BY]-&gt;(p:Person)
+RETURN w.id AS work, p.name AS person
+ORDER BY work
+</code></pre>
+<p><code>MATCH</code>는 조건을 만족하는 패턴을 찾습니다. <code>(w:Work)</code>는 Work 라벨의 노드를 w로, <code>(p:Person)</code>은 사람 노드를 p로 가리킵니다. 이름 없는 장비 괄호에는 변수 대신 ID 조건만 적었습니다. 두 번째 줄의 w는 첫 줄에서 찾은 <strong>그 작업</strong>이어야 합니다. 쉼표로 연결한 패턴을 같은 매칭 안에서 만족해야 하므로 장비가 E01이고 수행자도 있는 작업이 남습니다. <code>RETURN</code>은 출력 열, <code>AS</code>는 열의 별명이고 <code>ORDER BY</code>는 그 출력의 정렬입니다. <a href="https://neo4j.com/docs/cypher-manual/current/clauses/match/">Neo4j MATCH</a></p>
+<p>RDF의 대응 질의는 다음과 같습니다.</p>
+<pre tabindex="0"><code class="language-sparql">PREFIX ex: &lt;https://example.org/query/&gt;
+SELECT ?work ?person WHERE {
+  ?work a ex:Work ; ex:equipment ex:E01 ; ex:performedBy ?p .
+  ?p ex:name ?person .
+}
+ORDER BY ?work
+</code></pre>
+<p><code>PREFIX</code>는 Turtle의 @prefix와 역할이 비슷한 주소 줄임표입니다. SPARQL에서는 끝에 마침표를 붙이는 prefix 문법을 쓰지 않습니다. 물음표로 시작하는 <code>?work</code>, <code>?p</code>, <code>?person</code>은 찾는 값을 담는 변수입니다. <code>WHERE { ... }</code> 안에 맞아야 할 트리플 패턴을 적습니다. <code>SELECT</code>는 결과에 보여 줄 변수입니다. <code>?p</code>는 연결에 필요하지만 여기서는 출력하지 않습니다. Turtle에서 읽던 <code>a</code>와 세미콜론도 이 패턴에서 같은 축약 역할을 합니다. <a href="https://www.w3.org/TR/sparql11-query/#basicpatterns">SPARQL 1.1 §2·§5</a></p>
+<p>이 입력에서 어느 단계가 어떻게 좁혀지는지 봅니다. 아래 표는 의미를 이해하는 전개이며 엔진의 실제 실행 순서는 아닙니다.</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>논리 단계</th>
+<th>작업</th>
+<th>장비</th>
+<th>사람 주소</th>
+<th>출력 이름</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E01의 작업</td>
+<td>J1</td>
+<td>E01</td>
+<td>아직 미지정</td>
+<td>아직 미지정</td>
+</tr>
+<tr>
+<td>E01의 작업</td>
+<td>J2</td>
+<td>E01</td>
+<td>아직 미지정</td>
+<td>아직 미지정</td>
+</tr>
+<tr>
+<td>수행자 연결</td>
+<td>J1</td>
+<td>E01</td>
+<td>P1</td>
+<td>아직 미지정</td>
+</tr>
+<tr>
+<td>수행자 연결</td>
+<td>J2</td>
+<td>E01</td>
+<td>P1</td>
+<td>아직 미지정</td>
+</tr>
+<tr>
+<td>이름 읽기</td>
+<td>J1</td>
+<td>E01</td>
+<td>P1</td>
+<td>민수</td>
+</tr>
+<tr>
+<td>이름 읽기</td>
+<td>J2</td>
+<td>E01</td>
+<td>P1</td>
+<td>민수</td>
+</tr>
+</tbody>
+</table></div>
+<p>SPARQL 결과의 <code>?work</code>는 ex:J1·ex:J2라는 IRI이고, Cypher의 w.id는 'J1'·'J2'라는 속성 문자열입니다. 같은 사건을 찾지만 반환값의 자료형은 다릅니다. 화면에서 접두사를 줄여 표시한다고 IRI가 문자열 코드와 똑같아진 것은 아닙니다. 서로 다른 시스템 사이에 옮길 때는 그 대응을 매핑으로 정합니다.</p>
+<h2 id="_3">값 조건과 출력 제한</h2>
+<p>“E01의 작업 중 15분 이상 걸린 작업은?”으로 질문을 바꿉니다.</p>
+<pre tabindex="0"><code class="language-cypher">MATCH (w:Work)-[:ON_EQUIPMENT]-&gt;(:Equipment {id:'E01'})
+WHERE w.minutes &gt;= 15
+RETURN w.id AS work, w.minutes AS minutes
+ORDER BY minutes DESC
+LIMIT 5
+</code></pre>
+<p><code>WHERE</code> 뒤는 비교 조건입니다. <code>&gt;=</code>는 크거나 같음, <code>DESC</code>는 내림차순, <code>LIMIT 5</code>는 앞의 최대 다섯 행을 반환한다는 뜻입니다. 현재 입력에는 J2·20 한 행뿐입니다. LIMIT을 5로 두었다고 없는 다섯 작업을 만드는 것은 아닙니다.</p>
+<pre tabindex="0"><code class="language-sparql">PREFIX ex: &lt;https://example.org/query/&gt;
+SELECT ?work ?minutes WHERE {
+  ?work a ex:Work ; ex:equipment ex:E01 ; ex:minutes ?minutes .
+  FILTER(?minutes &gt;= 15)
+}
+ORDER BY DESC(?minutes)
+LIMIT 5
+</code></pre>
+<p>SPARQL은 <code>FILTER</code>에 표현식을 적어 현재 변수값을 검사합니다. 전체 <code>WHERE</code>는 패턴의 묶음이고, Cypher의 WHERE와 모양만 보고 같은 자리에 단어를 교체하면 안 됩니다. <code>minutes</code>가 문자열이라면 숫자 비교·합산의 해석이 달라질 수 있습니다. 입력 자료형까지 확인해야 합니다.</p>
+<p>LIMIT만 있고 정렬이 없으면 어떤 순서를 보장하는지 기대하지 않습니다. ‘최근 작업’이면 작업 시각을 모델에 두고 시간 내림차순을 요청해야 합니다. ID가 큰 것을 최근이라고 가정하는 것은 ID 발급 정책이 보장할 때만 가능합니다.</p>
+<h2 id="_4">같은 사람이 두 번 나오면 무엇을 센 걸까요?</h2>
+<p>첫 질의에서 이름만 선택하면 민수·민수 두 행입니다. 작업이 두 건이라 같은 사람을 두 번 매칭했습니다. <code>DISTINCT</code>로 중복 출력값을 없애면 민수 한 행이 됩니다. 하지만 다른 두 사람의 이름이 모두 민수라면 이름만 DISTINCT한 것은 사람 수가 아닙니다. 사람 ID를 기준으로 구별해야 합니다.</p>
+<pre tabindex="0"><code class="language-sparql">PREFIX ex: &lt;https://example.org/query/&gt;
+SELECT (COUNT(?work) AS ?works) (COUNT(DISTINCT ?p) AS ?people) WHERE {
+  ?work a ex:Work ; ex:equipment ex:E01 ; ex:performedBy ?p .
+}
+</code></pre>
+<p>괄호 안의 <code>COUNT</code>는 조건을 만족한 값의 개수를 집계하며 <code>AS ?works</code>가 결과 열 이름을 붙입니다. 현재 한 작업에 수행자 한 명뿐인 입력에서는 works=2, people=1입니다. 수행자가 여러 명으로 늘면 work가 사람마다 반복되므로 COUNT(?work)가 사건 수와 달라질 수 있습니다. 다음 수업에서 그 중간 행을 직접 늘려 보겠습니다. <a href="https://www.w3.org/TR/sparql11-query/#aggregates">SPARQL aggregates</a>, <a href="https://neo4j.com/docs/cypher-manual/current/functions/aggregating/">Cypher aggregating functions</a></p>
+<h2 id="_5">설명 연습</h2>
+<p><strong>1.</strong> 첫 질의의 두 번째 w를 다른 변수 x로 바꾸면 왜 같은 질문이 아닐 수 있나요?</p>
+<p>E01의 작업 w와 수행자 연결을 갖는 작업 x를 같은 대상으로 묶는 조건이 사라집니다. 독립적인 매칭의 조합이 생길 수 있습니다. 변수 이름 자체보다 같은 변수를 재사용하는 위치가 중요합니다.</p>
+<p><strong>2.</strong> 사람 이름이 민수 두 행이니 수행자가 두 명이라고 해도 될까요?</p>
+<p>이 입력에서는 P1 한 사람이 두 작업을 수행한 결과입니다. 작업·사람·이름의 집계 단위를 구별하고 사람 ID의 고유 수를 셉니다.</p>
+<p><strong>3.</strong> 쿼리를 읽으면서 이미 J2라는 답을 알았는데도 왜 자료형을 확인하나요?</p>
+<p>실제 입력에서 20이 문자열이거나 시간 단위가 초이면 비교 조건의 의미가 달라집니다. 눈으로 읽는 숫자와 시스템이 해석하는 값·단위를 맞춰야 합니다.</p></article><section class="study-note" aria-labelledby="note-title"><h2 id="note-title">내 말로 설명하기</h2><p>이 수업의 개념을 새 예로 설명하고, 아직 헷갈리는 점을 남겨 보세요.</p><textarea id="lesson-note" rows="6" aria-label="수업 메모"></textarea><div class="study-actions"><label><input type="checkbox" id="lesson-complete"> 학습 표시</label><label><input type="checkbox" id="lesson-bookmark"> 책갈피</label><button id="export-learning">기록 내려받기</button></div><p id="save-status" role="status">이 브라우저에 저장합니다.</p></section><nav class="pager" aria-label="수업 이동"><a href="U06-L04.html">이전 수업: 추론 결과를 저장할지, 질문할 때 계산할지</a><a href="U07-L02.html">다음 수업: 누락값과 중복 매칭 때문에 집계가 바뀌는 경우</a></nav></main><aside class="reader-example"><nav class="lesson-outline" aria-label="수업 안 목차"><h2>이 수업에서</h2><a href="#_1">먼저 같은 질문에 필요한 자료를 고정합니다</a><a href="#_2">질문에서 같은 대상을 묶습니다</a><a href="#_3">값 조건과 출력 제한</a><a href="#_4">같은 사람이 두 번 나오면 무엇을 센 걸까요?</a><a href="#_5">설명 연습</a></nav></aside></div><script src="comparison.js"></script><script src="search-index.js"></script><script src="glossary.js"></script><script src="reader.js"></script></body></html>

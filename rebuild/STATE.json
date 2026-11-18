@@ -2,7 +2,7 @@
   "schema_version": 1,
   "plan_version": "2.0",
   "updated_on": "2026-11-19",
-  "project_status": "rebuild_in_progress",
+  "project_status": "complete",
   "requested_model": {
     "display": "GPT-6.2.sol",
     "tool_alias": "gpt-6.2-sol",
@@ -11,8 +11,8 @@
     "subagent_fork_turns": "none"
   },
   "trigger": "전면 개편 진행해",
-  "current_batch": "priority_published_continuing_foundations",
-  "active_unit": "U01-U07_U17_U18",
+  "current_batch": "completed_full_rebuild",
+  "active_unit": null,
   "baseline": {
     "root_content_commit": "5fb21403697b4b95c269f505894c1583d3cad04d",
     "content_quality": "rejected_by_user",
@@ -24,12 +24,7 @@
     ],
     "estimate_is_acceptance_gate": false
   },
-  "next_actions": [
-    "Commit/push the published priority milestone to root GitHub, then continue without waiting.",
-    "Finish U02 variable paths/plan lessons and fixtures; expand U03 Neo4j and U01 Enterprise/Second Brain.",
-    "Complete partially written U05 and remaining U06 OWL lessons after agent usage-limit interruption, then write U07 paired queries.",
-    "Write U17 lifecycle/permissions and U18 integrated semiconductor scenarios; review, build, test, publish and commit/push each completed batch."
-  ],
+  "next_actions": [],
   "open_decisions": [
     {
       "id": "design-direction",
@@ -74,42 +69,46 @@
     ]
   },
   "web_integration": {
-    "status": "priority_published",
+    "status": "complete_and_published",
     "design_selected": true,
     "artifacts": [
-      "rebuild/reader/dist/index.html",
+      "web/dist/index.html",
+      "web/build_v2.py",
       "rebuild/reader/build.py"
     ],
     "review_evidence": [
-      "rebuild/reader/QA.md"
+      "rebuild/reader/QA.md",
+      "rebuild/FINAL_ACCEPTANCE.md"
     ]
   },
   "deployment": {
-    "status": "succeeded_priority_v2",
+    "status": "succeeded_full_v2",
     "project_id": "appgprj_6afcc73c30a081919784724ac346bf41",
     "url": "https://enterprise-knowledge-lab-namws.sheermackerel2.chatgpt.site",
     "audience_last_known": "owner-private",
     "must_recheck_audience": false,
     "audience_checked_on": "2026-11-19",
-    "source_commit": "c3a13d3bc46c677fd1dbd4d74be8a368faa5f43e",
-    "version_id": "appgprj_6afcc73c30a081919784724ac346bf41~appgver_5c8eb1b553fc8191913e61c21aec0a27",
-    "deployment_id": "appgdep_6afe2c6c7594819182edd311edeef762"
+    "source_commit": "0c8d86042d803f1fc40d4c3cf69c4f40231e14d5",
+    "version_id": "appgprj_6afcc73c30a081919784724ac346bf41~appgver_b31ac65422dc8191a9781a0754acc816",
+    "deployment_id": "appgdep_6afe3619ed308191ae9cd22720408fc4"
   },
   "units": [
     {
       "id": "U01",
       "title": "기업 지식과 Enterprise/Second Brain",
       "dependencies": [],
-      "status": "drafting",
+      "status": "ready",
       "estimated_characters": [
         10000,
         14000
       ],
       "artifacts": [
-        "learning-v2/units/U01/01-company-memory.md"
+        "learning-v2/units/U01/01-company-memory.md",
+        "learning-v2/units/U01/02-personal-notes-to-shared-memory.md"
       ],
       "review_evidence": [
-        "learning-v2/reviews/U01-review.md"
+        "learning-v2/reviews/U01-review.md",
+        "rebuild/FINAL_ACCEPTANCE.md"
       ],
       "blockers": []
     },
@@ -119,7 +118,7 @@
       "dependencies": [
         "U01"
       ],
-      "status": "drafting",
+      "status": "ready",
       "estimated_characters": [
         12000,
         17000
@@ -130,7 +129,8 @@
         "learning-v2/units/U02/03-read-plans-and-choose.md"
       ],
       "review_evidence": [
-        "learning-v2/reviews/U02-review.md"
+        "learning-v2/reviews/U02-review.md",
+        "rebuild/FINAL_ACCEPTANCE.md"
       ],
       "blockers": []
     },
@@ -140,15 +140,19 @@
       "dependencies": [
         "U02"
       ],
-      "status": "drafting",
+      "status": "ready",
       "estimated_characters": [
         14000,
         20000
       ],
       "artifacts": [
-        "learning-v2/units/U03/01-property-graph.md"
+        "learning-v2/units/U03/01-property-graph.md",
+        "learning-v2/units/U03/02-values-identity-and-time.md",
+        "learning-v2/units/U03/03-ingestion-and-constraints.md"
       ],
-      "review_evidence": [],
+      "review_evidence": [
+        "rebuild/FINAL_ACCEPTANCE.md"
+      ],
       "blockers": []
     },
     {
@@ -157,7 +161,7 @@
       "dependencies": [
         "U02"
       ],
-      "status": "reviewing",
+      "status": "ready",
       "estimated_characters": [
         20000,
         28000
@@ -168,7 +172,8 @@
         "learning-v2/units/U04/03-statements-and-context.md"
       ],
       "review_evidence": [
-        "learning-v2/reviews/U04-review.md"
+        "learning-v2/reviews/U04-review.md",
+        "rebuild/FINAL_ACCEPTANCE.md"
       ],
       "blockers": []
     },
@@ -179,7 +184,7 @@
         "U01",
         "U02"
       ],
-      "status": "reviewing",
+      "status": "ready",
       "estimated_characters": [
         20000,
         28000
@@ -190,7 +195,8 @@
         "learning-v2/units/U05/03-evolve-model-and-mappings.md"
       ],
       "review_evidence": [
-        "learning-v2/reviews/U05-review.md"
+        "learning-v2/reviews/U05-review.md",
+        "rebuild/FINAL_ACCEPTANCE.md"
       ],
       "blockers": []
     },
@@ -201,15 +207,20 @@
         "U04",
         "U05"
       ],
-      "status": "drafting",
+      "status": "ready",
       "estimated_characters": [
         20000,
         28000
       ],
       "artifacts": [
-        "learning-v2/units/U06/01-inference-and-validation.md"
+        "learning-v2/units/U06/01-inference-and-validation.md",
+        "learning-v2/units/U06/02-classes-relations-and-inference.md",
+        "learning-v2/units/U06/03-quantifiers-and-cardinality.md",
+        "learning-v2/units/U06/04-profiles-and-deployment.md"
       ],
-      "review_evidence": [],
+      "review_evidence": [
+        "rebuild/FINAL_ACCEPTANCE.md"
+      ],
       "blockers": []
     },
     {
@@ -219,13 +230,19 @@
         "U03",
         "U04"
       ],
-      "status": "not_started",
+      "status": "ready",
       "estimated_characters": [
         10000,
         15000
       ],
-      "artifacts": [],
-      "review_evidence": [],
+      "artifacts": [
+        "learning-v2/units/U07/01-read-matched-rows.md",
+        "learning-v2/units/U07/02-optional-and-aggregation.md",
+        "learning-v2/units/U07/03-paths-graphs-and-results.md"
+      ],
+      "review_evidence": [
+        "rebuild/FINAL_ACCEPTANCE.md"
+      ],
       "blockers": []
     },
     {
@@ -236,7 +253,7 @@
         "U04",
         "U05"
       ],
-      "status": "priority_published",
+      "status": "ready",
       "estimated_characters": [
         16000,
         22000
@@ -247,7 +264,8 @@
         "learning-v2/units/U08/03-build-and-evolve.md"
       ],
       "review_evidence": [
-        "learning-v2/reviews/priority-integration-review.md"
+        "learning-v2/reviews/priority-integration-review.md",
+        "rebuild/FINAL_ACCEPTANCE.md"
       ],
       "blockers": []
     },
@@ -257,7 +275,7 @@
       "dependencies": [
         "U08"
       ],
-      "status": "priority_published",
+      "status": "ready",
       "estimated_characters": [
         20000,
         28000
@@ -269,7 +287,8 @@
       ],
       "review_evidence": [
         "learning-v2/reviews/U09-priority-review.md",
-        "learning-v2/reviews/priority-integration-review.md"
+        "learning-v2/reviews/priority-integration-review.md",
+        "rebuild/FINAL_ACCEPTANCE.md"
       ],
       "blockers": []
     },
@@ -279,7 +298,7 @@
       "dependencies": [
         "U09"
       ],
-      "status": "priority_published",
+      "status": "ready",
       "estimated_characters": [
         16000,
         22000
@@ -291,7 +310,8 @@
       ],
       "review_evidence": [
         "learning-v2/reviews/U10-priority-review.md",
-        "learning-v2/reviews/priority-integration-review.md"
+        "learning-v2/reviews/priority-integration-review.md",
+        "rebuild/FINAL_ACCEPTANCE.md"
       ],
       "blockers": []
     },
@@ -302,7 +322,7 @@
         "U09",
         "U10"
       ],
-      "status": "priority_published",
+      "status": "ready",
       "estimated_characters": [
         16000,
         22000
@@ -314,7 +334,8 @@
       ],
       "review_evidence": [
         "learning-v2/reviews/U11-priority-review.md",
-        "learning-v2/reviews/priority-integration-review.md"
+        "learning-v2/reviews/priority-integration-review.md",
+        "rebuild/FINAL_ACCEPTANCE.md"
       ],
       "blockers": []
     },
@@ -327,7 +348,7 @@
         "U10",
         "U11"
       ],
-      "status": "priority_published",
+      "status": "ready",
       "estimated_characters": [
         20000,
         28000
@@ -340,7 +361,8 @@
       ],
       "review_evidence": [
         "learning-v2/reviews/U12-priority-review.md",
-        "learning-v2/reviews/priority-integration-review.md"
+        "learning-v2/reviews/priority-integration-review.md",
+        "rebuild/FINAL_ACCEPTANCE.md"
       ],
       "blockers": []
     },
@@ -350,7 +372,7 @@
       "dependencies": [
         "U01"
       ],
-      "status": "priority_published",
+      "status": "ready",
       "estimated_characters": [
         20000,
         28000
@@ -361,7 +383,8 @@
       ],
       "review_evidence": [
         "learning-v2/reviews/U13-review.md",
-        "learning-v2/reviews/priority-integration-review.md"
+        "learning-v2/reviews/priority-integration-review.md",
+        "rebuild/FINAL_ACCEPTANCE.md"
       ],
       "blockers": []
     },
@@ -372,7 +395,7 @@
         "U08",
         "U13"
       ],
-      "status": "priority_published",
+      "status": "ready",
       "estimated_characters": [
         22000,
         30000
@@ -384,7 +407,8 @@
       ],
       "review_evidence": [
         "learning-v2/reviews/U14-priority-review.md",
-        "learning-v2/reviews/priority-integration-review.md"
+        "learning-v2/reviews/priority-integration-review.md",
+        "rebuild/FINAL_ACCEPTANCE.md"
       ],
       "blockers": []
     },
@@ -394,7 +418,7 @@
       "dependencies": [
         "U13"
       ],
-      "status": "priority_published",
+      "status": "ready",
       "estimated_characters": [
         14000,
         20000
@@ -405,7 +429,8 @@
       ],
       "review_evidence": [
         "learning-v2/reviews/U15-priority-review.md",
-        "learning-v2/reviews/priority-integration-review.md"
+        "learning-v2/reviews/priority-integration-review.md",
+        "rebuild/FINAL_ACCEPTANCE.md"
       ],
       "blockers": []
     },
@@ -417,7 +442,7 @@
         "U14",
         "U15"
       ],
-      "status": "priority_published",
+      "status": "ready",
       "estimated_characters": [
         14000,
         20000
@@ -427,7 +452,8 @@
         "learning-v2/units/U16/02-answer-quality-and-experiment.md"
       ],
       "review_evidence": [
-        "learning-v2/reviews/priority-integration-review.md"
+        "learning-v2/reviews/priority-integration-review.md",
+        "rebuild/FINAL_ACCEPTANCE.md"
       ],
       "blockers": []
     },
@@ -438,13 +464,19 @@
         "U08",
         "U11"
       ],
-      "status": "not_started",
+      "status": "ready",
       "estimated_characters": [
         16000,
         22000
       ],
-      "artifacts": [],
-      "review_evidence": [],
+      "artifacts": [
+        "learning-v2/units/U17/01-time-versions-and-provenance.md",
+        "learning-v2/units/U17/02-retraction-and-incremental-change.md",
+        "learning-v2/units/U17/03-permissions-and-operating-evidence.md"
+      ],
+      "review_evidence": [
+        "rebuild/FINAL_ACCEPTANCE.md"
+      ],
       "blockers": []
     },
     {
@@ -469,13 +501,20 @@
         "U16",
         "U17"
       ],
-      "status": "not_started",
+      "status": "ready",
       "estimated_characters": [
         16000,
         22000
       ],
-      "artifacts": [],
-      "review_evidence": [],
+      "artifacts": [
+        "learning-v2/units/U18/01-equipment-case.md",
+        "learning-v2/units/U18/02-wafer-documents-and-inspection.md",
+        "learning-v2/units/U18/03-parts-suppliers-and-experience.md",
+        "learning-v2/units/U18/04-design-and-explain.md"
+      ],
+      "review_evidence": [
+        "rebuild/FINAL_ACCEPTANCE.md"
+      ],
       "blockers": []
     },
     {
@@ -485,7 +524,7 @@
         "U08",
         "U09"
       ],
-      "status": "priority_published",
+      "status": "ready",
       "estimated_characters": [
         10000,
         16000
@@ -497,19 +536,41 @@
       ],
       "review_evidence": [
         "learning-v2/reviews/S01-priority-review.md",
-        "learning-v2/reviews/priority-integration-review.md"
+        "learning-v2/reviews/priority-integration-review.md",
+        "rebuild/FINAL_ACCEPTANCE.md"
       ],
       "blockers": []
     }
   ],
   "known_limitations": [
-    "U01-U03,U05-U07,U17,U18 still require expansion/full authoring.",
-    "No live LLM/Neo4j benchmark execution; examples are explicitly synthetic and selected scripts were executed.",
-    "Automated QA checks functional correspondence, not learner comprehension."
+    "No Neo4j server or full LLM/GraphRAG/RAPTOR execution or real performance benchmark was performed; synthetic examples and selected engine checks are labeled.",
+    "Late supplementary units were reviewed sequentially by root after independent agents hit their usage limit.",
+    "Automated and AI review do not measure or guarantee learner comprehension.",
+    "Learning records are local to the browser; there is no cross-device sync."
   ],
   "execution_notes": [
-    "Three authorized agents stopped with usage-limit errors. Their delivered review files are retained; root continues sequentially. U12 review landed before interruption and its three fixes are applied.",
-    "U13 supplement and U16 review are root cross-checks, not independent agent reviews.",
-    "Priority production web contains 38 lessons, including 28 priority lessons and 10 written foundation lessons. Foundation additions remain partial and must not be marked ready."
-  ]
+    "Priority milestone 978bde9 and foundation milestone bd95b02 were committed and pushed before final integration.",
+    "B layout and same owner-private Site were retained; legacy course and v1 records are preserved.",
+    "Source snapshot reproduced all 56 HTML lessons and five assets byte-for-byte; final source helper commit and deployment succeeded."
+  ],
+  "completion": {
+    "lessons": 56,
+    "units": 18,
+    "appendices": 1,
+    "unicode_body_characters": 377444,
+    "fixture_scripts_passed": 17,
+    "browser_viewports": [
+      [
+        1500,
+        1000
+      ],
+      [
+        390,
+        844
+      ]
+    ],
+    "acceptance_evidence": "rebuild/FINAL_ACCEPTANCE.md",
+    "presentation_script_and_slides": "deferred_as_requested",
+    "live_engine_benchmark": "outside_scope"
+  }
 }

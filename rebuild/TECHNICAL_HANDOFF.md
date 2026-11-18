@@ -146,3 +146,9 @@ helper가 반환한 project_id/commit_sha/archive를 그대로 비공개 버전 
 ## 8. 최종 보고에 포함할 사실
 
 새 본편·survey와 웹의 실제 완료 범위, 주요 개선, 실제 검증, 남은 제한, root commit/push, Sites 배포 URL/상태를 구분한다. 자동 검사나 AI 검토로 사용자의 실제 이해를 보장했다고 표현하지 않는다. 개편 전의 옛 성공 기록을 새 버전 검증으로 재사용하지 않는다.
+## 현재 운영 상태 — 2026-11-19 전체 개편 완료
+
+기본 교재는 learning-v2/, 빌드는 `python web/build_v2.py`, 검사기는 rebuild/reader/check_reader.py다. 56수업과 전체 원문·fixture를 배포한다. 기존 `web/build.py`와 기존 test_web.py는 legacy 기준이므로 새 기본 경로의 검증으로 실행하지 않는다. source snapshot은 web/source-materials-v2/, 읽기 구성 요소는 web/course-reader/에 있어 독립 체크아웃에서도 빌드된다.
+
+최종 Sites 소스는 `0c8d86042d803f1fc40d4c3cf69c4f40231e14d5`, saved version은 `appgprj_6afcc73c30a081919784724ac346bf41~appgver_b31ac65422dc8191a9781a0754acc816`다. 전체 배포 succeeded와 기존 owner-private 범위를 확인했다. 아래 이전 소스/빌드 기록은 배경이며 새로운 작업에서는 이 현재 상태와 STATE.json을 먼저 본다.
+

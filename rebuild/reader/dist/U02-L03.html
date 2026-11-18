@@ -1,0 +1,129 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>그래프 DB를 선택할 때 실행 계획에서 읽을 것</title><link rel="stylesheet" href="comparison.css"><link rel="stylesheet" href="reader.css"></head><body class="view-b" data-lesson="U02-L03"><a class="skip" href="#lesson">본문으로 이동</a><header class="reader-header"><a href="index.html">기업 지식 학습 교재</a><span>개념에서 원리와 적용까지</span><button id="menu-toggle" aria-expanded="false" aria-controls="course-nav">수업 목록</button><button id="open-glossary">용어 찾기</button></header><div class="reader-grid"><nav id="course-nav" class="course-nav" aria-label="학습 수업"><label for="lesson-search">수업 찾기</label><input id="lesson-search" type="search" placeholder="본문까지 검색"><div class="course-links"><div class="nav-unit"><p>U01 · 기업 지식과 Enterprise/Second Brain</p><a href="U01-L01.html" data-title="기업은 무엇을 기억하고, 무엇을 설명해야 할까요">기업은 무엇을 기억하고, 무엇을 설명해야 할까요</a><a href="U01-L02.html" data-title="개인 메모가 팀의 기억이 되려면">개인 메모가 팀의 기억이 되려면</a></div><div class="nav-unit"><p>U02 · RDB와 Graph DB</p><a href="U02-L01.html" data-title="같은 질문을 표와 그래프로 따라가기">같은 질문을 표와 그래프로 따라가기</a><a href="U02-L02.html" data-title="경로가 길어지면 무엇을 계산하나요?">경로가 길어지면 무엇을 계산하나요?</a><a href="U02-L03.html" data-title="그래프 DB를 선택할 때 실행 계획에서 읽을 것">그래프 DB를 선택할 때 실행 계획에서 읽을 것</a></div><div class="nav-unit"><p>U03 · Property Graph와 Neo4j</p><a href="U03-L01.html" data-title="속성 그래프에서 무엇을 노드와 관계로 만들까요">속성 그래프에서 무엇을 노드와 관계로 만들까요</a><a href="U03-L02.html" data-title="속성값·식별자·시간을 잘못 정하면 생기는 일">속성값·식별자·시간을 잘못 정하면 생기는 일</a><a href="U03-L03.html" data-title="파일 재적재·제약·트랜잭션이 맡는 책임">파일 재적재·제약·트랜잭션이 맡는 책임</a></div><div class="nav-unit"><p>U04 · Semantic Web·W3C·RDF</p><a href="U04-L01.html" data-title="데이터의 이름을 공유하는 방법: RDF를 처음부터 읽기">데이터의 이름을 공유하는 방법: RDF를 처음부터 읽기</a><a href="U04-L02.html" data-title="같은 사건을 RDF와 속성 그래프로 표현하기">같은 사건을 RDF와 속성 그래프로 표현하기</a><a href="U04-L03.html" data-title="사건이 일어났다는 말과 문서가 그렇게 주장한다는 말">사건이 일어났다는 말과 문서가 그렇게 주장한다는 말</a></div><div class="nav-unit"><p>U05 · Ontology 도메인 설계</p><a href="U05-L01.html" data-title="장비 정비 기록에서 도메인 온톨로지 설계하기">장비 정비 기록에서 도메인 온톨로지 설계하기</a><a href="U05-L02.html" data-title="이름과 의미를 재사용할 때 일치하는 범위를 정하기">이름과 의미를 재사용할 때 일치하는 범위를 정하기</a><a href="U05-L03.html" data-title="모델을 개정한 뒤 같은 질문에 다시 답하기">모델을 개정한 뒤 같은 질문에 다시 답하기</a></div><div class="nav-unit"><p>U06 · RDFS·OWL·SHACL</p><a href="U06-L01.html" data-title="같은 데이터에서 추론과 검증이 다른 답을 내는 이유">같은 데이터에서 추론과 검증이 다른 답을 내는 이유</a><a href="U06-L02.html" data-title="OWL 공리를 추가하면 어떤 결론이 생기나요?">OWL 공리를 추가하면 어떤 결론이 생기나요?</a><a href="U06-L03.html" data-title="‘있다’, ‘모두’, ‘하나’는 입력 검사와 어떻게 다른가요?">‘있다’, ‘모두’, ‘하나’는 입력 검사와 어떻게 다른가요?</a><a href="U06-L04.html" data-title="추론 결과를 저장할지, 질문할 때 계산할지">추론 결과를 저장할지, 질문할 때 계산할지</a></div><div class="nav-unit"><p>U07 · Cypher·SPARQL 읽기</p><a href="U07-L01.html" data-title="Cypher와 SPARQL에서 패턴이 결과 행이 되는 과정">Cypher와 SPARQL에서 패턴이 결과 행이 되는 과정</a><a href="U07-L02.html" data-title="누락값과 중복 매칭 때문에 집계가 바뀌는 경우">누락값과 중복 매칭 때문에 집계가 바뀌는 경우</a><a href="U07-L03.html" data-title="경로·그래프 범위·결과 형태를 구별해 읽기">경로·그래프 범위·결과 형태를 구별해 읽기</a></div><div class="nav-unit"><p>U08 · Knowledge Graph</p><a href="U08-L01.html" data-title="연결된 자료를 질문에 답하는 Knowledge Graph로 발전시키기">연결된 자료를 질문에 답하는 Knowledge Graph로 발전시키기</a><a href="U08-L02.html" data-title="고객의 보고를 어떤 지식으로 보여 줄까요?">고객의 보고를 어떤 지식으로 보여 줄까요?</a><a href="U08-L03.html" data-title="같은 질문으로 세 가지 구축 방식을 비교하기">같은 질문으로 세 가지 구축 방식을 비교하기</a></div><div class="nav-unit"><p>U09 · 수집·정형 매핑·정보 추출</p><a href="U09-L01.html" data-title="표의 한 행에서 근거가 있는 주장까지">표의 한 행에서 근거가 있는 주장까지</a><a href="U09-L02.html" data-title="정비 문장에서 지식 후보를 추출하기">정비 문장에서 지식 후보를 추출하기</a><a href="U09-L03.html" data-title="표와 본문이 섞인 문서를 읽고 추출 결과를 채점하기">표와 본문이 섞인 문서를 읽고 추출 결과를 채점하기</a></div><div class="nav-unit"><p>U10 · Entity resolution·통합</p><a href="U10-L01.html" data-title="서로 다른 기록에서 같은 장비를 찾기">서로 다른 기록에서 같은 장비를 찾기</a><a href="U10-L02.html" data-title="하나의 잘못된 연결이 다섯 레코드를 합칠 때">하나의 잘못된 연결이 다섯 레코드를 합칠 때</a><a href="U10-L03.html" data-title="같은 장비의 서로 다른 값들을 통합하기">같은 장비의 서로 다른 값들을 통합하기</a></div><div class="nav-unit"><p>U11 · 검증·사람 검토·암묵지</p><a href="U11-L01.html" data-title="형식에 맞는 주장, 원문에 맞는 주장, 사실로 확인된 주장">형식에 맞는 주장, 원문에 맞는 주장, 사실로 확인된 주장</a><a href="U11-L02.html" data-title="검토 대기열에 무엇을 보낼지 결정하기">검토 대기열에 무엇을 보낼지 결정하기</a><a href="U11-L03.html" data-title="숙련자의 판단을 조건이 붙은 지식으로 옮기기">숙련자의 판단을 조건이 붙은 지식으로 옮기기</a></div><div class="nav-unit"><p>U12 · Auto ontology·자동 구축</p><a href="U12-L01.html" data-title="자동 온톨로지 구축에서 무엇을 학습할까요">자동 온톨로지 구축에서 무엇을 학습할까요</a><a href="U12-L02.html" data-title="검사 문서에서 개념과 공리 후보를 만드는 과정">검사 문서에서 개념과 공리 후보를 만드는 과정</a><a href="U12-L03.html" data-title="후보를 평가하고 온톨로지 개정을 배포하기">후보를 평가하고 온톨로지 개정을 배포하기</a><a href="U12-L04.html" data-title="NVIDIA Auto Ontology가 데이터베이스에서 만드는 의미 계층">NVIDIA Auto Ontology가 데이터베이스에서 만드는 의미 계층</a></div><div class="nav-unit"><p>U13 · Vector RAG</p><a href="U13-L01.html" data-title="정비 질문 한 건을 Vector RAG 안에서 추적하기">정비 질문 한 건을 Vector RAG 안에서 추적하기</a><a href="U13-L02.html" data-title="같은 자료에서도 질문에 따라 검색을 바꾸기">같은 자료에서도 질문에 따라 검색을 바꾸기</a></div><div class="nav-unit"><p>U14 · Graph RAG</p><a href="U14-L01.html" data-title="부품 교체 기록에서 승인 근거까지 경로를 따라가기">부품 교체 기록에서 승인 근거까지 경로를 따라가기</a><a href="U14-L02.html" data-title="문서 전체의 변화를 묻는다면 무엇을 검색하나요?">문서 전체의 변화를 묻는다면 무엇을 검색하나요?</a><a href="U14-L03.html" data-title="그래프 질의를 선택하고 틀린 관계의 파급을 따라가기">그래프 질의를 선택하고 틀린 관계의 파급을 따라가기</a></div><div class="nav-unit"><p>U15 · Tree RAG·RAPTOR</p><a href="U15-L01.html" data-title="여러 문서의 조각을 묶어 요약 계층 만들기">여러 문서의 조각을 묶어 요약 계층 만들기</a><a href="U15-L02.html" data-title="같은 질문을 두 방식으로 검색해 컨텍스트 비교하기">같은 질문을 두 방식으로 검색해 컨텍스트 비교하기</a></div><div class="nav-unit"><p>U16 · RAG 평가</p><a href="U16-L01.html" data-title="같은 질문과 근거로 검색을 비교하기">같은 질문과 근거로 검색을 비교하기</a><a href="U16-L02.html" data-title="맞는 답, 근거가 있는 답, 인용이 정확한 답 비교하기">맞는 답, 근거가 있는 답, 인용이 정확한 답 비교하기</a></div><div class="nav-unit"><p>U17 · 지식의 변경·출처·권한</p><a href="U17-L01.html" data-title="‘지금 맞는 답’과 ‘그때 알던 답’을 구별하기">‘지금 맞는 답’과 ‘그때 알던 답’을 구별하기</a><a href="U17-L02.html" data-title="정정·철회가 파생 지식으로 전파되는 과정">정정·철회가 파생 지식으로 전파되는 과정</a><a href="U17-L03.html" data-title="권한이 원문에서 답변까지 이어지게 설계하기">권한이 원문에서 답변까지 이어지게 설계하기</a></div><div class="nav-unit"><p>U18 · 반도체 통합 사례·설명 연습</p><a href="U18-L01.html" data-title="통합 사례 A: 정비 기록에서 원인 가설까지">통합 사례 A: 정비 기록에서 원인 가설까지</a><a href="U18-L02.html" data-title="통합 사례 B: 웨이퍼 이력과 문서의 적용 범위">통합 사례 B: 웨이퍼 이력과 문서의 적용 범위</a><a href="U18-L03.html" data-title="통합 사례 C: 같은 부품, 대체 부품, 조건부 경험">통합 사례 C: 같은 부품, 대체 부품, 조건부 경험</a><a href="U18-L04.html" data-title="시스템 선택을 설명하고 청중의 질문에 답하기">시스템 선택을 설명하고 청중의 질문에 답하기</a></div><div class="nav-unit"><p>S01 · 자동 KG 구축 survey 해설</p><a href="S01-L01.html" data-title="별첨 1: 자동 KG 구축 survey를 읽는 지도와 지식 획득">별첨 1: 자동 KG 구축 survey를 읽는 지도와 지식 획득</a><a href="S01-L02.html" data-title="별첨 2: 학습 방법을 비교하고 추출 결과를 정제하기">별첨 2: 학습 방법을 비교하고 추출 결과를 정제하기</a><a href="S01-L03.html" data-title="별첨 3: 조건·변화·저장과 논문을 읽은 뒤의 판단">별첨 3: 조건·변화·저장과 논문을 읽은 뒤의 판단</a></div></div><p>기초·지식 구축·검색의 수업을 연결합니다. 논문 해설은 별첨에서 읽습니다.</p></nav><main id="lesson" class="lesson"><header><p class="unit-name">U02</p><h1>그래프 DB를 선택할 때 실행 계획에서 읽을 것</h1><a class="source-link" href="materials/units/U02/03-read-plans-and-choose.md">Markdown 원문</a></header><details class="inline-outline"><summary>수업 안에서 이동</summary><a href="#_1">논리적으로 같은 답을 여러 계획으로 얻습니다</a><a href="#explain-profile">EXPLAIN과 PROFILE의 숫자는 무엇인가요?</a><a href="#_2">색인과 관계의 저장 방식은 다른 일을 돕습니다</a><a href="#_3">같은 자료로 두 제품을 비교하려면</a><a href="#_4">최종 선택을 질문의 형태로 설명해 봅니다</a><a href="#_5">이해를 확인하는 문제</a></details><article>
+<p>“이전보다 쿼리가 짧아졌습니다”와 “이전보다 적은 일을 합니다”는 별도로 확인할 주장입니다. 그래프 패턴이 질문을 읽기 쉽게 만들더라도 저장소가 검사하는 후보는 많을 수 있습니다. 반대로 SQL이 길어도 좋은 인덱스와 계획으로 적은 행만 읽을 수 있습니다. 개발자가 제품 문서를 읽고 실험을 설계할 수 있도록 필요한 실행 개념을 연결하겠습니다.</p>
+<h2 id="_1">논리적으로 같은 답을 여러 계획으로 얻습니다</h2>
+<p>질문은 “E01의 정비를 수행한 사람 이름은?”입니다. 장비 100개 중 E01은 한 대, E01의 정비는 두 건 J1·J2이며 수행자는 P1·P2라고 합시다. 다른 장비의 정비는 998건입니다. 모델은 장비에서 정비로 <code>HAS_WORK</code>, 정비에서 사람으로 <code>PERFORMED_BY</code>를 사용합니다.</p>
+<pre tabindex="0"><code class="language-text">E01 → J1 → P1
+E01 → J2 → P2
+</code></pre>
+<p>아래는 <strong>손으로 구성한 논리 계획 예</strong>입니다. Neo4j가 실제로 반환한 PROFILE 출력이나 성능 수치가 아닙니다.</p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>순서</th>
+<th>먼저 장비를 좁히는 방식</th>
+<th>모든 정비부터 읽는 방식</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>시작 대상</td>
+<td>ID로 E01 1개</td>
+<td>정비 1,000개</td>
+</tr>
+<tr>
+<td>다음 연결</td>
+<td>E01의 정비 2개</td>
+<td>정비마다 대상 장비를 확인</td>
+</tr>
+<tr>
+<td>장비 조건 후</td>
+<td>2개</td>
+<td>E01에 해당하는 정비 2개</td>
+</tr>
+<tr>
+<td>사람 연결 후</td>
+<td>P1·P2 2행</td>
+<td>P1·P2 2행</td>
+</tr>
+</tbody>
+</table></div>
+<p>최종 두 행만 보면 내부의 후보량 차이가 보이지 않습니다. ‘100개 장비’, ‘1,000개 정비’는 예제의 데이터 크기이며 실제 읽기 수와는 또 다릅니다. 디스크의 같은 페이지에서 여러 항목을 읽을 수도 있고, 인덱스에서도 별도 접근을 할 수 있습니다.</p>
+<p>관계형 엔진에도 장비 키 조건을 먼저 적용하고 정비 표의 외래 키 인덱스를 사용하는 계획이 있을 수 있습니다. 테이블을 전부 메모리에 올린 뒤 문자열을 하나씩 비교하는 코드만 RDB의 유일한 실행이라고 가정하면 비교가 왜곡됩니다.</p>
+<h2 id="explain-profile">EXPLAIN과 PROFILE의 숫자는 무엇인가요?</h2>
+<p>Neo4j에서 <code>EXPLAIN</code>은 실행 계획과 추정 결과 행 수를 보여 주고 질의를 실행하지 않습니다. <code>PROFILE</code>은 실제 실행하며 측정 정보를 보여 줍니다. 따라서 변경 질의에 PROFILE을 붙이면 변경도 수행됩니다. 여기서는 읽기 질의에 대한 해석만 배웁니다. <a href="https://neo4j.com/docs/cypher-manual/current/planning-and-tuning/execution-plans/">Neo4j, Understanding query plans</a></p>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>계획의 항목</th>
+<th>읽는 질문</th>
+<th>이번 예에서 주의할 것</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>연산자(operator)</td>
+<td>이 단계는 시작점을 찾나요, 관계를 펼치나요, 조건을 검사하나요?</td>
+<td>ID 검색과 정비 확장은 다른 단계</td>
+</tr>
+<tr>
+<td>추정 행 수</td>
+<td>실행 전에 얼마나 남을 것으로 보았나요?</td>
+<td>데이터 분포의 가정이 틀리면 추정도 틀릴 수 있음</td>
+</tr>
+<tr>
+<td>실제 행 수</td>
+<td>실행할 때 이 단계가 몇 행을 내보냈나요?</td>
+<td>한 행이 많은 저장소 접근을 필요로 할 수 있음</td>
+</tr>
+<tr>
+<td>DB hits</td>
+<td>낮은 수준의 데이터 접근을 얼마나 했나요?</td>
+<td>디스크 물리 읽기 횟수나 응답 시간과 동일하지 않음</td>
+</tr>
+<tr>
+<td>캐시</td>
+<td>필요한 자료가 이미 메모리에 있었나요?</td>
+<td>첫 실행과 반복 실행의 조건을 구분</td>
+</tr>
+</tbody>
+</table></div>
+<p>예를 들어 P1이 J1과 J2를 모두 수행했다면 마지막 결과에 같은 사람 P1이 두 번 나올 수 있습니다. 두 행을 내보냈다는 값은 두 명을 찾았다는 뜻이 아닙니다. <code>DISTINCT</code>를 추가하면 사람 수는 하나가 되지만 정비 두 건을 읽은 일이 없던 것이 되지는 않습니다. 실행의 작업량과 결과의 업무 단위를 함께 해석해야 합니다.</p>
+<p>‘지금 캐시가 따뜻하다’는 말은 앞선 요청 덕분에 필요한 자료가 메모리에 있을 가능성이 크다는 뜻입니다. 저장소에서 읽어 오는 첫 요청과 반복 요청의 지연이 다르면 이를 나누어 보고합니다. 여러 단계의 시간을 더할 때도 병렬 실행·파이프라인의 중첩이 있을 수 있으므로 실제 계획 문서의 시간 정의를 확인합니다. 한 표의 숫자를 단순 합쳐 전체 요청 지연으로 바꾸지 않습니다.</p>
+<h2 id="_2">색인과 관계의 저장 방식은 다른 일을 돕습니다</h2>
+<p>관계형 DB의 B-tree 같은 색인은 조건 값에서 해당 행을 찾는 데 도움을 줍니다. 외래 키 값에 대한 색인이 조인에서 효율적으로 상대 행을 찾는 데 쓰일 수도 있습니다. 외래 키는 참조의 유효성을 다루는 제약이고 색인은 접근 경로라는 점을 구별해야 합니다. 모든 제품이 외래 키를 선언할 때 자동으로 같은 색인을 생성하는 것은 아닙니다.</p>
+<p>그래프 DB의 관계 중심 저장 방식은 이웃을 찾는 반복 작업에 유용할 수 있습니다. 그래도 ‘E01이 어느 노드인가’라는 시작점 검색과 조건 검사, 정렬, 집계가 남습니다. Neo4j는 속성·라벨·관계 타입을 위한 여러 검색 성능 인덱스를 제공합니다. 인덱스를 만들었다고 모든 질의가 그 인덱스를 사용하지는 않습니다. 일치하는 조건과 지원하는 값·연산에 따라 계획이 달라집니다. <a href="https://neo4j.com/docs/cypher-manual/current/indexes/performance-indexes/using-indexes/">Neo4j, indexes and query performance</a></p>
+<p>이 설명에서 특정 저장 엔진의 포인터나 페이지 레이아웃을 모든 Graph DB의 정의로 일반화하지 않습니다. RDF 저장소는 트리플 조합별 인덱스를 쓰거나 다른 물리 구조를 선택할 수 있고, 분산 그래프에서는 다른 서버의 이웃을 읽는 비용도 생깁니다. 논리 모델이 그래프라는 사실만으로 물리 배치가 한 가지로 정해지지는 않습니다.</p>
+<h2 id="_3">같은 자료로 두 제품을 비교하려면</h2>
+<p>두 구현이 같은 정답을 보존하는지부터 확인합니다. 한쪽은 현행 승인만 저장하고 다른 쪽은 모든 과거 승인까지 저장한다면, 빠른 결과가 단지 덜 읽은 것일 수 있습니다. 최소 비교 자료에는 반복 관계, 값이 없는 항목, 같은 이름의 별개 대상, 여러 경로로 닿는 대상을 포함합니다.</p>
+<p>성능은 질문 분포에 따라 봅니다. 단일 ID 조회, 한두 단계 연결, 가변 길이 경로, 전사 집계가 각각 얼마나 자주 필요한지 정합니다. 모든 데이터를 돌며 월별 합계를 구하는 일은 작은 시작점에서 이웃을 찾는 일과 다릅니다. 한 종류의 질의 승리를 모든 질의의 우월성으로 바꾸지 않습니다.</p>
+<p>그다음 같은 데이터 시점과 정답 기준, 적절한 양쪽 인덱스, 하드웨어·메모리·동시 사용자 조건을 기록합니다. 응답 시간뿐 아니라 적재·정정·백업·복구, 운영 인력과 중복 시스템의 동기화 비용도 사용 목적에 영향을 줍니다. 하나의 노트북에서 합성 행 10개를 실행한 시간은 실제 운영 규모를 예측하는 벤치마크가 아닙니다. 이 수업의 동봉 SQL 검증도 결과의 일치를 확인하는 용도입니다.</p>
+<h2 id="_4">최종 선택을 질문의 형태로 설명해 봅니다</h2>
+<div class="table-scroll" tabindex="0"><table>
+<thead>
+<tr>
+<th>사용하려는 질문·상황</th>
+<th>먼저 시험할 구성</th>
+<th>결정에 필요한 추가 확인</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>이미 정형 테이블에 있는 월별 출하량 집계</td>
+<td>기존 RDB 질의와 집계 모델</td>
+<td>업무 단위와 중복, 지연 요구</td>
+</tr>
+<tr>
+<td>정비·부품·승인·문서를 반복해서 서로 다른 경로로 탐색</td>
+<td>그래프 모델과 그래프 질의</td>
+<td>연결 품질·시점·경로 폭·갱신 비용</td>
+</tr>
+<tr>
+<td>외부 모델과 공통 식별자·타입 의미를 교환</td>
+<td>RDF 및 어휘/ontology와 적절한 저장소</td>
+<td>필요한 의미론·추론·질의 지원</td>
+</tr>
+<tr>
+<td>문서 구절만 찾아 근거를 보여 줌</td>
+<td>문서 검색</td>
+<td>메타데이터·판본과 충분한 근거 회수</td>
+</tr>
+</tbody>
+</table></div>
+<p>이 표는 그래프를 배제하거나 반드시 도입하라는 답이 아닙니다. 제품 P의 상위 부품을 몇 번 찾아야 한다는 요구만으로 전체 ERP를 옮길 이유가 생기지는 않습니다. 반대로 연결 경로를 개발자가 매번 임의 코드로 조립하느라 의미가 갈라지는 조직에서는 그래프 모델과 공통 관계 정의가 유지보수의 이점을 줄 수 있습니다. 어떤 질문을 더 잘 설명하고 운영하는지를 작은 완성 사례로 검토합니다.</p>
+<h2 id="_5">이해를 확인하는 문제</h2>
+<p><strong>1.</strong> 관계형 질의에 JOIN 네 개, 그래프 질의에 화살표 네 개가 있습니다. 두 구현의 비용이 같다고 판단할 수 있나요?</p>
+<p>표현상의 연결 수만 같습니다. 실제 후보 행, 시작점 접근, 데이터 분포, 실행 계획이 다릅니다. 동일 입력에서 정답을 확인하고 해당 계획과 측정을 비교해야 합니다.</p>
+<p><strong>2.</strong> PROFILE의 Rows가 10인데 DB hits는 200입니다. 틀린 실행인가요?</p>
+<p>서로 세는 단위가 다릅니다. 결과 10행을 만들면서 여러 노드·속성·관계 등에 접근했을 수 있습니다. 숫자가 같아야 할 이유는 없습니다. 어떤 단계에서 접근이 늘었는지 읽어야 합니다.</p>
+<p><strong>3.</strong> 새 그래프는 ID 조회가 빠릅니다. 원래 서비스는 전사 합계 보고서가 요청의 대부분입니다. 다음에 무엇을 해볼까요?</p>
+<p>실제 요청 비중에 맞춘 집계 질의와 갱신 조건을 같은 자료에서 비교합니다. ID 조회 하나의 개선이 서비스 전체의 가치나 이전 비용을 설명하지 못합니다. 기존 저장소와 그래프를 함께 쓰는 구성도 동기화 부담까지 포함해 비교할 수 있습니다.</p></article><section class="study-note" aria-labelledby="note-title"><h2 id="note-title">내 말로 설명하기</h2><p>이 수업의 개념을 새 예로 설명하고, 아직 헷갈리는 점을 남겨 보세요.</p><textarea id="lesson-note" rows="6" aria-label="수업 메모"></textarea><div class="study-actions"><label><input type="checkbox" id="lesson-complete"> 학습 표시</label><label><input type="checkbox" id="lesson-bookmark"> 책갈피</label><button id="export-learning">기록 내려받기</button></div><p id="save-status" role="status">이 브라우저에 저장합니다.</p></section><nav class="pager" aria-label="수업 이동"><a href="U02-L02.html">이전 수업: 경로가 길어지면 무엇을 계산하나요?</a><a href="U03-L01.html">다음 수업: 속성 그래프에서 무엇을 노드와 관계로 만들까요</a></nav></main><aside class="reader-example"><nav class="lesson-outline" aria-label="수업 안 목차"><h2>이 수업에서</h2><a href="#_1">논리적으로 같은 답을 여러 계획으로 얻습니다</a><a href="#explain-profile">EXPLAIN과 PROFILE의 숫자는 무엇인가요?</a><a href="#_2">색인과 관계의 저장 방식은 다른 일을 돕습니다</a><a href="#_3">같은 자료로 두 제품을 비교하려면</a><a href="#_4">최종 선택을 질문의 형태로 설명해 봅니다</a><a href="#_5">이해를 확인하는 문제</a></nav></aside></div><script src="comparison.js"></script><script src="search-index.js"></script><script src="glossary.js"></script><script src="reader.js"></script></body></html>

@@ -1,11 +1,11 @@
 # Enterprise Brain 학습·발표 준비 — 프로젝트 기준 문서
 
-> **현재 실행 기준(2026-11-18):** 다음 명령 **‘전면 개편 진행해’**는 [실행 진입점](rebuild/START_HERE.md)과 [진행 상태](rebuild/STATE.json)를 읽고 시작한다. GPT-6.2.sol / high reasoning에서 이어갈 [단원별 상세 명세](rebuild/CURRICULUM_BLUEPRINT.md), [제작·검토 절차](rebuild/EXECUTION_PROTOCOL.md), [기술 인수인계](rebuild/TECHNICAL_HANDOFF.md)를 준비했다. 기존 자료는 사용자가 학습 품질을 거부한 개편 대상이다. [실패 분석](REBUILD_PLAN.md)과 [운행 설명 표본](rebuild/DRIVING_LESSON_SAMPLE.md)은 배경 자료이며, 표본 하나를 전체 범위나 설명 수준의 상한으로 삼지 않는다.
+> **전면 개편 결과(2026-11-19):** 본편 18단원·논문 별첨 1단원, 56수업을 제작했다. [학습 교재 안내](learning-v2/README.md)와 [최종 검토](rebuild/FINAL_ACCEPTANCE.md)에서 범위·근거·검증 한계를 확인할 수 있다. 제작 기준은 [단원별 상세 명세](rebuild/CURRICULUM_BLUEPRINT.md)와 [제작·검토 절차](rebuild/EXECUTION_PROTOCOL.md)다. 기존 자료는 기본 학습 경로에서 분리해 legacy로 보존했다.
 
 작성일: 2026-11-17  
-현재 개편 산출물: [새 교재 안내](learning-v2/README.md) · [학습 웹](https://enterprise-knowledge-lab-namws.sheermackerel2.chatgpt.site) · [로컬 화면](web/dist/index.html). Knowledge Graph·Auto ontology·RAG와 survey 별첨의 우선 범위를 새 B안으로 배포했다. 나머지 기초·운영·통합 범위는 계속 제작한다.
+현재 산출물: [새 교재 안내](learning-v2/README.md) · [학습 웹](https://enterprise-knowledge-lab-namws.sheermackerel2.chatgpt.site) · [로컬 화면](web/dist/index.html). 사용자가 선택한 B안으로 전체 범위를 연결했다.
 
-상태: 전면 개편 진행 중. 우선 범위 28수업과 작성된 기초 수업을 포함한 38수업을 비공개 운영 사이트에 반영했다. 전체 교재의 완성을 뜻하지 않으며 미작성 단원의 설명을 요약으로 대체하지 않는다.
+상태: 요청된 교재·웹 범위 제작 완료. 약 37.7만 자의 본문, 원천 30개·표 7종의 반도체 합성 통합 사례, 설명 연습과 해설, 본문 검색·용어 연결·기록 보존을 제공한다. 발표 대본·슬라이드의 확정과 실제 엔진 성능 벤치마크는 이번 범위에 포함하지 않았다.
 
 이 문서는 프로젝트의 목적·배경·발표 범위를 정리한다. 실제 개편 순서와 단원 범위는 최신 사용자 요구를 반영한 rebuild/의 실행 명세를 우선한다.
 
